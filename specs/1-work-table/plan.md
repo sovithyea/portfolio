@@ -35,12 +35,12 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 ## Step 4: Physics, then stop for sign-off
 - [x] `js/physics.js` (pure, tested in Node) and `js/table.js`: drift, walls, collisions, squash, drag and throw, and the `?debug` log.
 - [x] Run criteria 3, 4 and 5 and save the logs (V019). Criterion 4 was corrected by C003.
-- [ ] **Stop: show Vith the logged speeds, bounds and collision counts, and get a sign-off before Step 5.**
+- [x] **Stop: show Vith the logged speeds, bounds and collision counts, and get a sign-off before Step 5.** Vith: "niceee lets continu", 27 Oct 2026.
 - Commit: `feat(work): card physics` (`Refs: D009, D014`)
 
 ## Step 5: Open a card
-- [ ] The spring to the top-left, the hover, the store-listing panel, the mini cards for Small tools, Prev/Next, `inert`, focus handling, and Esc / Close / background tap.
-- [ ] Check criteria 6 and 7.
+- [x] The spring to the top-left, the hover, the store-listing panel (`js/panel.js`), the mini cards for Small tools, Prev/Next, `inert`, focus handling, and Esc / Close / background tap.
+- [x] Check criteria 6 and 7 (V020).
 - Commit: `feat(work): open a card into its store listing` (`Refs: D011, D013`)
 
 ## Step 6: Scenes

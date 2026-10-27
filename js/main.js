@@ -1,7 +1,8 @@
 import { projects } from './projects.js';
 import { mountTable } from './table.js';
+import { panelHTML } from './panel.js';
 
-const cards = document.getElementById('cards');
+const cards = document.getElementById('cards'), panel = document.getElementById('panel');
 
 for (const [i, p] of projects.entries()) {
   const li = document.createElement('li');
@@ -19,4 +20,19 @@ for (const [i, p] of projects.entries()) {
   cards.append(li);
 }
 
-mountTable(cards);
+const table = mountTable(cards, {
+  onOpen(i) {
+    panel.innerHTML = panelHTML(projects[i], i, projects.length);
+    panel.style.setProperty('--c', projects[i].colour);
+    panel.hidden = false;
+    panel.scrollTop = 0;
+    panel.querySelector('[data-close]').addEventListener('click', () => table.close(true));
+    for (const b of panel.querySelectorAll('[data-step]')) b.addEventListener('click', () => table.open((i + +b.dataset.step + projects.length) % projects.length));
+    panel.querySelector('[data-close]').focus({ preventScroll: true });
+  },
+  onClose() { panel.hidden = true; panel.innerHTML = ''; },
+});
+
+addEventListener('keydown', e => { if (e.key === 'Escape' && table.isOpen()) table.close(true); });
+// a tap on empty background closes; preventDefault stops the browser moving focus to the background afterwards
+document.addEventListener('pointerdown', e => { if (table.isOpen() && !e.target.closest('.card, .panel')) { e.preventDefault(); table.close(true); } });
