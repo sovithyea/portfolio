@@ -94,6 +94,20 @@ body.dim .table.live .card:not(.open) { opacity: .22; }
 .mini a { display: inline-block; margin-top: 10px; color: #141414; font-size: 11px; }
 .panel .steps { margin-top: 20px; }
 
+/* The scene canvas sits under everything */
+#scene { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; }
+main { position: relative; z-index: 1; }
+
+/* Chips: UI text over photos always sits on one */
+.chip { background: var(--chip); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.tools { position: fixed; right: 24px; bottom: 18px; z-index: 30; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: flex-end; }
+.seg { display: flex; padding: 4px; border-radius: 999px; background: var(--chip); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.seg button { min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: none; color: var(--ink); font-size: 11px; font-weight: 600; text-transform: uppercase; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+.credit { position: fixed; left: 24px; bottom: 18px; z-index: 30; max-width: 52ch; padding: 6px 10px; border-radius: 8px; color: var(--ink); font-size: 10px; line-height: 1.5; }
+.credit a { color: inherit; }
+body.dim .credit, body.dim .tools { z-index: 30; }
+
 .debug { position: fixed; right: 12px; bottom: 12px; z-index: 50; padding: 10px 12px; border-radius: 8px; background: rgb(0 0 0 / .75); color: #9ff0b5; font-size: 11px; line-height: 1.5; white-space: pre; pointer-events: none; }
 
 @media (max-width: 760px) {
@@ -102,4 +116,6 @@ body.dim .table.live .card:not(.open) { opacity: .22; }
   .panel { inset: var(--panel-top) 0 0 0; padding: 24px 18px; border-radius: 16px 16px 0 0; }
   .panel .head { padding-right: 0; }
   .panel .close { top: 14px; right: 14px; }
+  .tools { left: 12px; right: 12px; bottom: 12px; }
+  .credit { left: 12px; right: 12px; bottom: 64px; max-width: none; }
 }

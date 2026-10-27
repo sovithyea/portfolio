@@ -44,8 +44,8 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 - Commit: `feat(work): open a card into its store listing` (`Refs: D011, D013`)
 
 ## Step 6: Scenes
-- [ ] `js/scenes.js`: Pond, Space and Sky (day and night); the random first scene; the switcher; credit chips; loading on demand; LITE; reduced motion.
-- [ ] Check criteria 9, 10, 12 (scene part) and 14.
+- [x] `js/scenes.js`: Pond, Space and Sky (day and night); the random first scene; the switcher; credit chips; loading on demand; LITE; reduced motion.
+- [x] Check criteria 9, 10 and 14 (V021). 12 (scene part) is left to Vith's hand check, because headless can't show stillness.
 - Commit: `feat(scenes): pond, space and sky from real photos` (`Refs: D015, D018`)
 
 ## Step 7: Cards and cursor stir the scene

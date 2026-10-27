@@ -11,6 +11,7 @@
   <script type="module" src="js/main.js"></script>
 </head>
 <body class="ui-dark">
+  <canvas id="scene" aria-hidden="true"></canvas>
   <header class="top">
     <span class="slab site-name">Sovithyea Prach</span>
     <nav aria-label="Site"><a class="mono" href="./" aria-current="page">WORK</a></nav>
@@ -20,5 +21,9 @@
     <ul class="table" id="cards" aria-label="Projects"></ul>
   </main>
   <section class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" hidden></section>
+  <div class="tools">
+    <div class="seg" role="group" aria-label="Scene" id="scene-switch"></div>
+  </div>
+  <p class="credit chip" id="credit"></p>
 </body>
 </html>

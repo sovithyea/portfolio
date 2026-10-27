@@ -1,6 +1,7 @@
 import { projects } from './projects.js';
 import { mountTable } from './table.js';
 import { panelHTML } from './panel.js';
+import { createScenes } from './scenes.js';
 
 const cards = document.getElementById('cards'), panel = document.getElementById('panel');
 
@@ -36,3 +37,23 @@ const table = mountTable(cards, {
 addEventListener('keydown', e => { if (e.key === 'Escape' && table.isOpen()) table.close(true); });
 // a tap on empty background closes; preventDefault stops the browser moving focus to the background afterwards
 document.addEventListener('pointerdown', e => { if (table.isOpen() && !e.target.closest('.card, .panel')) { e.preventDefault(); table.close(true); } });
+
+// Scenes (D015, D018): a random one each visit (or ?s=space|water|sky), switchable, credited on a chip
+const scenes = createScenes(document.getElementById('scene'));
+const LABELS = { space: 'Space', water: 'Pond', sky: 'Sky' }, seg = document.getElementById('scene-switch'), credit = document.getElementById('credit');
+function setScene(n) {
+  scenes.set(n);
+  document.body.classList.toggle('ui-dark', scenes.isDark()); document.body.classList.toggle('ui-light', !scenes.isDark());
+  for (const b of seg.children) b.setAttribute('aria-pressed', String(b.dataset.s === n));
+  credit.innerHTML = 'Photos: ' + scenes.credit();
+}
+for (const n of scenes.names) {
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'mono'; b.textContent = LABELS[n]; b.dataset.s = n;
+  b.addEventListener('click', () => setScene(n)); seg.append(b);
+}
+const asked = new URLSearchParams(location.search).get('s');
+setScene(scenes.names.includes(asked) ? asked : scenes.names[Math.floor(Math.random() * scenes.names.length)]);
+if (new URLSearchParams(location.search).has('debug')) window.__scenes = scenes;
+
+let last = performance.now();
+requestAnimationFrame(function draw(now) { scenes.step(Math.min(2, (now - last) / 16.67)); last = now; requestAnimationFrame(draw); });
