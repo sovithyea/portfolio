@@ -494,3 +494,9 @@ Vith approved the dry-run capture ("Use it"): the printed summary of a run over 
 *28 Oct 2026 · Vith*
 
 Vith chose four of five captures, all of Pride and Prejudice: the library, the book page, and two views of Chapter III's who-says-what. Cover: **"3 Chapter III"**. The Cast page wasn't chosen. Nothing on the card names ElevenLabs (D034).
+
+## D039 — Karina's screens
+
+*28 Oct 2026 · Vith*
+
+Karina's notes prompt names HungryRaccoon, so the demo notes said the meeting "was not about HungryRaccoon". The site never mentions HungryRaccoon, and Vith chose "Screens without the name": the New meeting page, the decisions and action items, and the loose ends with Who spoke. Cover: **"Decisions & actions"**. Labels say they come from a demo meeting (D033).

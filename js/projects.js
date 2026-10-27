@@ -84,6 +84,13 @@ export const projects = [
     type: 'AI', rarity: 'common', stat: 'Python, FastAPI',
     line: 'A private meeting recorder: record or upload, then get a summary, decisions and action items.',
     facts: [['Year', '2026'], ['Role', 'Solo'], ['Built with', 'Python, FastAPI'], ['Commits', '2']],
+    cover: 1,
+    // Karina on an empty data folder, notes from a made-up meeting in synthetic voices; labelled demo (V037, D039, D033)
+    shots: [
+      shot('karina', 'new-meeting', 'Start a meeting', 'Karina\'s home page: a New meeting form to start recording or upload a file, and the demo meeting under Past meetings', 'desktop'),
+      shot('karina', 'decisions', 'Notes, from a demo meeting', 'Notes from a made-up meeting about a school science fair stall: five decisions, then action items with owners and due dates', 'desktop'),
+      shot('karina', 'unfinished', 'Loose ends, from a demo meeting', 'The same demo meeting\'s open items, an agenda for next time, and Who spoke, with a clip to play for each detected voice', 'desktop'),
+    ],
   },
   {
     name: 'Hermes', status: 'PERSONAL', colour: '#7A2E45',
