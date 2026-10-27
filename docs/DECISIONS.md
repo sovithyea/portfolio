@@ -330,3 +330,11 @@ Two recordings now ship: `ui-back` (closing a card, Gravity Sound) and `bowl` (t
 | Small tools | `#3B3F47` | same | 10.56:1 |
 
 Vith: "Faded brick", "Keep all four", "Yes, border + deeper band". For the Rocket screen Vith asked: "use as many as u can and i choose". Claude captures every Rocket screen that shows no student data, and Vith picks.
+
+## D024 — Rocket's screens
+
+*27 Oct 2026 · Vith*
+
+Vith chose all seven captures: dark and light start screens, the program read-out, a question about the program (desktop and phone), and the phone start screen. Cover: **"3: program read-out"**, Athena's step-by-step reading beside the SPIKE blocks. The chat replies in two of them come from the demo's stub model, not the live AI (V018). Captions never claim otherwise.
+
+Desktop screens are landscape (1600×1000), so the details panel shows them in a plain browser frame and phone screens in a device frame (DESIGN-SYSTEM rule 5).

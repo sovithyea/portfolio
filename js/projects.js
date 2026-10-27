@@ -3,7 +3,9 @@
 // `colour` is the card border; `band` is the name band when the border fails 4.5:1 under white text.
 
 const MAIL = 'mailto:prachsovithyea11@gmail.com';
-const shot = (file, label, alt) => ({ src: `assets/shots/yummers/${file}.webp`, label, alt });
+// kind: 'phone' screens (828×1792) sit in a device frame; 'desktop' screens (1600×1000) in a plain browser frame (DESIGN-SYSTEM rule 5)
+const shot = (dir, file, label, alt, kind = 'phone') => ({ src: `assets/shots/${dir}/${file}.webp`, label, alt, kind });
+const yummers = (...a) => shot('yummers', ...a), rocket = (...a) => shot('rocket', ...a);
 
 export const projects = [
   {
@@ -13,12 +15,12 @@ export const projects = [
     links: [['Visit yummersapp.com', 'https://yummersapp.com']],
     cover: 4,
     shots: [
-      shot('app-signin', 'Sign in', 'Yummers sign-in screen: "Rate it. List it. Share it." with Apple, Google and email buttons'),
-      shot('app-city', 'Pick your city', 'Choosing a city: Phnom Penh selected, with Siem Reap, Sihanoukville, Battambang, Kampot and Kep'),
-      shot('app-tastes', 'Your tastes', 'Picking cuisines: Khmer, Noodles, BBQ and Japanese selected'),
-      shot('app-search-results', 'Search', 'Search results for noodles, grouped by city and area'),
-      shot('app-list-map', 'A list on the map', 'A list of places shown as pins on a map of Phnom Penh'),
-      shot('app-areas', 'Your areas', 'Choosing up to three areas of Phnom Penh, BKK and Chamkar Mon selected'),
+      yummers('app-signin', 'Sign in', 'Yummers sign-in screen: "Rate it. List it. Share it." with Apple, Google and email buttons'),
+      yummers('app-city', 'Pick your city', 'Choosing a city: Phnom Penh selected, with Siem Reap, Sihanoukville, Battambang, Kampot and Kep'),
+      yummers('app-tastes', 'Your tastes', 'Picking cuisines: Khmer, Noodles, BBQ and Japanese selected'),
+      yummers('app-search-results', 'Search', 'Search results for noodles, grouped by city and area'),
+      yummers('app-list-map', 'A list on the map', 'A list of places shown as pins on a map of Phnom Penh'),
+      yummers('app-areas', 'Your areas', 'Choosing up to three areas of Phnom Penh, BKK and Chamkar Mon selected'),
     ],
   },
   {
@@ -31,6 +33,17 @@ export const projects = [
     name: 'Rocket', status: 'INTERNSHIP', colour: '#004AAD',
     line: 'At Rocket Academy: Athena, a chat companion for students building with LEGO® Education SPIKE™.',
     facts: [['Dates', 'Jul – Oct 2026'], ['Role', 'Software Engineering & AI Innovation Intern'], ['Built with', 'TypeScript, Cloudflare Workers'], ['My commits', '525']],
+    cover: 2, coverPos: 'left center',
+    // Captured from Rocket's local demo with its stub model and LEGO lesson fixtures: no student data (V018, D022)
+    shots: [
+      rocket('start-dark', 'Start', 'Athena by Rocket Academy: a SPIKE project panel beside a chat that asks "What are we building?"', 'desktop'),
+      rocket('start-light', 'Start, light', 'The same start screen in light mode', 'desktop'),
+      rocket('program', 'Reading a program', 'Athena reading a SPIKE block program step by step, the numbered steps beside the coloured blocks', 'desktop'),
+      rocket('program-chat', 'Asking about it', 'A student asks "What does my program do?" and Athena points to the block it starts with', 'desktop'),
+      rocket('phone-start', 'On a phone', 'Athena\'s start screen on a phone'),
+      rocket('phone-program', 'The program, on a phone', 'Athena\'s step-by-step reading of a program on a phone'),
+      rocket('phone-chat', 'A question, on a phone', 'A question about the program and Athena\'s reply on a phone'),
+    ],
   },
   {
     name: 'SongRaccoon', status: 'PERSONAL', colour: '#B5673A', band: '#9A5230',

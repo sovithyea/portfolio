@@ -12,7 +12,7 @@ for (const [i, p] of projects.entries()) {
   card.setAttribute('aria-label', `No. ${i + 1}, ${p.name}, ${p.status.toLowerCase()}: open details`);
   const cover = p.shots?.[p.cover ?? 0];
   card.innerHTML = `<span class="card-in"><span class="no mono">No. ${i + 1}</span><span class="status mono">${p.status}</span>${
-    cover ? `<img class="shot" src="${cover.src}" alt="" width="828" height="1792">` : `<span class="empty mono">${p.name}<br>screens to come</span>`
+    cover ? `<img class="shot" src="${cover.src}" alt="" width="${cover.kind === 'desktop' ? 1600 : 828}" height="${cover.kind === 'desktop' ? 1000 : 1792}"${p.coverPos ? ` style="object-position:${p.coverPos}"` : ''}>` : `<span class="empty mono">${p.name}<br>screens to come</span>`
   }<span class="name slab">${p.name}</span></span>`;
   li.append(card);
   cards.append(li);

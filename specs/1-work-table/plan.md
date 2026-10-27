@@ -16,7 +16,7 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 ## Step 2: Assets
 - [x] Copy the used sprites and backdrops from the scratchpad into `assets/scenes/`. Convert them to WebP with alpha in a desktop and a LITE size, and check each scene against the budget (criterion 14).
 - [x] Copy `ui-back.mp3` and `bowl.mp3` into `assets/sfx/`, and the six Yummers screens into `assets/shots/yummers/`. Check each screen for private data (hard rule 5, criterion 19).
-- [ ] **Rocket screen (D022).** Captured from `athena-119-main` via `npm run demo` (stub model, no `.env`, no keys), waiting on Vith's approval.
+- [x] **Rocket screen (D022).** Seven screens captured from `athena-119-main` via `npm run demo` (stub model, no keys). Vith chose all seven, with the program read-out as the cover (D024, V018).
   - Run Rocket's Athena locally (`~/Desktop/projects/rocket/athena-demo` or `athena-119-main`, whichever its README says is current) with demo data.
   - Capture one or two screens without sending any message that calls a paid model (hard rule 10).
   - Check them for student data (hard rule 5) and get Vith's approval.

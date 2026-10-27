@@ -52,4 +52,7 @@ Latin subset, from Google Fonts.
 
 ## Project screenshots (`shots/`)
 
-The Yummers screens are Vith's own app, the same images published on yummersapp.com. They are not under an open licence.
+- **Yummers** (`shots/yummers/`): Vith's own app, the same images published on yummersapp.com.
+- **Rocket** (`shots/rocket/`): Rocket Academy's Athena, built by Vith as an intern and shown with Vith's say-so (D005, D022). Captured from the local demo with its stub model and LEGO lesson fixtures.
+
+Neither set is under an open licence.
