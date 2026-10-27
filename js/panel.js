@@ -8,9 +8,11 @@ const frame = (s, k) => s.kind === 'desktop'
 export function panelHTML(p, i, n) {
   const role = p.facts.find(([k]) => k === 'Role')?.[1];
   const links = (p.links || []).map(([text, href]) => `<a class="btn mono" href="${href}"${href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${text}</a>`).join('');
+  const shelf = `<div class="shelf">${p.shots?.length ? p.shots.map(frame).join('') : '<figure class="frame phone none mono">screens to come</figure>'}</div>`;
+  // Small tools: the minis, then a shared shelf once either tool has screens (D036)
   const body = p.minis
-    ? `<div class="minis">${p.minis.map(m => `<article class="mini"><div class="mini-in"><p class="tag mono">${m.tag}</p><h3 class="slab">${m.name}</h3><p>${m.line}</p><a class="mono" href="${m.link}" target="_blank" rel="noopener">Code</a></div></article>`).join('')}</div>`
-    : `<div class="shelf">${p.shots?.length ? p.shots.map(frame).join('') : '<figure class="frame phone none mono">screens to come</figure>'}</div>`;
+    ? `<div class="minis">${p.minis.map(m => `<article class="mini"><div class="mini-in"><p class="tag mono">${m.tag}</p><h3 class="slab">${m.name}</h3><p>${m.line}</p><a class="mono" href="${m.link}" target="_blank" rel="noopener">Code</a></div></article>`).join('')}</div>${p.shots?.length ? shelf : ''}`
+    : shelf;
   return `<button class="close mono" type="button" data-close>Close</button>
     <div class="head">
       <div>

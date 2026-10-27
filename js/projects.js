@@ -101,5 +101,11 @@ export const projects = [
       { name: 'Prompt Polish', tag: 'BROWSER EXTENSION', line: 'Rewrites rough prompts on AI chat sites, and polishes draft messages before you send.', link: 'https://github.com/sovithyea/prompt-engineer-ai-agent' },
       { name: 'Gmail Sorter', tag: 'PYTHON SCRIPT', line: 'Sorts incoming Gmail into a fixed set of labels: action required, FYI, newsletter and more.', link: 'https://github.com/sovithyea/gmail_sorter' },
     ],
+    // Prompt Polish: Vith's own Chrome Web Store screenshots, names already redacted (V034, D036)
+    shots: [
+      shot('prompt-polish', 'chatgpt', 'Prompt Polish · ChatGPT', 'Prompt Polish on ChatGPT: an Enhance Prompt button above a rough ask rewritten into Role, Task and Output Format sections', 'desktop'),
+      shot('prompt-polish', 'claude', 'Prompt Polish · Claude', 'Prompt Polish on Claude: "Help me build a blog website" rewritten into task, context and desired output', 'desktop'),
+      shot('prompt-polish', 'gemini', 'Prompt Polish · Gemini', 'Prompt Polish on Gemini: a request for help building a web app rewritten as a list of what to cover', 'desktop'),
+    ],
   },
 ];

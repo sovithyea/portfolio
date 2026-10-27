@@ -469,7 +469,16 @@ Vith: "i dislike the sound the site makes when i turn on and off the sound", the
 
 *28 Oct 2026 · Vith*
 
-- **Lavender:** Vith chose four of five captures: chase camera in flight, the guided box exercise, the top-down camera and the training menu. The phone controller wasn't chosen. Cover: the box exercise, provisionally (Claude's pick, pending Vith).
+- **Lavender:** Vith chose four of five captures: chase camera in flight, the guided box exercise, the top-down camera and the training menu. The phone controller wasn't chosen. Cover: the box exercise (confirmed in D036).
 - **Prompt Polish:** "Use the store shots". Vith's own Chrome Web Store screenshots are used, after a privacy check, instead of fresh captures.
 - **Hermes:** shown with Pride and Prejudice (public domain), not the other books in its library.
 - **Karina:** run on a separate, empty data folder with the made-up meeting, if Karina supports one, so the real `data/voices` and `data/meetings` are never opened (R5).
+
+## D036 — Small tools' screens
+
+*28 Oct 2026 · Vith*
+
+- **Layout:** "Shelf under the minis". The Small tools panel keeps its two mini cards, then one numbered shelf of both tools' screens, each label naming its tool.
+- **Prompt Polish:** three of Vith's store shots, on ChatGPT, Claude and Gemini. The Claude popover shot wasn't chosen. Vith also asked for Discord, Gmail, LinkedIn, Slack and Teams; Teams isn't supported (V034), and the other four need a logged-in account showing real people, so Vith chose "Skip the message sites".
+- **Gmail Sorter:** "Terminal, made-up mail". About eight made-up emails go straight to its classifier and guardrails, with no Gmail login, and the terminal output is captured. One Claude call, within the $5 cap (D032). Its `logs/` hold real mail and are never opened.
+- **Lavender's cover:** the box exercise, confirmed by Vith (D035).
