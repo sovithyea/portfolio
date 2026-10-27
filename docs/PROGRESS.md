@@ -12,13 +12,13 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **Sound:** off by default, using Vith's nine picks.
 - **The prototype:** saved at `~/Desktop/projects/portfolio-prototype/` (D022). Serve it with `python3 -m http.server 8765` there and open `/visual/cards.html`.
 
-**Phase 1 (`specs/1-work-table/`) is built and verified, and stopped for Vith's review.** Run `python3 -m http.server 8000` and open `http://localhost:8000`. Nothing is pushed. `src/` still holds the old brief's code; plan Step 1 clears it.
+**Phase 1 (`specs/1-work-table/`) is built, verified and passed by Vith (27 Oct 2026).** Run `python3 -m http.server 8000` and open `http://localhost:8000`. Nothing is pushed. `src/` still holds the old brief's code; plan Step 1 clears it.
 
 ### Phases
 
 | # | Phase | Status |
 |---|---|---|
-| 1 | Work page (`specs/1-work-table/`) | Built and verified 27 Oct; waiting on Vith's review |
+| 1 | Work page (`specs/1-work-table/`) | Done: passed by Vith 27 Oct |
 | 2 | Pages for the big four (Yummers, Athena, Rocket, SongRaccoon), plus capturing their screenshots | Not specced |
 | 3 | About, Journey (interviewing Vith, D007), the CV PDF, contact links | Not specced |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |

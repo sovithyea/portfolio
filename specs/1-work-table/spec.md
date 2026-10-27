@@ -1,6 +1,6 @@
 # Phase 1: the Work table
 
-**Status:** Approved by Vith, 27 Oct 2026 ("yes"). Draft v2 with Open Questions answered (D022). v1 (the same day) described a plain air-hockey table and is superseded by D012–D021. No code may be written for this phase until Vith approves it (hard rule 1).
+**Status:** Built and reviewed. Vith passed the review on 27 Oct 2026 ("1, yes"). Approved 27 Oct 2026; draft v2 with Open Questions answered (D022). v1 (the same day) described a plain air-hockey table and is superseded by D012–D021. No code may be written for this phase until Vith approves it (hard rule 1).
 
 ## Context
 

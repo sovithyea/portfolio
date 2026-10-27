@@ -73,3 +73,5 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 ## Stop for review
 
 Vith reviews the page on desktop and on a phone, with sound on. Nothing is pushed until Vith says so.
+
+**Done:** Vith passed it on 27 Oct 2026 ("1, yes"), and asked for a third reviewer verdict and a mock of the optional card finishes.

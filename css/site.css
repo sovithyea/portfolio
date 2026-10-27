@@ -138,5 +138,5 @@ body.dim .tools { visibility: hidden; } /* the panel covers this corner; no sliv
   /* small phone cards: clear the No. badge and the status pill, and clamp the line with an ellipsis */
   .card .empty { padding: 26px 7px; gap: 5px; }
   .card .empty-line { -webkit-line-clamp: 2; font-size: 9px; }
-  .card .empty .mono { font-size: 7px; }
+  .card .empty .mono { font-size: 7px; white-space: nowrap; }
 }
