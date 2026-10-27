@@ -403,3 +403,27 @@ Vith: "i dont like the sheen on the ultrarare ones". Two mock rounds followed. T
 3. **Metal border.** The coloured border becomes brushed metal in the project's colour, with a band of light that follows the cursor.
 
 Rare cards keep their rainbow foil; common cards keep the soft sheen. "Black premium" was not chosen.
+
+## D029 — Buttons animate when pressed
+
+*27 Oct 2026 · Vith: "animations when i press the bottons would be nice"*
+
+- **Every button** (scene switch, Sound, Tidy up, the panel's Close, Prev, Next and links) squeezes to 90% while pressed and springs back on release.
+- **The scene switcher's highlight** slides to the chosen scene.
+- **Turning Sound on** sends one ring rippling out from the button.
+- **Tidy up** gives a small shuffle wiggle while the cards line up.
+
+All of it answers a press, never plays on its own (DESIGN-SYSTEM rule 6). Under reduced motion, only the colours change.
+
+## D030 — Pressing and opening a card feel special, and ultra rare gets the rainbow too
+
+*27 Oct 2026 · Vith: "show it on the cards after i press too, make it more special" and "add rainbow sheen to the ultrarare"*
+
+**Status:** amends D028 (ultra rare now also wears the rare rainbow foil).
+
+- **A pressed card gives a little** (94%) and springs back.
+- **Opening** lifts the card into the corner with a glow in its own colour. A light then keeps sweeping slowly across its finish while it's open, so the foil, metal and sheen go on catching the light without the cursor.
+- **An open ultra-rare card keeps leaning gently in 3D on its own**, so its full art and metal border shift. The cursor still steers it, and the lean resets on close.
+- **Ultra rare also wears the rainbow foil** over its full art and metal border. The foil stops above the name's dark fade, so white names stay at 14.9:1 (V030).
+
+Ambient motion applies only to the one open card, the "still hovering" card of D009. Under reduced motion there's no glow, sweep or lean.

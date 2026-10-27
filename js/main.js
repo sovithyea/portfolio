@@ -45,10 +45,12 @@ const table = mountTable(cards, {
 addEventListener('keydown', e => { if (e.key === 'Escape' && table.isOpen()) table.close(true); });
 
 const LABELS = { space: 'Space', water: 'Pond', sky: 'Sky' }, seg = document.getElementById('scene-switch'), credit = document.getElementById('credit');
+const thumb = document.createElement('span'); thumb.className = 'thumb'; thumb.setAttribute('aria-hidden', 'true');
+function moveThumb(b) { thumb.style.width = b.offsetWidth + 'px'; thumb.style.transform = `translateX(${b.offsetLeft}px)`; }
 function setScene(n) {
   scenes.set(n);
   document.body.classList.toggle('ui-dark', scenes.isDark()); document.body.classList.toggle('ui-light', !scenes.isDark());
-  for (const b of seg.children) b.setAttribute('aria-pressed', String(b.dataset.s === n));
+  for (const b of seg.querySelectorAll('button')) { b.setAttribute('aria-pressed', String(b.dataset.s === n)); if (b.dataset.s === n) moveThumb(b); }
   credit.innerHTML = `Photos: ${scenes.credit()} · Sounds: Gravity Sound and Valera N. Trubin, CC BY 4.0 · <a href="assets/CREDITS.md">All credits</a>`;
 }
 for (const n of scenes.names) {
@@ -56,12 +58,17 @@ for (const n of scenes.names) {
   b.addEventListener('click', () => setScene(n)); seg.append(b);
 }
 const asked = new URLSearchParams(location.search).get('s');
+seg.prepend(thumb);
 setScene(scenes.names.includes(asked) ? asked : scenes.names[Math.floor(Math.random() * scenes.names.length)]);
+requestAnimationFrame(() => seg.classList.add('ready')); // slide from here on, not into the first place
+addEventListener('resize', () => moveThumb(seg.querySelector('[aria-pressed="true"]')));
+document.fonts?.ready.then(() => moveThumb(seg.querySelector('[aria-pressed="true"]'))); // widths change once the font loads
 if (new URLSearchParams(location.search).has('debug')) Object.assign(window, { __scenes: scenes, __sound: sound });
 
 const soundBtn = document.getElementById('sound');
-soundBtn.addEventListener('click', () => { const on = sound.toggle(); soundBtn.setAttribute('aria-pressed', String(on)); soundBtn.textContent = on ? 'Sound on' : 'Sound off'; });
-document.getElementById('tidy').addEventListener('click', () => table.tidy());
+const replay = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }; // restart a CSS animation
+soundBtn.addEventListener('click', () => { const on = sound.toggle(); soundBtn.setAttribute('aria-pressed', String(on)); soundBtn.textContent = on ? 'Sound on' : 'Sound off'; if (on) replay(soundBtn, 'ripple'); });
+document.getElementById('tidy').addEventListener('click', e => { table.tidy(); replay(e.currentTarget, 'wiggle'); });
 
 // The hint shows until the first touch (D014)
 addEventListener('pointerdown', () => hint.classList.add('gone'), { once: true });

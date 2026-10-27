@@ -38,6 +38,7 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
   function close(restoreFocus) {
     if (!openB) return;
     const b = openB; openB = null;
+    b.tilt.tx = b.tilt.ty = 0; cards[b.i].style.setProperty('--px', '0px'); cards[b.i].style.setProperty('--py', '0px');
     cards.forEach(c => { c.inert = false; c.classList.remove('open'); });
     document.body.classList.remove('dim');
     const a = Math.random() * Math.PI / 2; b.vx = reduce ? 0 : Math.cos(a) * 6; b.vy = reduce ? 0 : Math.sin(a) * 6; // back out onto the table
@@ -67,7 +68,8 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
       const r = card.getBoundingClientRect(), fx = (e.clientX - r.left) / r.width - 0.5, fy = (e.clientY - r.top) / r.height - 0.5;
       card.style.setProperty('--sx', `${50 - fx * 100}%`);
       card.style.setProperty('--sy', `${50 - fy * 100}%`);
-      if (ultra && !reduce && e.pointerType === 'mouse' && !g && openB !== b) {
+      if (ultra && !reduce && e.pointerType === 'mouse' && !g) {
+        b.tilt.hover = performance.now();
         b.tilt.tx = -fy * 14; b.tilt.ty = fx * 14;
         card.style.setProperty('--px', `${-fx * 10}px`); card.style.setProperty('--py', `${-fy * 10}px`);
       }
@@ -78,6 +80,7 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
       if (resting) { resting = false; for (const o of bodies) o.tidy = null; }
       card.setPointerCapture(e.pointerId);
       g = { ox: e.clientX - b.x, oy: e.clientY - b.y, sx: e.clientX, sy: e.clientY, lx: e.clientX, ly: e.clientY, lt: performance.now(), moved: 0 };
+      if (!reduce) b.s = 0.94; // the card gives a little under your finger, then springs back (D030)
       b.drag = true; card.classList.add('drag');
     });
     card.addEventListener('pointermove', e => {
@@ -110,6 +113,7 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
   if (debug) { panel = document.createElement('pre'); panel.className = 'debug mono'; document.body.append(panel); window.__table = { bodies, log, bounds: () => bounds, size: () => ({ w, h }), open, close, tidy, slots: () => rows(bodies.length, bounds, w, h) }; }
   const onHit = (b, axis, s, x, y) => { log.hits++; scene?.impact(x, y, s); sound?.play('hit', s); };
 
+  const ultra = b => cards[b.i].classList.contains('ultra');
   let last = performance.now();
   function frame(now) {
     const dt = Math.min(2, (now - last) / 16.67); last = now; t += dt;
@@ -134,6 +138,10 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
       const sx = b.sqAxis === 'x' ? 1 - b.sq : 1 + b.sq * 0.6, sy = b.sqAxis === 'x' ? 1 + b.sq * 0.6 : 1 - b.sq, s = b.s * (b.drag ? 1.04 : 1);
       const el = cards[b.i];
       el.style.transformOrigin = isOpen ? '0 0' : '50% 50%';
+      if (isOpen && ultra(b) && !reduce && performance.now() - (b.tilt.hover || 0) > 600) { // open ultra-rare cards keep leaning gently on their own
+        b.tilt.tx = Math.sin(t / 70) * 7; b.tilt.ty = Math.cos(t / 90) * 9;
+        el.style.setProperty('--px', `${-b.tilt.ty * 0.7}px`); el.style.setProperty('--py', `${b.tilt.tx * 0.7}px`);
+      }
       b.tilt.x += (b.tilt.tx - b.tilt.x) * 0.25; b.tilt.y += (b.tilt.ty - b.tilt.y) * 0.25;
       const lean = Math.abs(b.tilt.x) + Math.abs(b.tilt.y) > 0.05 ? ` perspective(900px) rotateX(${b.tilt.x}deg) rotateY(${b.tilt.y}deg)` : '';
       el.style.transform = `translate3d(${b.x}px, ${b.y + bob}px, 0) rotate(${b.rot + tilt}deg) scale(${s * sx}, ${s * sy})${lean}`;
