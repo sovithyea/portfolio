@@ -1,6 +1,6 @@
 # Phase 2: pages for the big four, and screens for every card
 
-**Status:** Draft, 27 Oct 2026. Waiting on Vith's review. No code until Vith approves it (hard rule 1).
+**Status:** Draft, 27 Oct 2026, Open Questions answered (D033). Waiting on Vith's approval. No code until Vith approves it (hard rule 1).
 
 ## Context
 
@@ -43,7 +43,7 @@ Phase 1 built the Work page: nine cards that open into a store-listing panel (`s
 ## Implementation Details
 
 - **Files:** `yummers/index.html`, `athena/index.html`, `rocket/index.html`, `songraccoon/index.html`, each a thin shell that loads `js/page.js`. `js/page.js` renders the page from `projects.js`, plus a new `story` field per big project (sections: heading, text, screen). It reuses the card markup and finishes from `main.js`, moved into a shared `js/card.js`. `css/site.css` gains the page styles.
-- **Backdrop:** pages are for reading, so they get a calm static backdrop, not the live scene (Open Question 1).
+- **Backdrop:** pages are for reading, so they get a calm, still backdrop, not the live scene (D033).
 - **Recordings:** each is about 10–20 s, 1280 px wide (desktop) or 828 px (phone), H.264 without audio, and at most 2 MB. Stored in `assets/recordings/<project>/`.
 - **Capture:** screenshots and recordings via the CDP driver (screencast frames, then `ffmpeg` to MP4), or `xcrun simctl io booted recordVideo` for the iPhone simulator.
 - **Spending:** a tally of every paid call (model, count, estimated cost) goes in VERIFIED. Work stops before the total could pass $5 (D032).
@@ -75,13 +75,12 @@ About, Journey, CV and contact (Phase 3); hosting (Phase 4); pages for the five 
 
 ## Open Questions
 
-For Vith. None will be answered on Vith's behalf.
-
-1. **Page backdrop:** a calm static backdrop, the same live scene as Work, or a still frame of the scene the visitor came from?
-2. **Athena's demo account:** is there a test login and a non-production database Claude can use, or should Vith make one first? (R5)
-3. **FoodRaccoon:** capture it logged out with no user content, or skip it? Its database holds real users (R5).
-4. **Karina and Gmail Sorter:** is there a demo meeting or demo inbox, or should those cards keep "screens to come"?
-5. **Interview format:** one project per session in chat, or a written list of questions per project that Vith answers in one go?
+All answered by Vith on 27 Oct 2026 (D033):
+1. **Page backdrop:** a calm, still backdrop.
+2. **Athena:** Vith makes a demo account. Claude uses only that account, and Athena's capture waits until it exists.
+3. **FoodRaccoon:** skipped. Its card keeps "screens to come", because its database holds real v1 users.
+4. **Karina and Gmail Sorter:** demo content. Karina gets a short made-up meeting (synthetic voices, clearly a demo). Gmail Sorter is run over a few made-up emails. Each picture is captioned as demo content.
+5. **Interviews:** in chat, one project at a time.
 
 ## Related
 

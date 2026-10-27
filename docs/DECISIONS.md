@@ -447,3 +447,12 @@ Vith: "i dislike the sound the site makes when i turn on and off the sound", the
 - **Demos:** screenshots, live links where public, and silent screen recordings that **play only when clicked** ("Click to play"), for Yummers (simulator), Athena, Rocket (stub model) and SongRaccoon. Vith wasn't sure SongRaccoon still works, so that gets checked first. Athena keeps "Ask me for access"; Vith gives interested visitors a test account.
 - **Screenshots for the other cards:** Claude captures everything it can run, with demo data, and Vith approves each ("I capture all I can run").
 - **Spending:** recordings may call paid AI models, capped at **$5 total for Phase 2** ("$5 total"). Claude keeps a running tally and stops before anything would go over (hard rule 10).
+
+## D033 — Phase 2 answers: demo accounts, skips and demo content
+
+*27 Oct 2026 · Vith*
+
+- **Athena:** "I'll make a demo account". Nothing is captured from Athena until it exists. Only that account is used (R5).
+- **FoodRaccoon:** "Skip it". Its card keeps "screens to come", because its database holds real v1 users.
+- **Karina and Gmail Sorter:** "Demo content". A short made-up meeting (synthetic voices) runs through Karina, and Gmail Sorter runs over a few made-up emails. Every such picture is captioned as demo content, so nothing passes itself off as real use (hard rule 4 spirit).
+- **Pages:** a calm, still backdrop. **Interviews:** in chat, one project at a time ("Calm backdrop, chat").
