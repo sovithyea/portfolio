@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 27 Oct 2026, late (Phase 1 built and verified; waiting on Vith's review)
+**Last updated:** 27 Oct 2026, late (Phase 1 done and passed; card finishes D026–D031; Phase 2 starting)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -19,7 +19,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 | # | Phase | Status |
 |---|---|---|
 | 1 | Work page (`specs/1-work-table/`) | Done: passed by Vith 27 Oct |
-| 2 | Pages for the big four (Yummers, Athena, Rocket, SongRaccoon), plus capturing their screenshots | Not specced |
+| 2 | Pages for the big four (Yummers, Athena, Rocket, SongRaccoon), plus capturing their screenshots | Questions under way (Claude) |
 | 3 | About, Journey (interviewing Vith, D007), the CV PDF, contact links | Not specced |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |
 
@@ -34,6 +34,18 @@ Running ledger. Updated at the end of every working session so state survives ac
    Also decide whether to fund a third reviewer verdict on the last two fixes (V027), and whether to add the reviewer's optional sheen and printed keyline.
 1. **The "10 photos"** mentioned earlier never came through.
 2. **LinkedIn URL and the CV PDF** (Phase 3).
+
+## 2026-10-27 (late) — after Phase 1: card finishes, animations, sound
+
+- **Card finishes after Vith's pass, each from a mock Vith chose:**
+  - sheen and printed keyline (D026);
+  - types, rarity and stat lines (D027);
+  - full art, metal border and tilt for the ultra-rare cards (D028);
+  - press animations (D029);
+  - a special card opening, plus the rainbow foil on ultra rare (D030).
+- **Toggle sound:** turning sound on or off is now silent; the singing bowl is removed (D031).
+- **Finish review:** passed (`ship`) after a third round (V027). Evidence for these changes is V028–V031.
+- **Unpushed:** all commits; the repo is public.
 
 ## 2026-10-27 (late) — Phase 1 built
 
