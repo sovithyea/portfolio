@@ -60,12 +60,19 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
   cards.forEach((card, i) => {
     const b = bodies[i];
     let g = null;
-    // the sheen follows the cursor across the card (D026)
+    // the sheen follows the cursor across the card (D026); ultra-rare cards also lean toward a mouse (D028)
+    const ultra = card.classList.contains('ultra');
+    b.tilt = { x: 0, y: 0, tx: 0, ty: 0 };
     card.addEventListener('pointermove', e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--sx', `${100 - ((e.clientX - r.left) / r.width) * 100}%`);
-      card.style.setProperty('--sy', `${100 - ((e.clientY - r.top) / r.height) * 100}%`);
+      const r = card.getBoundingClientRect(), fx = (e.clientX - r.left) / r.width - 0.5, fy = (e.clientY - r.top) / r.height - 0.5;
+      card.style.setProperty('--sx', `${50 - fx * 100}%`);
+      card.style.setProperty('--sy', `${50 - fy * 100}%`);
+      if (ultra && !reduce && e.pointerType === 'mouse' && !g && openB !== b) {
+        b.tilt.tx = -fy * 14; b.tilt.ty = fx * 14;
+        card.style.setProperty('--px', `${-fx * 10}px`); card.style.setProperty('--py', `${-fy * 10}px`);
+      }
     });
+    card.addEventListener('pointerleave', () => { b.tilt.tx = b.tilt.ty = 0; card.style.setProperty('--px', '0px'); card.style.setProperty('--py', '0px'); });
     card.addEventListener('pointerdown', e => {
       if (openB === b) return;
       if (resting) { resting = false; for (const o of bodies) o.tidy = null; }
@@ -127,7 +134,9 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
       const sx = b.sqAxis === 'x' ? 1 - b.sq : 1 + b.sq * 0.6, sy = b.sqAxis === 'x' ? 1 + b.sq * 0.6 : 1 - b.sq, s = b.s * (b.drag ? 1.04 : 1);
       const el = cards[b.i];
       el.style.transformOrigin = isOpen ? '0 0' : '50% 50%';
-      el.style.transform = `translate3d(${b.x}px, ${b.y + bob}px, 0) rotate(${b.rot + tilt}deg) scale(${s * sx}, ${s * sy})`;
+      b.tilt.x += (b.tilt.tx - b.tilt.x) * 0.25; b.tilt.y += (b.tilt.ty - b.tilt.y) * 0.25;
+      const lean = Math.abs(b.tilt.x) + Math.abs(b.tilt.y) > 0.05 ? ` perspective(900px) rotateX(${b.tilt.x}deg) rotateY(${b.tilt.y}deg)` : '';
+      el.style.transform = `translate3d(${b.x}px, ${b.y + bob}px, 0) rotate(${b.rot + tilt}deg) scale(${s * sx}, ${s * sy})${lean}`;
     }
     if (debug) {
       log.frames++;

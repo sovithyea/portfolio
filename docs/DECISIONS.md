@@ -390,3 +390,16 @@ Vith then floated a further idea ("speaking of which…thats not a bad idea"), t
 
   Stat lines are hidden on phone cards, where they'd be too small to read; the panel's facts carry them.
 - **Every finish is masked off the name band.** Unmasked, the foil brightened the band behind the white name (V028).
+
+## D028 — Ultra rare is full art, metal and tilt, not foil
+
+*27 Oct 2026 · Vith*
+
+**Status:** replaces D027's ultra-rare foil and sparkle.
+
+Vith: "i dont like the sheen on the ultrarare ones". Two mock rounds followed. The first offered gold, silver, etched and softer-rainbow foils ("none" of them). The second offered four foil-free ideas, and Vith chose three to combine for Yummers and Rocket:
+1. **Full art.** The screenshot fills the card edge to edge, and the name, set line and stat sit on a dark fade (white text 19.9:1, V029).
+2. **3D tilt.** The card leans toward a mouse pointer, and the picture shifts the other way on its own layer. It moves only while pointed at; it's off for touch and under reduced motion. The lean joins the physics transform in `table.js`.
+3. **Metal border.** The coloured border becomes brushed metal in the project's colour, with a band of light that follows the cursor.
+
+Rare cards keep their rainbow foil; common cards keep the soft sheen. "Black premium" was not chosen.
