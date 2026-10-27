@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 27 Oct 2026, end of session (Phase 1 done; Phase 2 spec drafted, waiting on Vith's approval)
+**Last updated:** 28 Oct 2026, end of session (Phase 2 approved; Step 1 screens done for every card that can be captured now)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -19,13 +19,13 @@ Running ledger. Updated at the end of every working session so state survives ac
 | # | Phase | Status |
 |---|---|---|
 | 1 | Work page (`specs/1-work-table/`) | Done: passed by Vith 27 Oct |
-| 2 | Pages for the big four, plus screens for every card (`specs/2-project-pages/`) | Spec drafted, questions answered (D032, D033); waiting on Vith's approval |
+| 2 | Pages for the big four, plus screens for every card (`specs/2-project-pages/`) | Approved (D034). Step 1: Lavender, Small tools, Hermes, Karina done; SongRaccoon and Athena waiting |
 | 3 | About, Journey (interviewing Vith, D007), the CV PDF, contact links | Not specced |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |
 
 ### Waiting on Vith
 
-1. **Approve `specs/2-project-pages/`.** On approval, start at plan Step 1 (screens for the cards).
+1. **SongRaccoon:** the live site loads (V032). Say whether to go further: a playlist needs your Spotify login and one paid call.
 2. **An Athena demo account.** Athena's screens and recording wait for it (D033, R5).
 3. **Real-device checks of Phase 1:** sound, iPhone shake, reduced motion, the phone feel.
 4. **The push:** every commit is unpushed, and the repo is public (hard rule 8).
@@ -33,10 +33,28 @@ Running ledger. Updated at the end of every working session so state survives ac
 
 ### For the next session
 
+- **Plan Step 1 is waiting on SongRaccoon and Athena only.** FoodRaccoon is skipped (D033). Step 2 (recordings) can start with Yummers and Rocket.
+- **Capture scripts** for Phase 2 are in `~/Desktop/projects/portfolio-prototype/captures/` (Lavender controller, Gmail Sorter dry run, Hermes and Karina launchers, the made-up meeting).
+
 - **Run the site:** `python3 -m http.server 8000`, then open `http://localhost:8000`.
 - **Tests:** `node --test tests/*.test.mjs` runs the physics tests.
 - **Browser checks:** the CDP harness is saved in `~/Desktop/projects/portfolio-prototype/harness/`. `cdp.mjs` is the driver; `check-*.mjs` are the Phase 1 checks (open, tidy, sound, scenes, waves, final), and they expect the site on :8000.
 - **Today's mocks** (finishes, game cards, ultra rare, page styles) are in `~/Desktop/projects/portfolio-prototype/mocks/`. They load assets from a server rooted at the old scratchpad, so they need the repo's `css/` and `assets/` beside them to render.
+
+## 2026-10-28 — Phase 2 approved; screens for the cards
+
+- **Approved:** Vith approved the Phase 2 spec and plan as written, screens first (D034). Hermes is captured without ElevenLabs; SongRaccoon only had a liveness check.
+- **Screens committed, each picked by Vith:**
+  - **Lavender** (4, cover the box exercise): a scripted controller flew the drone so the QR code and network address never showed (D035, V033).
+  - **Small tools:** a shelf now sits under the two minis (D036). Prompt Polish uses 3 of Vith's store shots (V034); the message sites were skipped. Gmail Sorter is a dry run of its real pipeline on made-up mail (D037, V035).
+  - **Hermes** (4, cover Chapter III): Pride and Prejudice only, ElevenLabs off (D038, V036).
+  - **Karina** (3, cover decisions): a made-up meeting in system voices, on an empty data folder; frames that name HungryRaccoon left out (D039, V037).
+- **Real data untouched:** Gmail Sorter's state and logs (md5), Karina's `data/` and `vocab.txt`, Hermes's library. None were opened.
+- **Spending:** about $0.03 (Gmail Sorter, estimate) plus Karina's notes call, whose cost is unknown (V035, V037).
+- **Slip, fixed:** a commit edited D035 in place; restored in `6c1cc68` (hard rule 7).
+- **Open, out of scope:** on phones the panel's Close button overlaps the "No. N of 9" badge (seen on Lavender and Small tools). The title block is Phase 1 code.
+- **Checks:** every new cover and shelf loads over CDP at 1440×900 and 390×844; `check-open.mjs` passes; physics 4/4.
+- **Unpushed:** all commits.
 
 ## 2026-10-27 (late) — after Phase 1: card finishes, animations, sound
 
