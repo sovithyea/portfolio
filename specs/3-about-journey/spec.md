@@ -1,6 +1,6 @@
 # Phase 3: About, Journey, the CV and contact
 
-**Status:** Draft, 28 Oct 2026. Waiting on Vith's approval. No code until Vith approves it (hard rule 1).
+**Status:** Approved by Vith, 28 Oct 2026 (D041). Open Question 1 answered.
 
 ## Context
 
@@ -30,13 +30,13 @@ The Work page shows the projects and only Vith's name (D025). Who Vith is, how V
 - **The reading shell** (top bar plus the calm backdrop, D033) is shared with Phase 2's project pages. Whichever phase is built first makes it, and the other reuses it.
 - **Photos:** `assets/photos/`, WebP, each with alt text. Each gets a hard rule 5 check for other people's faces and for places (R6), recorded in VERIFIED.
 - **CV:** `assets/cv.pdf`, supplied by Vith. Checked for a phone number, home address or birth date before it's committed, since the repo is public (R6). The `CV` link is shown only once the file exists; the same goes for LinkedIn and its URL. No placeholder links.
-- **Skills:** each skill has a VERIFIED source, either a project's "Built with" fact or Vith's answer, and links to the project that uses it. How it links depends on Open Question 1.
+- **Skills:** each skill has a VERIFIED source, either a project's "Built with" fact or Vith's answer, and names the projects that use it. The big four link to their Phase 2 pages; the rest link to Work (D041).
 
 ## Acceptance Criteria
 
 1. **Pages:** `/about/` and `/journey/` load directly, and every page's top bar shows `WORK · ABOUT · JOURNEY · CV` with the current page marked (`aria-current`).
 2. **Words:** every sentence on both pages has a VERIFIED row recording Vith's approval. No placeholder text.
-3. **Skills:** every skill links to a project on Work that uses it, and has a VERIFIED source.
+3. **Skills:** every skill names the projects that use it, links each one (its Phase 2 page, or Work), and has a VERIFIED source.
 4. **Timeline:** About's moments are a subset of Journey's, word for word, and "Full journey" goes to `/journey/`.
 5. **Photos:** each has alt text, a hard rule 5 and R6 check in VERIFIED, and Vith's approval. A slot without a photo is labelled empty.
 6. **Links:** email, GitHub, LinkedIn and CV open the right targets. None is shown before its target exists.
@@ -59,7 +59,7 @@ A contact form, a blog, a CMS or analytics (D007). Hosting and domain (Phase 4).
 
 ## Open Questions
 
-1. **Skill links:** the Work page can't open a given card from a link today (`js/main.js` reads only `?s=` and `?debug`). Should a skill (a) open its card directly, which means adding `?open=<n>` to the Work page, or (b) just name its projects, linking to their pages where Phase 2 makes one?
+1. **Skill links:** answered by Vith (D041): "Name the projects". No change to the Work page.
 
 Also waiting on Vith, but only for the steps that use them: the CV PDF, the LinkedIn URL and the photos ("Later", D040).
 

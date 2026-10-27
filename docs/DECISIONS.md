@@ -511,3 +511,10 @@ Karina's notes prompt names HungryRaccoon, so the demo notes said the meeting "w
 - **Top bar:** "WORK · ABOUT · JOURNEY · CV". The CV link opens the PDF; contact lives on About.
 - **Photos:** "Later". Photo slots stay labelled and empty until Vith supplies them (hard rule 4).
 - **Words:** "In chat, one topic at a time", as in Phase 2. Every line is drafted from Vith's answers and approved by Vith (hard rule 3).
+
+## D041 — Phase 3 approved; skills name their projects
+
+*28 Oct 2026 · Vith*
+
+- **`specs/3-about-journey/` approved** ("Approve, start interviews"). Phase 3's interviews start now, alongside Phase 2's remaining steps.
+- **Skill links:** "Name the projects". Each skill lists the projects that use it; the big four link to their Phase 2 pages and the rest to Work. The Work page gets no card deep link.

@@ -1,6 +1,6 @@
 # Phase 3: build plan
 
-**Status:** Draft, 28 Oct 2026. It starts only after Vith approves `spec.md`.
+**Status:** Approved by Vith, 28 Oct 2026 (D041). Being built.
 
 Tick a box only against evidence.
 
