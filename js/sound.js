@@ -1,7 +1,8 @@
-// The nine sounds Vith picked (D020, D021): seven made in the browser, two recordings (assets/CREDITS.md).
+// The sounds Vith picked (D020, D021, D031): seven made in the browser, one recording (assets/CREDITS.md).
+// Turning sound on or off is silent (D031).
 // Nothing is created, fetched or played until the visitor turns sound on.
 
-const CLIPS = { close: 'assets/sfx/ui-back.mp3', on: 'assets/sfx/bowl.mp3' };
+const CLIPS = { close: 'assets/sfx/ui-back.mp3' };
 
 export function createSound() {
   let ac = null, out = null, on = false;
@@ -47,9 +48,8 @@ export function createSound() {
       on = !on;
       if (on && !ac) {
         ac = new AudioContext(); out = ac.createGain(); out.gain.value = 0.8; out.connect(ac.destination);
-        for (const [m, url] of Object.entries(CLIPS)) fetch(url).then(r => r.arrayBuffer()).then(a => ac.decodeAudioData(a)).then(b => { buffers[m] = b; if (m === 'on' && on) clip('on', 0.7); }).catch(() => {});
-      } else if (on) { ac.resume(); clip('on', 0.7); }
-      if (on) played.push('on');
+        for (const [m, url] of Object.entries(CLIPS)) fetch(url).then(r => r.arrayBuffer()).then(a => ac.decodeAudioData(a)).then(b => { buffers[m] = b; }).catch(() => {});
+      } else if (on) ac.resume();
       return on;
     },
     play(m, strength = 5) {

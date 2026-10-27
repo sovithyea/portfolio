@@ -51,7 +51,7 @@ function setScene(n) {
   scenes.set(n);
   document.body.classList.toggle('ui-dark', scenes.isDark()); document.body.classList.toggle('ui-light', !scenes.isDark());
   for (const b of seg.querySelectorAll('button')) { b.setAttribute('aria-pressed', String(b.dataset.s === n)); if (b.dataset.s === n) moveThumb(b); }
-  credit.innerHTML = `Photos: ${scenes.credit()} · Sounds: Gravity Sound and Valera N. Trubin, CC BY 4.0 · <a href="assets/CREDITS.md">All credits</a>`;
+  credit.innerHTML = `Photos: ${scenes.credit()} · Sound: Gravity Sound, CC BY 4.0 · <a href="assets/CREDITS.md">All credits</a>`;
 }
 for (const n of scenes.names) {
   const b = document.createElement('button'); b.type = 'button'; b.className = 'mono'; b.textContent = LABELS[n]; b.dataset.s = n;

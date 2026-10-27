@@ -427,3 +427,11 @@ All of it answers a press, never plays on its own (DESIGN-SYSTEM rule 6). Under 
 - **Ultra rare also wears the rainbow foil** over its full art and metal border. The foil stops above the name's dark fade, so white names stay at 14.9:1 (V030).
 
 Ambient motion applies only to the one open card, the "still hovering" card of D009. Under reduced motion there's no glow, sweep or lean.
+
+## D031 — Turning sound on or off is silent
+
+*27 Oct 2026 · Vith*
+
+**Status:** replaces D020's "Turning sound on: Singing bowl".
+
+Vith: "i dislike the sound the site makes when i turn on and off the sound", then chose **"Silent"** over a soft click, the Swell or the chime. The Sound button gives only its ripple (D029). `bowl.mp3` and its credit are removed. The site now ships one recording, `ui-back.mp3` (closing a card, Gravity Sound, CC BY 4.0).

@@ -36,9 +36,8 @@ The site's code is not covered by these licences.
 | File | Source | Author | Licence | Changes |
 |---|---|---|---|---|
 | `ui-back.mp3` | [Selection 17 back](https://commons.wikimedia.org/wiki/File:Selection_17_back_(Gravity_Sound).wav) | Gravity Sound | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Trimmed, loudness-matched, MP3 |
-| `bowl.mp3` | [The sound of a singing bowl](https://commons.wikimedia.org/wiki/File:The_sound_of_a_singing_bowl.wav) | Valera N. Trubin | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | First 2.6 s, faded, loudness-matched, MP3 |
 
-The other seven sounds are synthesised in the browser and have no source.
+The other seven sounds are synthesised in the browser and have no source. Turning sound on or off is silent (D031).
 
 ## Fonts (`fonts/`)
 
