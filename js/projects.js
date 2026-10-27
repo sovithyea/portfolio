@@ -70,6 +70,14 @@ export const projects = [
     line: 'A drone simulator for practising the CASA RePL practical test, with your iPhone as the remote.',
     facts: [['Year', '2026'], ['Role', 'Solo'], ['Built with', 'TypeScript, Vite'], ['Commits', '5']],
     links: [['Code', 'https://github.com/sovithyea/lavender']],
+    cover: 1,
+    // Captured from Lavender's local server, flown by a scripted controller so the QR code and LAN address never show (V033, D035)
+    shots: [
+      shot('lavender', 'chase', 'Flying', 'The drone in flight over a farm paddock from the chase camera, a fading line tracing its path, beside the altitude and speed readout', 'desktop'),
+      shot('lavender', 'box', 'A guided exercise', 'The box pattern exercise: the drone climbs toward a yellow hoop, and a card at the bottom reads "Take off and climb to 3 m" with the tip "Climb"', 'desktop'),
+      shot('lavender', 'top-down', 'From above', 'The same exercise from the top-down camera, the drone inside its target ring and the next hoops marked on the grass', 'desktop'),
+      shot('lavender', 'training', 'Training', 'The training menu: three lessons, then eight RePL exercises from take-off and hover to attitude mode in wind', 'desktop'),
+    ],
   },
   {
     name: 'Karina', status: 'PERSONAL', colour: '#1F6B67',

@@ -464,3 +464,12 @@ Vith: "i dislike the sound the site makes when i turn on and off the sound", the
 - **`specs/2-project-pages/` approved as written** ("Approve as is"). Work follows the plan's order, starting with screens for the cards ("Screens first").
 - **Hermes:** "i used eleven labs but dont showcase it". Hermes's screens are captured without calling ElevenLabs (the local voice, or no voice), and nothing on the site names ElevenLabs.
 - **SongRaccoon:** "Check it works first". Claude only checks that the live site still loads and reports back. Nothing paid and no Spotify login happens until Vith says so.
+
+## D035 — Lavender's screens; Prompt Polish, Hermes and Karina capture rules
+
+*28 Oct 2026 · Vith*
+
+- **Lavender:** Vith chose four of five captures: chase camera in flight, the guided box exercise, the top-down camera and the training menu. The phone controller wasn't chosen. Cover: the box exercise, provisionally (Claude's pick, pending Vith).
+- **Prompt Polish:** "Use the store shots". Vith's own Chrome Web Store screenshots are used, after a privacy check, instead of fresh captures.
+- **Hermes:** shown with Pride and Prejudice (public domain), not the other books in its library.
+- **Karina:** run on a separate, empty data folder with the made-up meeting, if Karina supports one, so the real `data/voices` and `data/meetings` are never opened (R5).
