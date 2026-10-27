@@ -31,3 +31,15 @@ What reading the code won't tell you. Ordered by severity. Each has a mitigation
 **Severity: medium.** The koi, pebble, cloud and Moon sprites come from CC BY-SA photos (D018). Cutting them out is an adaptation, so [Assumption] the published sprites must also be licensed CC BY-SA, with credit and a link to the licence. The site's own code doesn't become BY-SA, but the image files do. Ignoring this would breach the licence on a public site.
 
 **Mitigation:** before launch, list each sprite's licence beside it in the repo (an `assets/CREDITS.md`) and keep the on-page credits. Or swap in CC0 or CC BY sources where they exist. Owner: the phase that ships the scenes.
+
+## R5 — Running real projects for screenshots can expose real people's data
+
+**Severity: high.** Phase 2 runs the projects to capture screens (D032), and several point at real data:
+- Athena's `.env` has a `DATABASE_URL` that may be the live database holding Vith's sister's chats;
+- FoodRaccoon's `.env.local` points at a Supabase project, and v1's production project holds real user data (Yummers' own hard rule 3);
+- Karina's `meetings/` may hold real team recordings;
+- Gmail Sorter reads a real inbox.
+
+A screenshot or recording of any of them would publish that data.
+
+**Mitigation:** hard rule 5, plus the Phase 2 spec's Open Questions 2–4. Use demo accounts or non-production databases, capture logged-out or empty states, or skip. Every image and video gets a privacy check recorded in VERIFIED before it's committed.

@@ -435,3 +435,15 @@ Ambient motion applies only to the one open card, the "still hovering" card of D
 **Status:** replaces D020's "Turning sound on: Singing bowl".
 
 Vith: "i dislike the sound the site makes when i turn on and off the sound", then chose **"Silent"** over a soft click, the Swell or the chime. The Sound button gives only its ripple (D029). `bowl.mp3` and its credit are removed. The site now ships one recording, `ui-back.mp3` (closing a card, Gravity Sound, CC BY 4.0).
+
+## D032 — Phase 2: the big four get case-study pages
+
+*27 Oct 2026 · Vith*
+
+- **Page style "A · Short case study"**, chosen from a mock of three. The same top as the panel (card, title block, links, fact strip), then sections of story beside screens.
+- **Sections are named per project** ("Per project"), keeping the same rhythm: the problem, what was built, a hard part, what came of it.
+- **Words come from interviewing Vith** ("Interview me"), drafted with the repos. Every line is approved before it ships (hard rule 3). **Rocket's page is approved line by line** ("Line by line, you approve"), because it describes an employer's product.
+- **Getting there:** a "Full story" button in the card's panel, plus a direct address per page, such as `/yummers/` ("Both + direct URL").
+- **Demos:** screenshots, live links where public, and silent screen recordings that **play only when clicked** ("Click to play"), for Yummers (simulator), Athena, Rocket (stub model) and SongRaccoon. Vith wasn't sure SongRaccoon still works, so that gets checked first. Athena keeps "Ask me for access"; Vith gives interested visitors a test account.
+- **Screenshots for the other cards:** Claude captures everything it can run, with demo data, and Vith approves each ("I capture all I can run").
+- **Spending:** recordings may call paid AI models, capped at **$5 total for Phase 2** ("$5 total"). Claude keeps a running tally and stops before anything would go over (hard rule 10).
