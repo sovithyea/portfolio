@@ -33,8 +33,8 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 - Commit: `feat(work): static Work page with the nine cards` (`Refs: D005, D008, D013`)
 
 ## Step 4: Physics, then stop for sign-off
-- [ ] `js/table.js`: drift, walls, collisions, squash, drag and throw, and the `?debug` log.
-- [ ] Run criteria 3, 4 and 5 and save the logs.
+- [x] `js/physics.js` (pure, tested in Node) and `js/table.js`: drift, walls, collisions, squash, drag and throw, and the `?debug` log.
+- [x] Run criteria 3, 4 and 5 and save the logs (V019). Criterion 4 was corrected by C003.
 - [ ] **Stop: show Vith the logged speeds, bounds and collision counts, and get a sign-off before Step 5.**
 - Commit: `feat(work): card physics` (`Refs: D009, D014`)
 

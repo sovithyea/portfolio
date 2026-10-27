@@ -1,4 +1,5 @@
 import { projects } from './projects.js';
+import { mountTable } from './table.js';
 
 const cards = document.getElementById('cards');
 
@@ -17,3 +18,5 @@ for (const [i, p] of projects.entries()) {
   li.append(card);
   cards.append(li);
 }
+
+mountTable(cards);

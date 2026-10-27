@@ -105,7 +105,7 @@ One static page, `index.html`, in plain HTML, CSS and JavaScript (ES modules, no
 | `assets/CREDITS.md` | Every photo and sound: title, author, licence, source URL, and what was changed (R4) |
 
 **Physics tuning** (carried from the prototype, which Vith accepted):
-- Friction is 0.992 per 60 fps frame, restitution 0.9, the floor speed 0.35 px/frame, throws are capped at 45 px/frame, and the tap threshold is 6 px.
+- Friction is 0.992 per 60 fps frame, restitution 0.9, the drift top-up aims at 0.35 px/frame, throws are capped at 45 px/frame, and the tap threshold is 6 px. Against friction, the drift settles near 0.28 px/frame, about 17 px/s (C003).
 - Collisions use axis-aligned boxes. Cards never tilt past ±8°.
 - The squash is up to 10% and decays.
 - `?debug` logs each card's position, speed and collisions. Plan Step 4 stops for Vith to sign off those values before styling (the old brief's lesson about position maths).
@@ -138,7 +138,7 @@ Checked in **headed** Chrome driven over CDP with trusted input. Headless Chrome
 1. **The old code is gone:** `src/`, `journey/`, `vite.config.ts`, `tsconfig.json`, `package.json`, `package-lock.json` and `node_modules/`. The page runs from `python3 -m http.server` with no build.
 2. **Layout:** at both sizes, in both modes and in each scene, all nine cards are inside the viewport 2 s after load, and `scrollWidth` equals the viewport width.
 3. **Bounds:** over a logged 60 s run with 20 scripted throws, no card's box leaves the table on any frame.
-4. **Drift:** with no input, every card's speed stays between 0.3 and 45 px/frame from 10 s to 20 s after load.
+4. **Drift:** with no input, every card's speed stays between 0.2 and 45 px/frame from 10 s to 20 s after load. Amended by C003: the drift settles near 0.28 px/frame.
 5. **Drag versus tap:** a drag of 6 px or more moves a card without opening it. A press under 6 px opens it.
 6. **Opening:**
    - after 1 s, the open card is within 2 px of its top-left target;

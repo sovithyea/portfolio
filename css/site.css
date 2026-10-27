@@ -44,6 +44,14 @@ body { background: var(--scene-fallback); color: var(--ink); font-family: "Hanke
 .card .no { position: absolute; top: 6px; left: 6px; z-index: 1; padding: 3px 5px; border-radius: 3px; background: #141414; color: #fff; font-size: 9px; }
 .card .status { position: absolute; top: 6px; right: 6px; z-index: 1; padding: 2px 6px; border: 2px solid #141414; border-radius: 999px; background: #fff; color: #141414; font-size: 8px; }
 
+/* Once the physics runs, every card is placed by transform from the top-left corner */
+.table.live { display: block; padding: 0; }
+.table.live .card { position: fixed; top: 0; left: 0; touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; will-change: transform; z-index: 10; }
+.table.live .card.drag { cursor: grabbing; z-index: 20; box-shadow: 0 34px 50px rgb(0 0 0 / .34), 0 6px 10px rgb(0 0 0 / .18); }
+.card .shot, .card .empty { pointer-events: none; -webkit-user-drag: none; }
+
+.debug { position: fixed; right: 12px; bottom: 12px; z-index: 50; padding: 10px 12px; border-radius: 8px; background: rgb(0 0 0 / .75); color: #9ff0b5; font-size: 11px; line-height: 1.5; white-space: pre; pointer-events: none; }
+
 @media (max-width: 760px) {
   .top { padding: 0 16px; }
   .table { gap: 14px; padding: 88px 16px 24px; }
