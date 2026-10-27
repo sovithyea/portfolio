@@ -482,3 +482,9 @@ Vith: "i dislike the sound the site makes when i turn on and off the sound", the
 - **Prompt Polish:** three of Vith's store shots, on ChatGPT, Claude and Gemini. The Claude popover shot wasn't chosen. Vith also asked for Discord, Gmail, LinkedIn, Slack and Teams; Teams isn't supported (V034), and the other four need a logged-in account showing real people, so Vith chose "Skip the message sites".
 - **Gmail Sorter:** "Terminal, made-up mail". About eight made-up emails go straight to its classifier and guardrails, with no Gmail login, and the terminal output is captured. One Claude call, within the $5 cap (D032). Its `logs/` hold real mail and are never opened.
 - **Lavender's cover:** the box exercise, confirmed by Vith (D035).
+
+## D037 — Gmail Sorter's screen
+
+*28 Oct 2026 · Vith*
+
+Vith approved the dry-run capture ("Use it"): the printed summary of a run over eight made-up emails, then each email's category, confidence and actions from the run log, including one real guardrail override. It sits fourth on the Small tools shelf, labelled as a dry run on demo mail (D033). The frame is a rendered page in a terminal style, not a Terminal window (V035).
