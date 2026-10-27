@@ -1,7 +1,7 @@
 // The Work table: drag and throw the cards, run the physics, draw them, and lift a tapped card into the
 // top-left corner where it keeps hovering while its details are open (D009). The cards also stir the scene
 // under them (D016, D019): `scene` gets their outlines, wakes, hits and landings. `?debug` shows the live numbers.
-import { createBodies, scatter, step, release } from './physics.js';
+import { createBodies, scatter, step, release, rows } from './physics.js';
 
 const TAP = 6; // px: a press that moves less than this is a tap, not a drag
 
@@ -9,12 +9,12 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const cards = [...list.querySelectorAll('.card')];
   const bodies = createBodies(cards.length);
-  let w, h, bounds, narrow, openB = null, t = 0;
+  let w, h, bounds, narrow, openB = null, t = 0, resting = false; // resting: tidied rows hold still until a card is touched (D015)
   const openScale = () => (narrow ? 1 : 1.3);
 
   function measure() {
-    w = Math.round(Math.min(190, Math.max(96, innerWidth / 8.5))); h = w * 1.4; narrow = innerWidth <= 760;
-    bounds = { l: 12, t: 80, r: innerWidth - 12, b: innerHeight - 12 };
+    narrow = innerWidth <= 760; w = Math.round(Math.min(190, Math.max(96, innerWidth / 8.5))); h = w * 1.4;
+    bounds = { l: 12, t: 80, r: innerWidth - 12, b: innerHeight - (narrow ? 118 : 12) }; // on phones, keep cards above the tools and credits
     const root = document.documentElement.style;
     list.style.setProperty('--cw', w + 'px');
     root.setProperty('--panel-left', narrow ? '0px' : 24 + w * openScale() + 32 + 'px');
@@ -45,11 +45,24 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
     if (restoreFocus) { cards[b.i].focus({ preventScroll: true }); sound?.play('close'); }
   }
 
+  // TIDY UP: neat rows that stay put until a card is touched
+  function tidy() {
+    close(false);
+    rows(bodies.length, bounds, w, h).forEach((slot, k) => { bodies[k].tidy = slot; bodies[k].vx = bodies[k].vy = 0; });
+    resting = true; sound?.play('tidy');
+  }
+  // Shake (phones): throw every card in a random direction
+  function shake() {
+    close(false); resting = false;
+    for (const b of bodies) { b.tidy = null; const a = Math.random() * Math.PI * 2, s = 12 + Math.random() * 14; b.vx = Math.cos(a) * s; b.vy = Math.sin(a) * s; b.vr += (Math.random() - 0.5) * 6; }
+  }
+
   cards.forEach((card, i) => {
     const b = bodies[i];
     let g = null;
     card.addEventListener('pointerdown', e => {
       if (openB === b) return;
+      if (resting) { resting = false; for (const o of bodies) o.tidy = null; }
       card.setPointerCapture(e.pointerId);
       g = { ox: e.clientX - b.x, oy: e.clientY - b.y, sx: e.clientX, sy: e.clientY, lx: e.clientX, ly: e.clientY, lt: performance.now(), moved: 0 };
       b.drag = true; card.classList.add('drag');
@@ -81,14 +94,19 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
   const debug = new URLSearchParams(location.search).has('debug');
   const log = { frames: 0, hits: 0, taps: 0, outOfBounds: 0, minSpeed: Infinity, maxSpeed: 0 };
   let panel;
-  if (debug) { panel = document.createElement('pre'); panel.className = 'debug mono'; document.body.append(panel); window.__table = { bodies, log, bounds: () => bounds, size: () => ({ w, h }), open, close }; }
+  if (debug) { panel = document.createElement('pre'); panel.className = 'debug mono'; document.body.append(panel); window.__table = { bodies, log, bounds: () => bounds, size: () => ({ w, h }), open, close, tidy, slots: () => rows(bodies.length, bounds, w, h) }; }
   const onHit = (b, axis, s, x, y) => { log.hits++; scene?.impact(x, y, s); sound?.play('hit', s); };
 
   let last = performance.now();
   function frame(now) {
     const dt = Math.min(2, (now - last) / 16.67); last = now; t += dt;
-    const live = openB ? bodies.filter(b => b !== openB) : bodies;
-    step(live, { dt, bounds, w, h, drift: !reduce, reduce, onHit });
+    for (const b of bodies) if (b.tidy && b !== openB) { // spring into the row slot
+      const k = reduce ? 1 : 1 - Math.pow(0.88, dt);
+      b.x += (b.tidy.x - b.x) * k; b.y += (b.tidy.y - b.y) * k; b.rot += -b.rot * k;
+      if (Math.abs(b.tidy.x - b.x) < 0.5 && Math.abs(b.tidy.y - b.y) < 0.5) { b.x = b.tidy.x; b.y = b.tidy.y; b.rot = 0; b.tidy = null; }
+    }
+    const live = bodies.filter(b => b !== openB && !b.tidy);
+    step(live, { dt, bounds, w, h, drift: !reduce && !resting, reduce, onHit });
     if (scene) { // cards on the table are solid to the pond's waves; moving ones push water and cloud
       scene.solids(live.filter(b => !b.drag).map(b => [b.x, b.y, w, h]));
       for (const b of live) if (!b.drag && Math.abs(b.vx) + Math.abs(b.vy) > 1.2) scene.wake(b.x, b.y, b.vx, b.vy, w, h);
@@ -118,5 +136,5 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
-  return { open, close, isOpen: () => openB !== null };
+  return { open, close, tidy, shake, isOpen: () => openB !== null };
 }

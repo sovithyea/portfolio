@@ -59,8 +59,8 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 - Commit: `feat(sound): the nine picked sounds` (`Refs: D020, D021`)
 
 ## Step 9: TIDY UP, shake, hint, phones
-- [ ] TIDY UP with rest-until-touched, shake with iPhone permission, the fading hint, and the phone layout (bottom-sheet panel, wrapped tools).
-- [ ] Check criteria 2, 8 and 12 (cards part). Vith checks on a real phone.
+- [x] TIDY UP with rest-until-touched, shake with iPhone permission, the fading hint, and the phone layout (bottom-sheet panel; the tools fit one row).
+- [x] Check criteria 2 and 8 (V024). Criterion 12 (cards part) moves to the Step 10 pass. Vith checks on a real phone, including shake.
 - Commit: `feat(work): tidy up, shake to deal and phone layout` (`Refs: D014, D015`)
 
 ## Step 10: Verification pass

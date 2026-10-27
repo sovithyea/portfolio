@@ -59,6 +59,21 @@ if (new URLSearchParams(location.search).has('debug')) Object.assign(window, { _
 
 const soundBtn = document.getElementById('sound');
 soundBtn.addEventListener('click', () => { const on = sound.toggle(); soundBtn.setAttribute('aria-pressed', String(on)); soundBtn.textContent = on ? 'Sound on' : 'Sound off'; });
+document.getElementById('tidy').addEventListener('click', () => table.tidy());
+
+// The hint shows until the first touch (D014)
+const hint = document.getElementById('hint');
+addEventListener('pointerdown', () => hint.classList.add('gone'), { once: true });
+
+// Shake to deal on phones (D014). iPhones need a tap to grant motion access first.
+if (matchMedia('(pointer: coarse)').matches && 'DeviceMotionEvent' in window) {
+  let lastShake = 0;
+  const onMotion = e => { const a = e.accelerationIncludingGravity; if (a && Math.hypot(a.x || 0, a.y || 0, a.z || 0) > 30 && performance.now() - lastShake > 1000) { lastShake = performance.now(); table.shake(); } };
+  if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    const btn = document.getElementById('shake'); btn.hidden = false;
+    btn.addEventListener('click', () => DeviceMotionEvent.requestPermission().then(s => { if (s === 'granted') addEventListener('devicemotion', onMotion); }).catch(() => {}).finally(() => btn.remove()));
+  } else addEventListener('devicemotion', onMotion);
+}
 
 // The cursor stirs the background too (D016): a wake on the pond, dust in space, clouds pushed aside
 const onBackground = e => !e.target.closest('.card, .panel, .tools, .top, .credit');
