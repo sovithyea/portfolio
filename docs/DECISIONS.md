@@ -500,3 +500,14 @@ Vith chose four of five captures, all of Pride and Prejudice: the library, the b
 *28 Oct 2026 · Vith*
 
 Karina's notes prompt names HungryRaccoon, so the demo notes said the meeting "was not about HungryRaccoon". The site never mentions HungryRaccoon, and Vith chose "Screens without the name": the New meeting page, the decisions and action items, and the loose ends with Who spoke. Cover: **"Decisions & actions"**. Labels say they come from a demo meeting (D033).
+
+## D040 — Phase 3: About, Journey, CV and contact
+
+*28 Oct 2026 · Vith*
+
+- **About** holds a short intro, a photo of Vith, skills and tools, a contact block, and a short timeline of Vith's life (Vith's own addition: "timeline of my life?").
+- **Journey** is a timeline of dated milestones ("Timeline of milestones"). The split: "Short on About, full on Journey". About shows a few key moments and links to the full timeline.
+- **Look:** "Calm, like project pages": the still reading backdrop from D033, not the live scene.
+- **Top bar:** "WORK · ABOUT · JOURNEY · CV". The CV link opens the PDF; contact lives on About.
+- **Photos:** "Later". Photo slots stay labelled and empty until Vith supplies them (hard rule 4).
+- **Words:** "In chat, one topic at a time", as in Phase 2. Every line is drafted from Vith's answers and approved by Vith (hard rule 3).

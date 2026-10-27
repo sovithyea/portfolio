@@ -43,3 +43,9 @@ What reading the code won't tell you. Ordered by severity. Each has a mitigation
 A screenshot or recording of any of them would publish that data.
 
 **Mitigation:** hard rule 5, plus the Phase 2 spec's Open Questions 2–4. Use demo accounts or non-production databases, capture logged-out or empty states, or skip. Every image and video gets a privacy check recorded in VERIFIED before it's committed.
+
+## R6 — A life timeline on a public site can say more than Vith means to
+
+**Severity: medium.** Phase 3 puts Vith's life on a public page (D040): schools, places, dates and photos. Together these can reveal a home suburb, a birth year or family members, and photos from Vith's life may show friends or family who never agreed to be on it. The repo is public too, so anything committed is published even if it's later removed from the page.
+
+**Mitigation:** Vith approves every line and photo (D040). Before a timeline line is drafted, Claude asks whether a place or date is fine to publish, and defaults to a year and a city rather than exact dates or suburbs. Every photo gets the hard rule 5 check for other people's faces, and is cropped or skipped unless they agreed. Nothing is committed until Vith approves it.
