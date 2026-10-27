@@ -359,3 +359,34 @@ Vith chose **"Both"** after dragging cards in a mock of four versions: as now, A
 - **Printed keyline:** a thin light line inside the coloured border, a faint edge round the picture, and a set line ("2026 · 1/9") above each name.
 
 Vith then floated a further idea ("speaking of which…thats not a bad idea"), taking the cards further toward collectible game cards. Any such design is the site's own. It does not copy Pokémon's card layout, symbols, energy types, naming or trade dress, which belong to their owners. The idea is open until Vith says what it means.
+
+## D027 — Game-card details: types, rarity and stat lines
+
+*27 Oct 2026 · Vith, from a mock of three layouts*
+
+**Status:** extends D026. The idea's own design, not Pokémon's: no copied layout, symbols, energy types or rarity marks. Rarity is written in words.
+
+- **Layout: "1 · Quiet"**, today's card plus a type pill and one stat line.
+- **Types** (Claude's proposal, "Use the proposal"): Yummers APP · Athena AI · Rocket AI · SongRaccoon AI · FoodRaccoon WEB · Lavender SIM · Karina AI · Hermes AI · Small tools TOOLS.
+- **Rarity, with a richer finish the rarer the card** (Vith: "each type of card gets a sheen, the more rare the better"). Vith chose this ranking:
+  - **Ultra rare** (Yummers, Rocket): holographic foil plus a fine sparkle.
+  - **Rare** (Athena, SongRaccoon): holographic foil.
+  - **Common** (the rest): the soft sheen.
+
+  The set line names the rarity ("2026 · 1/9 · Ultra rare").
+- **Stat lines, per card, only where they say something** (Vith: "depends on card, if info is nesssary put, if not done"). Each is a real fact (V017, V028):
+
+  | Card | Stat line |
+  |---|---|
+  | Yummers | 852 commits · 2 months |
+  | Athena | 143 commits |
+  | Rocket | 525 commits · 4 months |
+  | SongRaccoon | 34 commits · 5 weeks |
+  | FoodRaccoon | 105 commits · 7 weeks |
+  | Lavender | Browser sim, iPhone remote |
+  | Karina | Python, FastAPI |
+  | Hermes | Python, runs locally |
+  | Small tools | 2 tools |
+
+  Stat lines are hidden on phone cards, where they'd be too small to read; the panel's facts carry them.
+- **Every finish is masked off the name band.** Unmasked, the foil brightened the band behind the white name (V028).

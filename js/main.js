@@ -9,15 +9,15 @@ const cards = document.getElementById('cards'), panel = document.getElementById(
 for (const [i, p] of projects.entries()) {
   const li = document.createElement('li');
   const card = document.createElement('button');
-  card.className = 'card';
+  card.className = `card ${p.rarity}`;
   card.type = 'button';
   card.style.setProperty('--c', p.colour);
   card.style.setProperty('--band', p.band || p.colour);
-  card.setAttribute('aria-label', `No. ${i + 1}, ${p.name}, ${p.status.toLowerCase()}: open details`);
+  card.setAttribute('aria-label', `No. ${i + 1}, ${p.name}, ${p.type}, ${p.status.toLowerCase()}${p.rarity === 'common' ? '' : `, ${p.rarity === 'ultra' ? 'ultra rare' : 'rare'}`}: open details`);
   const cover = p.shots?.[p.cover ?? 0];
-  card.innerHTML = `<span class="card-in"><span class="no mono">No. ${i + 1}</span><span class="status mono">${p.status}</span>${
+  card.innerHTML = `<span class="card-in"><span class="no mono">No. ${i + 1}</span><span class="type mono">${p.type}</span><span class="status mono">${p.status}</span>${
     cover ? `<img class="shot" src="${cover.src}" alt="" width="${cover.kind === 'desktop' ? 1600 : 828}" height="${cover.kind === 'desktop' ? 1000 : 1792}"${p.coverPos ? ` style="object-position:${p.coverPos}"` : ''}>` : `<span class="empty"><span class="empty-line">${p.line}</span><span class="mono">screens to come</span></span>`
-  }<span class="name slab"><span class="set mono" aria-hidden="true">2026 · ${i + 1}/${projects.length}</span>${p.name}</span></span>`;
+  }<span class="name slab"><span class="set mono" aria-hidden="true">2026 · ${i + 1}/${projects.length}${p.rarity === 'common' ? '' : ` · ${p.rarity === 'ultra' ? 'Ultra rare' : 'Rare'}`}</span>${p.name}${p.stat ? `<span class="stat">${p.stat}</span>` : ''}</span></span>`;
   li.append(card);
   cards.append(li);
 }
