@@ -60,6 +60,12 @@ export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
   cards.forEach((card, i) => {
     const b = bodies[i];
     let g = null;
+    // the sheen follows the cursor across the card (D026)
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--sx', `${100 - ((e.clientX - r.left) / r.width) * 100}%`);
+      card.style.setProperty('--sy', `${100 - ((e.clientY - r.top) / r.height) * 100}%`);
+    });
     card.addEventListener('pointerdown', e => {
       if (openB === b) return;
       if (resting) { resting = false; for (const o of bodies) o.tidy = null; }

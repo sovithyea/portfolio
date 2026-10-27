@@ -17,7 +17,7 @@ for (const [i, p] of projects.entries()) {
   const cover = p.shots?.[p.cover ?? 0];
   card.innerHTML = `<span class="card-in"><span class="no mono">No. ${i + 1}</span><span class="status mono">${p.status}</span>${
     cover ? `<img class="shot" src="${cover.src}" alt="" width="${cover.kind === 'desktop' ? 1600 : 828}" height="${cover.kind === 'desktop' ? 1000 : 1792}"${p.coverPos ? ` style="object-position:${p.coverPos}"` : ''}>` : `<span class="empty"><span class="empty-line">${p.line}</span><span class="mono">screens to come</span></span>`
-  }<span class="name slab">${p.name}</span></span>`;
+  }<span class="name slab"><span class="set mono" aria-hidden="true">2026 · ${i + 1}/${projects.length}</span>${p.name}</span></span>`;
   li.append(card);
   cards.append(li);
 }

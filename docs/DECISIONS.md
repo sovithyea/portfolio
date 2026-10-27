@@ -346,3 +346,16 @@ Desktop screens are landscape (1600×1000), so the details panel shows them in a
 Asked "Should the Work page say who you are, beyond your name?", Vith answered **"No, About does that"**. The Work page shows only the name in the top bar. Who Vith is (Computer Science (AI) at Swinburne, and so on) belongs on the About page (Phase 3).
 
 This answer was missed when D013–D015 were written. It surfaced when the impeccable finish reviewer asked for an intro line on the first screen, citing PRODUCT.md's "the first screen has to say who Vith is". The owner's answer stands. PRODUCT.md's line is amended to point at the name in the top bar and at About.
+
+## D026 — Printed-card finishes: sheen and keyline
+
+*27 Oct 2026 · Vith, from a mock of four versions*
+
+**Status:** extends D008's card look.
+
+Vith chose **"Both"** after dragging cards in a mock of four versions: as now, A sheen, B printed keyline, A + B. Vith: "i like how they resemle pokemon cards".
+
+- **Sheen:** a soft diagonal band of light, screen-blended, that follows the cursor across a card and brightens while it's hovered or dragged. It answers the visitor only, with no motion of its own (DESIGN-SYSTEM rule 6).
+- **Printed keyline:** a thin light line inside the coloured border, a faint edge round the picture, and a set line ("2026 · 1/9") above each name.
+
+Vith then floated a further idea ("speaking of which…thats not a bad idea"), taking the cards further toward collectible game cards. Any such design is the site's own. It does not copy Pokémon's card layout, symbols, energy types, naming or trade dress, which belong to their owners. The idea is open until Vith says what it means.
