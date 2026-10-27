@@ -1,0 +1,50 @@
+/* Fonts: self-hosted, Latin subset (assets/CREDITS.md) */
+@font-face { font-family: 'Hanken Grotesk'; font-weight: 400 600; font-display: swap; src: url('../assets/fonts/hanken-grotesk.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Martian Mono'; font-weight: 400 600; font-display: swap; src: url('../assets/fonts/martian-mono.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Zilla Slab'; font-weight: 600; font-display: swap; src: url('../assets/fonts/zilla-slab-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Zilla Slab'; font-weight: 700; font-display: swap; src: url('../assets/fonts/zilla-slab-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* Tokens. The scene sets which ink the UI uses (D012): light ink over dark scenes, dark ink over the day sky.
+   Text always sits on a chip or scrim so it reads over photos. */
+:root {
+  --paper: #ffffff;
+  --card-ink: #ffffff;
+  --empty-ink: #6f6c66;
+  --empty-a: #f4f2ee;
+  --empty-b: #ffffff;
+  --scene-fallback: #15171c;
+}
+body.ui-dark  { --ink: #f1f0ec; --sub: #c0c2cc; --panel: #1b1d24; --rule: #f1f0ec; --chip: rgb(15 17 24 / .62); }
+body.ui-light { --ink: #141414; --sub: #4d4b47; --panel: #f4f2ee; --rule: #141414; --chip: rgb(255 255 255 / .7); }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100%; }
+body { background: var(--scene-fallback); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+.slab { font-family: "Zilla Slab", Rockwell, Georgia, serif; text-transform: uppercase; letter-spacing: .02em; }
+.mono { font-family: "Martian Mono", ui-monospace, Menlo, monospace; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* Top bar */
+.top { position: fixed; inset: 0 0 auto; height: 72px; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; z-index: 30; }
+.site-name { font-size: 20px; }
+.top nav a { color: var(--ink); text-decoration: none; font-size: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 2px; }
+
+/* The table: a still grid until the physics takes over (and for reduced motion) */
+.table { list-style: none; display: flex; flex-wrap: wrap; gap: 24px; padding: 104px 32px 32px; justify-content: center; --cw: clamp(96px, 11.8vw, 190px); }
+
+/* Cards */
+.card { display: block; width: var(--cw); height: calc(var(--cw) * 1.4); padding: calc(var(--cw) * .05); border: 0; border-radius: 12px; background: var(--c);
+  color: var(--card-ink); text-align: left; font: inherit; cursor: pointer; box-shadow: 0 22px 32px rgb(0 0 0 / .28), 0 4px 8px rgb(0 0 0 / .18); }
+.card-in { display: block; position: relative; height: 100%; overflow: hidden; border-radius: 5px; background: var(--paper); }
+.card .shot { position: absolute; inset: 0 0 22% 0; width: 100%; height: 78%; object-fit: cover; object-position: center 10%; }
+.card .empty { position: absolute; inset: 0 0 22% 0; display: grid; place-items: center; padding: 12px; text-align: center; text-transform: uppercase; font-size: 10px; color: var(--empty-ink);
+  background: repeating-linear-gradient(135deg, var(--empty-a) 0 9px, var(--empty-b) 9px 18px); }
+.card .name { position: absolute; inset: auto 0 0 0; height: 22%; display: flex; align-items: center; padding: 0 10px; background: var(--band); font-size: calc(var(--cw) * .092); }
+.card .no { position: absolute; top: 6px; left: 6px; z-index: 1; padding: 3px 5px; border-radius: 3px; background: #141414; color: #fff; font-size: 9px; }
+.card .status { position: absolute; top: 6px; right: 6px; z-index: 1; padding: 2px 6px; border: 2px solid #141414; border-radius: 999px; background: #fff; color: #141414; font-size: 8px; }
+
+@media (max-width: 760px) {
+  .top { padding: 0 16px; }
+  .table { gap: 14px; padding: 88px 16px 24px; }
+}

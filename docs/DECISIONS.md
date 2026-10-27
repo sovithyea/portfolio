@@ -312,3 +312,21 @@ Two recordings now ship: `ui-back` (closing a card, Gravity Sound) and `bowl` (t
 - **Rocket's screen is captured in Phase 1** ("Capture one now"), from Rocket's Athena running locally. Constraints: demo data only, no student data (hard rule 5), and no paid model calls (hard rule 10). Vith approves the image.
 - **Rocket's card says "LEGO® Education SPIKE™"** with the marks, per Rocket Academy's brand rules for public material.
 - **The prototype is copied out of the session scratchpad** to `~/Desktop/projects/portfolio-prototype/` ("Yes, private folder"). It's outside the public repo, because it holds unused clips and test hooks. It's the behavioural reference for Phase 1. Serve it with `python3 -m http.server 8765` from that folder and open `/visual/cards.html`.
+
+## D023 — The card colours
+
+*27 Oct 2026 · Vith, at plan Step 3*
+
+| Card | Border | Name band | White text |
+|---|---|---|---|
+| Yummers | `#B8401E` (brand) | same | 5.54:1 |
+| Athena | `#2E3D1B` (brand) | same | 11.67:1 |
+| Rocket | `#004AAD` (Rocket Academy Royal Blue) | same | 8.13:1 |
+| SongRaccoon | `#B5673A` (brand rust) | `#9A5230` | 5.80:1 |
+| FoodRaccoon | `#8C5443` faded brick, a dulled red for a retired v1 that doesn't clash with Yummers | same | 6.06:1 |
+| Lavender | `#5E4B8B` | same | 7.36:1 |
+| Karina | `#1F6B67` | same | 6.26:1 |
+| Hermes | `#7A2E45` | same | 9.11:1 |
+| Small tools | `#3B3F47` | same | 10.56:1 |
+
+Vith: "Faded brick", "Keep all four", "Yes, border + deeper band". For the Rocket screen Vith asked: "use as many as u can and i choose". Claude captures every Rocket screen that shows no student data, and Vith picks.

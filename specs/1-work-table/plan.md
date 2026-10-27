@@ -26,10 +26,10 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 - Commit: `feat(assets): scene photos, sounds, Yummers screens and fonts, with credits` (`Refs: D018, D020, D021, R4`)
 
 ## Step 3: Static page, no motion
-- [ ] `index.html` and `css/site.css`: the top bar, the nine cards in a still grid, the panel markup, the tools and the chips.
-- [ ] `js/projects.js` with VERIFIED facts only. Record each project's commit count, one-line description and link in VERIFIED.
-- [ ] Confirm Yummers' `#B8401E` in its CSS.
-- [ ] **Stop:** show Vith the four brand colours (D022) and a proposed set for the other five on the cards, including SongRaccoon's `#9A5230` band, and take the picks. Check contrast (criterion 15).
+- [x] `index.html` and `css/site.css`: the top bar and the nine cards in a still grid. The panel, tools and chips are added in the steps that make them work, so no dead UI ships.
+- [x] `js/projects.js` with VERIFIED facts only. Record each project's commit count, one-line description and link in VERIFIED.
+- [x] Confirm Yummers' `#B8401E` in its CSS (V017).
+- [x] **Stop:** show Vith the four brand colours (D022) and a proposed set for the other five on the cards, including SongRaccoon's `#9A5230` band, and take the picks. Check contrast (criterion 15).
 - Commit: `feat(work): static Work page with the nine cards` (`Refs: D005, D008, D013`)
 
 ## Step 4: Physics, then stop for sign-off

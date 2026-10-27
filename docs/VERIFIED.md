@@ -26,12 +26,14 @@ Status key: **VERIFIED** (observed directly) · **ASSUMED** (taken from document
 | V014 | The scenes are within the spec's asset budget | **VERIFIED** | Sizes summed from `assets/scenes/` after the WebP conversion. Desktop / LITE: pond 629 / 255 KB, space 243 / 110 KB, day sky 224 / 129 KB, night sky 386 / 173 KB. Limits 1 MB / 500 KB (criterion 14, file part). Fonts total 92 KB |
 | V015 | The six Yummers screens show no private data | **VERIFIED** | Contact sheet of `assets/shots/yummers/*.webp`, checked by Claude 27 Oct 2026: cities, districts, a map, filter chips, sign-in buttons and restaurant listings. No user names, faces, emails, chats or accounts. The search-results screen includes third-party restaurant thumbnails; the same image is already published on yummersapp.com (V004) |
 | V016 | The three fonts are under the SIL Open Font License | **ASSUMED** | Google Fonts lists all three as OFL; the licence files were not read this session |
+| V017 | The card facts in `js/projects.js` | **VERIFIED** | Read 27 Oct 2026 from each repo under `~/Desktop/projects/`. **Commits:** `git rev-list --count HEAD`; Rocket's 525 counts only Vith's own of 528, via `git log --format=%ae`. **Stack:** `package.json` / `pyproject.toml` / imports. **Public or private:** `gh repo view --json visibility`. **One-line descriptions:** each README's opening lines. **Years:** first-commit dates, all in 2026. **Roles, status words and Rocket's dates:** Vith (D005, D013). **Yummers' colour:** `apps/web/src/app/globals.css` `--primary-strong: #B8401E` |
 
 ## Corrections
 
 | # | What was wrong | What's true | Evidence |
 |---|---|---|---|
 | C001 | Opening the site with VS Code Live Server (`127.0.0.1:5500`) looked like the site was broken | Live Server serves the files raw. The browser can't run `/src/main.ts`, so the grid and theme buttons never mount, and the `@fontsource` fonts don't resolve. Use `npm run dev` and `http://localhost:5173` | Vith's screenshot of `127.0.0.1:5500`, 27 Oct 2026: heading in a fallback font, no grid; same page complete on :5173 (V005) |
+| C002 | The prototype described Lavender as "a RePL practical flight trainer, in C#" | Lavender is a Vite + TypeScript drone simulator for the CASA RePL multi-rotor VLOS practical test; the iPhone is the remote control. "c#" was a stray character before the README's `# Lavender` heading, misread as the language | `head -c 60 ~/Desktop/projects/lavender/README.md \| od -c` shows `c #  L a v e n d e r`; `lavender/package.json` lists `vite` and `typescript` |
 
 ## Unverified
 
