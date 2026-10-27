@@ -27,7 +27,7 @@ Tick a box only against evidence.
 
 ## Step 5: Photos, CV and LinkedIn, as they arrive
 - [ ] Each photo: hard rule 5 and R6 check, Vith's approval, alt text. Each into its slot.
-- [ ] The CV: privacy check, then `assets/cv.pdf` and the `CV` link. LinkedIn: the URL into the contact block.
+- [x] The CV: privacy check, then `assets/cv.pdf` and the `CV` link (V039, D042). LinkedIn: the URL into the contact block (confirmed, V038; waits for About).
 - Commit per item: `feat(assets): …` (`Refs: D040, R6`)
 
 ## Step 6: Verification pass

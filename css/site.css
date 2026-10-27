@@ -31,7 +31,9 @@ body { background: var(--scene-fallback); color: var(--ink); font-family: "Hanke
 /* A scrim behind the top bar so its text reads over any photo (criterion 15) */
 .top::before { content: ""; position: absolute; inset: 0 0 -28px; z-index: -1; pointer-events: none;
   background: linear-gradient(rgb(var(--scrim) / .82) 0 62%, rgb(var(--scrim) / 0)); }
-.top nav a { color: var(--ink); text-decoration: none; font-size: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 2px; }
+.top nav { display: flex; gap: 22px; }
+.top nav a { color: var(--ink); text-decoration: none; font-size: 12px; border-bottom: 2px solid transparent; padding-bottom: 2px; }
+.top nav a[aria-current] { border-bottom-color: var(--ink); }
 
 /* The table: a still grid until the physics takes over (and for reduced motion) */
 .table { list-style: none; display: flex; flex-wrap: wrap; gap: 24px; padding: 104px 32px 32px; justify-content: center; --cw: clamp(96px, 11.8vw, 190px); }

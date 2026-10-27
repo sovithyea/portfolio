@@ -518,3 +518,11 @@ Karina's notes prompt names HungryRaccoon, so the demo notes said the meeting "w
 
 - **`specs/3-about-journey/` approved** ("Approve, start interviews"). Phase 3's interviews start now, alongside Phase 2's remaining steps.
 - **Skill links:** "Name the projects". Each skill lists the projects that use it; the big four link to their Phase 2 pages and the rest to Work. The Work page gets no card deep link.
+
+## D042 — The CV: a public version on the site, a private one for employers
+
+*28 Oct 2026 · Vith*
+
+- **Two versions** of Vith's revised CV, identical but for the contact line. The private one, for sending to employers, keeps the phone number and suburb. The public one, linked from the site, says only "Melbourne, Australia" (R6).
+- **Facts settled:** Rocket started in **Jul 2026**, so the Rocket card stays as it is (D022). The degree runs Mar 2025 – Nov 2026. The SCSA presidency ran Nov 2025 – Jun 2026. Every other fact in the draft was confirmed as written ("All correct, keep them").
+- **The CV link** goes in the top bar now ("make the public one a pdf and put onto portfolio"), ahead of About and Journey, so the bar reads `WORK · CV` until those pages exist (D040). Only the current page is underlined.
