@@ -21,7 +21,11 @@ for (const [i, p] of projects.entries()) {
   cards.append(li);
 }
 
+// Scenes (D015, D018): a random one each visit (or ?s=space|water|sky), switchable, credited on a chip
+const scenes = createScenes(document.getElementById('scene'));
+
 const table = mountTable(cards, {
+  scene: scenes,
   onOpen(i) {
     panel.innerHTML = panelHTML(projects[i], i, projects.length);
     panel.style.setProperty('--c', projects[i].colour);
@@ -35,11 +39,7 @@ const table = mountTable(cards, {
 });
 
 addEventListener('keydown', e => { if (e.key === 'Escape' && table.isOpen()) table.close(true); });
-// a tap on empty background closes; preventDefault stops the browser moving focus to the background afterwards
-document.addEventListener('pointerdown', e => { if (table.isOpen() && !e.target.closest('.card, .panel')) { e.preventDefault(); table.close(true); } });
 
-// Scenes (D015, D018): a random one each visit (or ?s=space|water|sky), switchable, credited on a chip
-const scenes = createScenes(document.getElementById('scene'));
 const LABELS = { space: 'Space', water: 'Pond', sky: 'Sky' }, seg = document.getElementById('scene-switch'), credit = document.getElementById('credit');
 function setScene(n) {
   scenes.set(n);
@@ -54,6 +54,21 @@ for (const n of scenes.names) {
 const asked = new URLSearchParams(location.search).get('s');
 setScene(scenes.names.includes(asked) ? asked : scenes.names[Math.floor(Math.random() * scenes.names.length)]);
 if (new URLSearchParams(location.search).has('debug')) window.__scenes = scenes;
+
+// The cursor stirs the background too (D016): a wake on the pond, dust in space, clouds pushed aside
+const onBackground = e => !e.target.closest('.card, .panel, .tools, .top, .credit');
+let lastP = null;
+addEventListener('pointermove', e => {
+  if (!onBackground(e)) { lastP = null; return; }
+  const now = performance.now();
+  if (lastP) { const f = Math.max(1, (now - lastP.t) / 16.67); scenes.pointer(e.clientX, e.clientY, (e.clientX - lastP.x) / f, (e.clientY - lastP.y) / f); }
+  lastP = { x: e.clientX, y: e.clientY, t: now };
+});
+// A tap on the background closes an open card (preventDefault keeps focus from moving to the page), or else pokes the scene
+document.addEventListener('pointerdown', e => {
+  if (table.isOpen()) { if (!e.target.closest('.card, .panel')) { e.preventDefault(); table.close(true); } }
+  else if (onBackground(e)) scenes.poke(e.clientX, e.clientY);
+});
 
 let last = performance.now();
 requestAnimationFrame(function draw(now) { scenes.step(Math.min(2, (now - last) / 16.67)); last = now; requestAnimationFrame(draw); });

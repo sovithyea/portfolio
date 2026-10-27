@@ -49,8 +49,8 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 - Commit: `feat(scenes): pond, space and sky from real photos` (`Refs: D015, D018`)
 
 ## Step 7: Cards and cursor stir the scene
-- [ ] Pond waves (solid cards and pads), splashes, bow waves, koi lure and flee; space dust; clouds pushed by cards and the cursor; parallax.
-- [ ] Check criterion 11.
+- [x] Pond waves (solid cards and pads), splashes, bow waves, koi lure and flee; space dust; clouds pushed by cards and the cursor; parallax.
+- [x] Check criterion 11 (V022).
 - Commit: `feat(scenes): cards and cursor stir the scene` (`Refs: D016, D019`)
 
 ## Step 8: Sound

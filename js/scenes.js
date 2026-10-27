@@ -210,5 +210,6 @@ export function createScenes(cv) {
     lure(x, y) { lure = x === null ? null : { x, y }; },
     pointer(x, y, vx, vy) { ptr = { x, y, at: performance.now() }; scenes[name].pointer(x, y, vx, vy); },
     poke(x, y) { if (!reduce) scenes[name].poke(x, y); },
+    height: (x, y) => (name === 'water' ? water.height(x, y) : 0), // the pond's wave height at a point, for tests
   };
 }

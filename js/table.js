@@ -1,10 +1,11 @@
 // The Work table: drag and throw the cards, run the physics, draw them, and lift a tapped card into the
-// top-left corner where it keeps hovering while its details are open (D009). `?debug` shows the live numbers.
+// top-left corner where it keeps hovering while its details are open (D009). The cards also stir the scene
+// under them (D016, D019): `scene` gets their outlines, wakes, hits and landings. `?debug` shows the live numbers.
 import { createBodies, scatter, step, release } from './physics.js';
 
 const TAP = 6; // px: a press that moves less than this is a tap, not a drag
 
-export function mountTable(list, { onOpen, onClose } = {}) {
+export function mountTable(list, { onOpen, onClose, scene } = {}) {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const cards = [...list.querySelectorAll('.card')];
   const bodies = createBodies(cards.length);
@@ -59,12 +60,14 @@ export function mountTable(list, { onOpen, onClose } = {}) {
       g.lx = e.clientX; g.ly = e.clientY; g.lt = now;
       g.moved = Math.max(g.moved, Math.hypot(e.clientX - g.sx, e.clientY - g.sy));
       b.x = Math.min(bounds.r - w, Math.max(bounds.l, e.clientX - g.ox)); b.y = Math.min(bounds.b - h, Math.max(bounds.t, e.clientY - g.oy));
+      scene?.lure(b.x + w / 2, b.y + h / 2); // koi follow the card you're holding
     });
     const up = () => {
       if (!g) return;
       b.drag = false; card.classList.remove('drag');
       release(b, performance.now() - g.lt);
-      if (g.moved < TAP) { log.taps++; open(i); }
+      scene?.lure(null);
+      if (g.moved < TAP) { log.taps++; open(i); } else scene?.splash(b.x, b.y, w, h, 3);
       g = null;
     };
     card.addEventListener('pointerup', up);
@@ -77,12 +80,17 @@ export function mountTable(list, { onOpen, onClose } = {}) {
   const log = { frames: 0, hits: 0, taps: 0, outOfBounds: 0, minSpeed: Infinity, maxSpeed: 0 };
   let panel;
   if (debug) { panel = document.createElement('pre'); panel.className = 'debug mono'; document.body.append(panel); window.__table = { bodies, log, bounds: () => bounds, size: () => ({ w, h }), open, close }; }
-  const onHit = () => { log.hits++; };
+  const onHit = (b, axis, s, x, y) => { log.hits++; scene?.impact(x, y, s); };
 
   let last = performance.now();
   function frame(now) {
     const dt = Math.min(2, (now - last) / 16.67); last = now; t += dt;
-    step(openB ? bodies.filter(b => b !== openB) : bodies, { dt, bounds, w, h, drift: !reduce, reduce, onHit });
+    const live = openB ? bodies.filter(b => b !== openB) : bodies;
+    step(live, { dt, bounds, w, h, drift: !reduce, reduce, onHit });
+    if (scene) { // cards on the table are solid to the pond's waves; moving ones push water and cloud
+      scene.solids(live.filter(b => !b.drag).map(b => [b.x, b.y, w, h]));
+      for (const b of live) if (!b.drag && Math.abs(b.vx) + Math.abs(b.vy) > 1.2) scene.wake(b.x, b.y, b.vx, b.vy, w, h);
+    }
     if (openB) { // spring to the corner, then hover there
       const b = openB, k = reduce ? 1 : 1 - Math.pow(0.88, dt), tx = narrow ? 16 : 24;
       b.x += (tx - b.x) * k; b.y += (80 - b.y) * k; b.rot += (-2 - b.rot) * k; b.s += (openScale() - b.s) * k;
