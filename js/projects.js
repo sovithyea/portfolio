@@ -91,6 +91,14 @@ export const projects = [
     line: 'Turns a book into a full-cast audiobook with free, local AI.',
     facts: [['Year', '2026'], ['Role', 'Solo'], ['Built with', 'Python, FastAPI'], ['Commits', '15']],
     links: [['Code', 'https://github.com/sovithyea/hermes']],
+    cover: 2,
+    // Hermes's own web app on a library holding only Pride and Prejudice (public domain), ElevenLabs off (V036, D038)
+    shots: [
+      shot('hermes', 'library', 'Library', 'Hermes\'s library page, "Your audiobooks": add a book file or scan a printed book, with Pride and Prejudice below', 'desktop'),
+      shot('hermes', 'book', 'A book', 'Pride and Prejudice in Hermes: three steps, Read, Check and Voice, above the chapter list, with chapters 1 to 3 ready to voice', 'desktop'),
+      shot('hermes', 'chapter', 'Who says what', 'Chapter III of Pride and Prejudice line by line, each quote tagged with its speaker, Mrs. Bennet, Mr. Bingley or Mr. Darcy, and a type and emotion', 'desktop'),
+      shot('hermes', 'chapter-more', 'Speakers and moods', 'Further into the chapter: Mr. Darcy\'s lines marked cold and Mr. Bingley\'s marked excited, each with a play button', 'desktop'),
+    ],
   },
   {
     name: 'Small tools', status: 'TOOLS', colour: '#3B3F47',

@@ -488,3 +488,9 @@ Vith: "i dislike the sound the site makes when i turn on and off the sound", the
 *28 Oct 2026 · Vith*
 
 Vith approved the dry-run capture ("Use it"): the printed summary of a run over eight made-up emails, then each email's category, confidence and actions from the run log, including one real guardrail override. It sits fourth on the Small tools shelf, labelled as a dry run on demo mail (D033). The frame is a rendered page in a terminal style, not a Terminal window (V035).
+
+## D038 — Hermes's screens
+
+*28 Oct 2026 · Vith*
+
+Vith chose four of five captures, all of Pride and Prejudice: the library, the book page, and two views of Chapter III's who-says-what. Cover: **"3 Chapter III"**. The Cast page wasn't chosen. Nothing on the card names ElevenLabs (D034).
