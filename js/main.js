@@ -2,6 +2,7 @@ import { projects } from './projects.js';
 import { mountTable } from './table.js';
 import { panelHTML } from './panel.js';
 import { createScenes } from './scenes.js';
+import { createSound } from './sound.js';
 
 const cards = document.getElementById('cards'), panel = document.getElementById('panel');
 
@@ -23,9 +24,10 @@ for (const [i, p] of projects.entries()) {
 
 // Scenes (D015, D018): a random one each visit (or ?s=space|water|sky), switchable, credited on a chip
 const scenes = createScenes(document.getElementById('scene'));
+const sound = createSound(); // off until the visitor presses Sound (D016)
 
 const table = mountTable(cards, {
-  scene: scenes,
+  scene: scenes, sound,
   onOpen(i) {
     panel.innerHTML = panelHTML(projects[i], i, projects.length);
     panel.style.setProperty('--c', projects[i].colour);
@@ -53,7 +55,10 @@ for (const n of scenes.names) {
 }
 const asked = new URLSearchParams(location.search).get('s');
 setScene(scenes.names.includes(asked) ? asked : scenes.names[Math.floor(Math.random() * scenes.names.length)]);
-if (new URLSearchParams(location.search).has('debug')) window.__scenes = scenes;
+if (new URLSearchParams(location.search).has('debug')) Object.assign(window, { __scenes: scenes, __sound: sound });
+
+const soundBtn = document.getElementById('sound');
+soundBtn.addEventListener('click', () => { const on = sound.toggle(); soundBtn.setAttribute('aria-pressed', String(on)); soundBtn.textContent = on ? 'Sound on' : 'Sound off'; });
 
 // The cursor stirs the background too (D016): a wake on the pond, dust in space, clouds pushed aside
 const onBackground = e => !e.target.closest('.card, .panel, .tools, .top, .credit');
@@ -67,7 +72,7 @@ addEventListener('pointermove', e => {
 // A tap on the background closes an open card (preventDefault keeps focus from moving to the page), or else pokes the scene
 document.addEventListener('pointerdown', e => {
   if (table.isOpen()) { if (!e.target.closest('.card, .panel')) { e.preventDefault(); table.close(true); } }
-  else if (onBackground(e)) scenes.poke(e.clientX, e.clientY);
+  else if (onBackground(e)) { scenes.poke(e.clientX, e.clientY); sound.play({ water: 'land', space: 'dust', sky: 'puff' }[scenes.get()], 6); }
 });
 
 let last = performance.now();

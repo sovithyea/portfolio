@@ -104,6 +104,7 @@ main { position: relative; z-index: 1; }
 .seg { display: flex; padding: 4px; border-radius: 999px; background: var(--chip); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 .seg button { min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: none; color: var(--ink); font-size: 11px; font-weight: 600; text-transform: uppercase; cursor: pointer; }
 .seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+.tool { min-height: 44px; padding: 0 16px; border: 2px solid var(--ink); border-radius: 999px; background: var(--chip); color: var(--ink); font-size: 11px; font-weight: 600; text-transform: uppercase; cursor: pointer; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 .credit { position: fixed; left: 24px; bottom: 18px; z-index: 30; max-width: 52ch; padding: 6px 10px; border-radius: 8px; color: var(--ink); font-size: 10px; line-height: 1.5; }
 .credit a { color: inherit; }
 body.dim .credit, body.dim .tools { z-index: 30; }

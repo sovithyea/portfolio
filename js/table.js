@@ -5,7 +5,7 @@ import { createBodies, scatter, step, release } from './physics.js';
 
 const TAP = 6; // px: a press that moves less than this is a tap, not a drag
 
-export function mountTable(list, { onOpen, onClose, scene } = {}) {
+export function mountTable(list, { onOpen, onClose, scene, sound } = {}) {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const cards = [...list.querySelectorAll('.card')];
   const bodies = createBodies(cards.length);
@@ -32,6 +32,7 @@ export function mountTable(list, { onOpen, onClose, scene } = {}) {
     openB = bodies[i];
     cards.forEach((c, k) => { c.inert = k !== i; c.classList.toggle('open', k === i); });
     document.body.classList.add('dim');
+    sound?.play('open');
     onOpen?.(i);
   }
   function close(restoreFocus) {
@@ -41,7 +42,7 @@ export function mountTable(list, { onOpen, onClose, scene } = {}) {
     document.body.classList.remove('dim');
     const a = Math.random() * Math.PI / 2; b.vx = reduce ? 0 : Math.cos(a) * 6; b.vy = reduce ? 0 : Math.sin(a) * 6; // back out onto the table
     onClose?.(b.i, restoreFocus);
-    if (restoreFocus) cards[b.i].focus({ preventScroll: true });
+    if (restoreFocus) { cards[b.i].focus({ preventScroll: true }); sound?.play('close'); }
   }
 
   cards.forEach((card, i) => {
@@ -67,7 +68,8 @@ export function mountTable(list, { onOpen, onClose, scene } = {}) {
       b.drag = false; card.classList.remove('drag');
       release(b, performance.now() - g.lt);
       scene?.lure(null);
-      if (g.moved < TAP) { log.taps++; open(i); } else scene?.splash(b.x, b.y, w, h, 3);
+      if (g.moved < TAP) { log.taps++; open(i); }
+      else { scene?.splash(b.x, b.y, w, h, 3); const s = Math.hypot(b.vx, b.vy); if (s > 6) sound?.play('throw', s * 0.3); else if (scene?.get() === 'water') sound?.play('land', 3); }
       g = null;
     };
     card.addEventListener('pointerup', up);
@@ -80,7 +82,7 @@ export function mountTable(list, { onOpen, onClose, scene } = {}) {
   const log = { frames: 0, hits: 0, taps: 0, outOfBounds: 0, minSpeed: Infinity, maxSpeed: 0 };
   let panel;
   if (debug) { panel = document.createElement('pre'); panel.className = 'debug mono'; document.body.append(panel); window.__table = { bodies, log, bounds: () => bounds, size: () => ({ w, h }), open, close }; }
-  const onHit = (b, axis, s, x, y) => { log.hits++; scene?.impact(x, y, s); };
+  const onHit = (b, axis, s, x, y) => { log.hits++; scene?.impact(x, y, s); sound?.play('hit', s); };
 
   let last = performance.now();
   function frame(now) {

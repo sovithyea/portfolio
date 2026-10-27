@@ -54,8 +54,8 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 - Commit: `feat(scenes): cards and cursor stir the scene` (`Refs: D016, D019`)
 
 ## Step 8: Sound
-- [ ] `js/sound.js` with the nine picks, off until SOUND is pressed.
-- [ ] Check criterion 13. Vith listens.
+- [x] `js/sound.js` with the nine picks, off until SOUND is pressed.
+- [x] Check criterion 13 for eight moments (V023). TIDY UP's sound is checked with TIDY UP in Step 9. Vith listens.
 - Commit: `feat(sound): the nine picked sounds` (`Refs: D020, D021`)
 
 ## Step 9: TIDY UP, shake, hint, phones
