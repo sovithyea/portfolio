@@ -469,7 +469,7 @@ Vith: "i dislike the sound the site makes when i turn on and off the sound", the
 
 *28 Oct 2026 · Vith*
 
-- **Lavender:** Vith chose four of five captures: chase camera in flight, the guided box exercise, the top-down camera and the training menu. The phone controller wasn't chosen. Cover: the box exercise (confirmed in D036).
+- **Lavender:** Vith chose four of five captures: chase camera in flight, the guided box exercise, the top-down camera and the training menu. The phone controller wasn't chosen. Cover: the box exercise, provisionally (Claude's pick, pending Vith).
 - **Prompt Polish:** "Use the store shots". Vith's own Chrome Web Store screenshots are used, after a privacy check, instead of fresh captures.
 - **Hermes:** shown with Pride and Prejudice (public domain), not the other books in its library.
 - **Karina:** run on a separate, empty data folder with the made-up meeting, if Karina supports one, so the real `data/voices` and `data/meetings` are never opened (R5).
