@@ -456,3 +456,11 @@ Vith: "i dislike the sound the site makes when i turn on and off the sound", the
 - **FoodRaccoon:** "Skip it". Its card keeps "screens to come", because its database holds real v1 users.
 - **Karina and Gmail Sorter:** "Demo content". A short made-up meeting (synthetic voices) runs through Karina, and Gmail Sorter runs over a few made-up emails. Every such picture is captioned as demo content, so nothing passes itself off as real use (hard rule 4 spirit).
 - **Pages:** a calm, still backdrop. **Interviews:** in chat, one project at a time ("Calm backdrop, chat").
+
+## D034 — Phase 2 approved; screens first; Hermes and SongRaccoon
+
+*28 Oct 2026 · Vith*
+
+- **`specs/2-project-pages/` approved as written** ("Approve as is"). Work follows the plan's order, starting with screens for the cards ("Screens first").
+- **Hermes:** "i used eleven labs but dont showcase it". Hermes's screens are captured without calling ElevenLabs (the local voice, or no voice), and nothing on the site names ElevenLabs.
+- **SongRaccoon:** "Check it works first". Claude only checks that the live site still loads and reports back. Nothing paid and no Spotify login happens until Vith says so.

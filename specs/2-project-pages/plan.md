@@ -1,6 +1,6 @@
 # Phase 2: build plan
 
-**Status:** Draft, 27 Oct 2026. It starts only after Vith approves `spec.md` and answers its Open Questions.
+**Status:** Approved by Vith, 28 Oct 2026 (D034). Being built.
 
 Tick a box only against evidence. Keep the spending tally in VERIFIED as each paid call happens (cap $5, D032).
 

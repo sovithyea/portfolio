@@ -1,6 +1,6 @@
 # Phase 2: pages for the big four, and screens for every card
 
-**Status:** Draft, 27 Oct 2026, Open Questions answered (D033). Waiting on Vith's approval. No code until Vith approves it (hard rule 1).
+**Status:** Approved by Vith, 28 Oct 2026 (D034). Open Questions answered (D033).
 
 ## Context
 
