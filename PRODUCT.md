@@ -30,7 +30,7 @@ Real pictures of real work. Not a template portfolio with stock art and claims n
 
 ## Operating Context
 
-- **From a link, on a phone:** the first screen has to say who Vith is and show work right away.
+- **From a link, on a phone:** the first screen shows Vith's name and the work right away. Who Vith is lives on About (D025).
 - **On a laptop, looking closer:** a project's screens are big enough to read.
 
 ## Capabilities and Constraints

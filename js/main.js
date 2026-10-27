@@ -4,7 +4,7 @@ import { panelHTML } from './panel.js';
 import { createScenes } from './scenes.js';
 import { createSound } from './sound.js';
 
-const cards = document.getElementById('cards'), panel = document.getElementById('panel');
+const cards = document.getElementById('cards'), panel = document.getElementById('panel'), hint = document.getElementById('hint');
 
 for (const [i, p] of projects.entries()) {
   const li = document.createElement('li');
@@ -16,7 +16,7 @@ for (const [i, p] of projects.entries()) {
   card.setAttribute('aria-label', `No. ${i + 1}, ${p.name}, ${p.status.toLowerCase()}: open details`);
   const cover = p.shots?.[p.cover ?? 0];
   card.innerHTML = `<span class="card-in"><span class="no mono">No. ${i + 1}</span><span class="status mono">${p.status}</span>${
-    cover ? `<img class="shot" src="${cover.src}" alt="" width="${cover.kind === 'desktop' ? 1600 : 828}" height="${cover.kind === 'desktop' ? 1000 : 1792}"${p.coverPos ? ` style="object-position:${p.coverPos}"` : ''}>` : `<span class="empty mono">${p.name}<br>screens to come</span>`
+    cover ? `<img class="shot" src="${cover.src}" alt="" width="${cover.kind === 'desktop' ? 1600 : 828}" height="${cover.kind === 'desktop' ? 1000 : 1792}"${p.coverPos ? ` style="object-position:${p.coverPos}"` : ''}>` : `<span class="empty"><span class="empty-line">${p.line}</span><span class="mono">screens to come</span></span>`
   }<span class="name slab">${p.name}</span></span>`;
   li.append(card);
   cards.append(li);
@@ -29,8 +29,10 @@ const sound = createSound(); // off until the visitor presses Sound (D016)
 const table = mountTable(cards, {
   scene: scenes, sound,
   onOpen(i) {
+    hint.classList.add('gone'); // however the card was opened
     panel.innerHTML = panelHTML(projects[i], i, projects.length);
     panel.style.setProperty('--c', projects[i].colour);
+    panel.style.setProperty('--band', projects[i].band || projects[i].colour);
     panel.hidden = false;
     panel.scrollTop = 0;
     panel.querySelector('[data-close]').addEventListener('click', () => table.close(true));
@@ -47,7 +49,7 @@ function setScene(n) {
   scenes.set(n);
   document.body.classList.toggle('ui-dark', scenes.isDark()); document.body.classList.toggle('ui-light', !scenes.isDark());
   for (const b of seg.children) b.setAttribute('aria-pressed', String(b.dataset.s === n));
-  credit.innerHTML = 'Photos: ' + scenes.credit();
+  credit.innerHTML = `Photos: ${scenes.credit()} · Sounds: Gravity Sound and Valera N. Trubin, CC BY 4.0 · <a href="assets/CREDITS.md">All credits</a>`;
 }
 for (const n of scenes.names) {
   const b = document.createElement('button'); b.type = 'button'; b.className = 'mono'; b.textContent = LABELS[n]; b.dataset.s = n;
@@ -62,7 +64,6 @@ soundBtn.addEventListener('click', () => { const on = sound.toggle(); soundBtn.s
 document.getElementById('tidy').addEventListener('click', () => table.tidy());
 
 // The hint shows until the first touch (D014)
-const hint = document.getElementById('hint');
 addEventListener('pointerdown', () => hint.classList.add('gone'), { once: true });
 
 // Shake to deal on phones (D014). iPhones need a tap to grant motion access first.

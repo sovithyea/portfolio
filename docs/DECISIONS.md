@@ -338,3 +338,11 @@ Vith: "Faded brick", "Keep all four", "Yes, border + deeper band". For the Rocke
 Vith chose all seven captures: dark and light start screens, the program read-out, a question about the program (desktop and phone), and the phone start screen. Cover: **"3: program read-out"**, Athena's step-by-step reading beside the SPIKE blocks. The chat replies in two of them come from the demo's stub model, not the live AI (V018). Captions never claim otherwise.
 
 Desktop screens are landscape (1600×1000), so the details panel shows them in a plain browser frame and phone screens in a device frame (DESIGN-SYSTEM rule 5).
+
+## D025 — The Work page doesn't introduce Vith; About does
+
+*27 Oct 2026 · Vith (answer given during the 27 Oct question rounds, logged late)*
+
+Asked "Should the Work page say who you are, beyond your name?", Vith answered **"No, About does that"**. The Work page shows only the name in the top bar. Who Vith is (Computer Science (AI) at Swinburne, and so on) belongs on the About page (Phase 3).
+
+This answer was missed when D013–D015 were written. It surfaced when the impeccable finish reviewer asked for an intro line on the first screen, citing PRODUCT.md's "the first screen has to say who Vith is". The owner's answer stands. PRODUCT.md's line is amended to point at the name in the top bar and at About.

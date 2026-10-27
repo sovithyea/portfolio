@@ -30,15 +30,31 @@ A change to anything in this file is a decision: it gets a D-number first, then 
 
 ## Tokens
 
-*Not set. Phase 1 writes them here from the built CSS (`specs/1-work-table/plan.md`, Step 6).*
+From `css/site.css` as built in Phase 1. The scene sets the UI ink (rule 2): `ui-dark` over Space, Pond and the night sky; `ui-light` over the day sky. Contrast is checked against the worst case behind each surface (V025, C004).
 
-| Token | Light | Dark | Role | Contrast |
+| Token | `ui-dark` | `ui-light` | Role | Worst-case contrast |
 |---|---|---|---|---|
+| `--ink` | `#f1f0ec` | `#141414` | Text, borders, focus ring | — |
+| `--sub` | `#c0c2cc` | `#4d4b47` | Secondary text in the panel | 9.48 / 7.78:1 on `--panel` |
+| `--panel` | `#1b1d24` | `#f4f2ee` | The open card's details | ink 14.76 / 16.48:1 |
+| `--chip` | `rgb(15 17 24 / .7)` | `rgb(255 255 255 / .7)` | Credits, hint, scene switch, tool buttons, blurred | ink 6.19:1 over white / 8.74:1 over black |
+| `--scrim` | `8 10 16` at 82% | `255 255 255` at 82% | Gradient behind the top bar | ink 10.58 / 12.08:1 |
+| `--paper` | `#ffffff` | same | Card face | — |
+| `--empty-ink` on the stripes | `#6f6c66` on `#f4f2ee` / `#fff` | same | "screens to come" | 4.68 / 5.23:1 |
+| Card colours | per project (D023) | same | Border and name band; white name | 5.54–11.67:1 |
 
 ## Typography
 
-*Proposed in `specs/1-work-table/`:* Zilla Slab (names, headings), Martian Mono (facts, labels, buttons), Hanken Grotesk (body), all self-hosted. The first brief's fonts don't carry over.
+| Face | Weights | Use |
+|---|---|---|
+| Zilla Slab | 600, 700 | Names and headings, uppercase, +0.02em tracking |
+| Martian Mono | 400–600 | Badges, labels, buttons, facts, uppercase |
+| Hanken Grotesk | 400–600 | Body text and lines |
+
+All three are self-hosted, Latin subset, with `font-display: swap` (`assets/fonts/`, OFL). Fallbacks: Rockwell/Georgia, ui-monospace/Menlo, system-ui.
 
 ## Layout patterns
 
-*Set by the phase spec.* The reference for project sections is yummersapp.com: a headline on one side, and on the other three device-framed screens, each with a short title and one line under it (VERIFIED, V004).
+- **Work (Phase 1):** cards float over the scene. An opened card hovers in the top-left at 1.3× (1× on phones), and its details panel fills the rest: beside the card on desktop, a bottom sheet under it below 760 px.
+- **Store-listing panel (D011):** a title block with links, a fact strip between two 2 px rules, then a horizontal shelf of numbered screens. Phone shots sit in a 5 px device frame; desktop shots in a browser frame with three dots.
+- **Controls:** scene switch, Sound and Tidy up on chips at the bottom right (one row on phones); credits bottom-left; the hint centred (top on narrow screens).

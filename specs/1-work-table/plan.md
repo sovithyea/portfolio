@@ -64,10 +64,10 @@ Run every step against `python3 -m http.server 8000`, and check moving behaviour
 - Commit: `feat(work): tidy up, shake to deal and phone layout` (`Refs: D014, D015`)
 
 ## Step 10: Verification pass
-- [ ] Rerun criteria 1–19 and record each in VERIFIED with its evidence.
-- [ ] Run impeccable `detect.mjs` once, then the finish reviewer (criterion 20), and fix what it returns.
-- [ ] Write the token table and type into `docs/DESIGN-SYSTEM.md` from the built CSS.
-- [ ] Add a PROGRESS session entry.
+- [x] Rerun criteria 1–19 and record each in VERIFIED with its evidence (V019–V025; contrast method C004).
+- [x] Run impeccable `detect.mjs` once (V026, degraded), then the finish reviewer (criterion 20), and fix what it returns (V027).
+- [x] Write the token table and type into `docs/DESIGN-SYSTEM.md` from the built CSS.
+- [x] Add a PROGRESS session entry.
 - Commit: `docs: phase 1 verification` (`Refs:` the V and C numbers added)
 
 ## Stop for review

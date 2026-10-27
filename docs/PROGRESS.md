@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 27 Oct 2026, evening (prototype iterated to D021; spec v2 drafted; waiting on Vith's review)
+**Last updated:** 27 Oct 2026, late (Phase 1 built and verified; waiting on Vith's review)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -12,21 +12,46 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **Sound:** off by default, using Vith's nine picks.
 - **The prototype:** saved at `~/Desktop/projects/portfolio-prototype/` (D022). Serve it with `python3 -m http.server 8765` there and open `/visual/cards.html`.
 
-**`specs/1-work-table/` was approved by Vith on 27 Oct 2026, and the build is in progress.** `src/` still holds the old brief's code; plan Step 1 clears it.
+**Phase 1 (`specs/1-work-table/`) is built and verified, and stopped for Vith's review.** Run `python3 -m http.server 8000` and open `http://localhost:8000`. Nothing is pushed. `src/` still holds the old brief's code; plan Step 1 clears it.
 
 ### Phases
 
 | # | Phase | Status |
 |---|---|---|
-| 1 | Work page (`specs/1-work-table/`) | Approved 27 Oct; building (Claude) |
+| 1 | Work page (`specs/1-work-table/`) | Built and verified 27 Oct; waiting on Vith's review |
 | 2 | Pages for the big four (Yummers, Athena, Rocket, SongRaccoon), plus capturing their screenshots | Not specced |
 | 3 | About, Journey (interviewing Vith, D007), the CV PDF, contact links | Not specced |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |
 
 ### Waiting on Vith
 
+0. **Review Phase 1** on desktop and on a real phone. Only a person can judge four things:
+   - how the sounds sound;
+   - shake on an iPhone;
+   - stillness with reduced motion on;
+   - the overall feel.
+
+   Also decide whether to fund a third reviewer verdict on the last two fixes (V027), and whether to add the reviewer's optional sheen and printed keyline.
 1. **The "10 photos"** mentioned earlier never came through.
 2. **LinkedIn URL and the CV PDF** (Phase 3).
+
+## 2026-10-27 (late) — Phase 1 built
+
+- **Plan steps 0–10 done, in eleven commits.** Docs; old code cleared; assets; static page; physics (Vith signed off the numbers); open card; scenes; cards stir the scenes; sound; tidy, shake and phones; verification.
+- **Rocket:** seven screens captured from Rocket's local demo with the stub model and LEGO lesson fixtures. Vith chose all seven (D024).
+- **Corrections:**
+  - **C002:** Lavender is TypeScript, not C#.
+  - **C003:** idle cards drift at about 0.28 px/frame; criterion 4 corrected.
+  - **C004:** contrast is computed against the worst-case photo; the top bar got a scrim.
+- **Bugs the checks caught and fixed:**
+  - the pond loaded in every scene;
+  - the day sky loaded the night photos;
+  - background taps lost focus, then both closed a card and poked the scene;
+  - the shelf stretched desktop frames;
+  - the credit chip collapsed on phones;
+  - the two recorded sounds weren't credited on the page.
+- **Finish review:** two rounds (V027). D025 logged: the Work page doesn't introduce Vith; About does.
+- **Not verifiable headless; Vith checks:** sound quality, iPhone shake, reduced-motion stillness, real-phone feel.
 
 ## 2026-10-27 (evening) — scenes, real photos, sounds, spec v2
 
