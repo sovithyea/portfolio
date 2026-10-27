@@ -18,10 +18,10 @@ Vith's personal portfolio site: a showcase of Vith's relevant projects, each sho
 ## Commands
 
 ```bash
-npm run dev         # Vite dev server: open http://localhost:5173, NOT VS Code Live Server (C001)
-npm run build       # typecheck + production build
-npm run typecheck
+python3 -m http.server 8000   # from the repo root, then open http://localhost:8000
 ```
+
+No build step and no dependencies (D006). Serve it over HTTP rather than opening the file, because ES modules and audio decoding need it. VS Code Live Server works too, but it was the cause of C001 under the old Vite setup, so check the URL.
 
 ## Read before doing anything
 
@@ -90,9 +90,9 @@ Process docs use RFC 2119 keywords: MUST is rejectable at review, and SHOULD nee
 ```
 docs/            progress, decisions, verified facts, risks, workflow, design system, old brief
 specs/N-name/    spec.md + plan.md per phase
-index.html       home entry (Vite multi-page)
-journey/         second entry from the old brief; its future is an open question
-src/             code from the old brief's Phases 1–2 (unreviewed against D001–D003)
+index.html       the Work page (Phase 1)
+css/  js/        site styles and ES modules
+assets/          scene photos and sprites, sounds, screenshots, fonts; CREDITS.md lists every source
 ```
 
 ## Working here
