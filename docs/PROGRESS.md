@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 27 Oct 2026, late (Phase 1 done and passed; card finishes D026–D031; Phase 2 starting)
+**Last updated:** 27 Oct 2026, end of session (Phase 1 done; Phase 2 spec drafted, waiting on Vith's approval)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -19,21 +19,24 @@ Running ledger. Updated at the end of every working session so state survives ac
 | # | Phase | Status |
 |---|---|---|
 | 1 | Work page (`specs/1-work-table/`) | Done: passed by Vith 27 Oct |
-| 2 | Pages for the big four (Yummers, Athena, Rocket, SongRaccoon), plus capturing their screenshots | Questions under way (Claude) |
+| 2 | Pages for the big four, plus screens for every card (`specs/2-project-pages/`) | Spec drafted, questions answered (D032, D033); waiting on Vith's approval |
 | 3 | About, Journey (interviewing Vith, D007), the CV PDF, contact links | Not specced |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |
 
 ### Waiting on Vith
 
-0. **Review Phase 1** on desktop and on a real phone. Only a person can judge four things:
-   - how the sounds sound;
-   - shake on an iPhone;
-   - stillness with reduced motion on;
-   - the overall feel.
+1. **Approve `specs/2-project-pages/`.** On approval, start at plan Step 1 (screens for the cards).
+2. **An Athena demo account.** Athena's screens and recording wait for it (D033, R5).
+3. **Real-device checks of Phase 1:** sound, iPhone shake, reduced motion, the phone feel.
+4. **The push:** every commit is unpushed, and the repo is public (hard rule 8).
+5. **For Phase 3:** a LinkedIn URL and the CV PDF. The "10 photos" from 27 Oct never arrived.
 
-   Also decide whether to fund a third reviewer verdict on the last two fixes (V027), and whether to add the reviewer's optional sheen and printed keyline.
-1. **The "10 photos"** mentioned earlier never came through.
-2. **LinkedIn URL and the CV PDF** (Phase 3).
+### For the next session
+
+- **Run the site:** `python3 -m http.server 8000`, then open `http://localhost:8000`.
+- **Tests:** `node --test tests/*.test.mjs` runs the physics tests.
+- **Browser checks:** the CDP harness is saved in `~/Desktop/projects/portfolio-prototype/harness/`. `cdp.mjs` is the driver; `check-*.mjs` are the Phase 1 checks (open, tidy, sound, scenes, waves, final), and they expect the site on :8000.
+- **Today's mocks** (finishes, game cards, ultra rare, page styles) are in `~/Desktop/projects/portfolio-prototype/mocks/`. They load assets from a server rooted at the old scratchpad, so they need the repo's `css/` and `assets/` beside them to render.
 
 ## 2026-10-27 (late) — after Phase 1: card finishes, animations, sound
 
