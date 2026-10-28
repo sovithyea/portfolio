@@ -33,6 +33,8 @@ Running ledger. Updated at the end of every working session so state survives ac
 
 ### For the next session
 
+- **New card to add (D043):** the World Cup 2026 Match Predictor, as a tenth card with real screens. Needs its repo found and a capture with Vith's OK; not yet specced into a phase.
+
 - **Plan Step 1 is waiting on SongRaccoon and Athena only.** FoodRaccoon is skipped (D033). Step 2 (recordings) can start with Yummers and Rocket.
 - **Capture scripts** for Phase 2 are in `~/Desktop/projects/portfolio-prototype/captures/` (Lavender controller, Gmail Sorter dry run, Hermes and Karina launchers, the made-up meeting).
 

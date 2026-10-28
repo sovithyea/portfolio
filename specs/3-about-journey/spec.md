@@ -18,7 +18,7 @@ The Work page shows the projects and only Vith's name (D025). Who Vith is, how V
 2. **About (`/about/`):**
    - **Intro:** 2–3 lines on who Vith is: study, what Vith builds, what Vith is after.
    - **Photo:** one real photo of Vith, supplied by Vith. Until then, a labelled empty slot (hard rule 4).
-   - **Skills and tools:** languages and tools, each naming the projects that use it. A skill with no project behind it isn't listed.
+   - **Skills and tools:** languages and tools, each naming the projects that use it. A skill with no project behind it isn't listed, except under "Beyond code" (leading, events, teaching), whose lines point to Journey instead (D043).
    - **A short timeline:** 4–5 key moments from Journey, then a "Full journey" link.
    - **Contact:** email, GitHub, LinkedIn and the CV, as plain links. No form (D007).
 3. **Journey (`/journey/`):** a timeline of dated milestones from Vith's life, oldest first, each a heading and one or two lines. Some have a real photo; the rest have none and no stand-in.

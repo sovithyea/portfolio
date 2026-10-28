@@ -526,3 +526,10 @@ Karina's notes prompt names HungryRaccoon, so the demo notes said the meeting "w
 - **Two versions** of Vith's revised CV, identical but for the contact line. The private one, for sending to employers, keeps the phone number and suburb. The public one, linked from the site, says only "Melbourne, Australia" (R6).
 - **Facts settled:** Rocket started in **Jul 2026**, so the Rocket card stays as it is (D022). The degree runs Mar 2025 – Nov 2026. The SCSA presidency ran Nov 2025 – Jun 2026. Every other fact in the draft was confirmed as written ("All correct, keep them").
 - **The CV link** goes in the top bar now ("make the public one a pdf and put onto portfolio"), ahead of About and Journey, so the bar reads `WORK · CV` until those pages exist (D040). Only the current page is underlined.
+
+## D043 — About: "Beyond code" stays; the World Cup Predictor becomes a card
+
+*28 Oct 2026 · Vith*
+
+- **"Beyond code" is kept** ("Keep it"): leading SCSA, running events, and teaching Rocket's Minecraft camps. It amends the Phase 3 spec's rule that every skill names a project: these lines point to their Journey milestones instead.
+- **The World Cup 2026 Match Predictor gets a card** ("Yes, add a card"), so its ML skills (XGBoost, scikit-learn) can be listed on About. It is a tenth card with real screens, done as its own step once its repo is found. Until then, those skills stay off About.

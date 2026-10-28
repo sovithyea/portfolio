@@ -5,8 +5,8 @@
 Tick a box only against evidence.
 
 ## Step 1: About interview
-- [ ] Interview Vith in chat: study, what Vith builds, what Vith is after, and the skills Vith wants listed. Draft the intro and the skills list from the answers and the VERIFIED "Built with" facts.
-- [ ] **Stop: Vith approves every line.** Record the approvals in VERIFIED.
+- [x] Interview Vith in chat: study, what Vith builds, what Vith is after, and the skills Vith wants listed. Draft the intro and the skills list from the answers and the VERIFIED "Built with" facts.
+- [x] **Stop: Vith approves every line.** Record the approvals in VERIFIED (V040).
 - Commit: `docs: approved copy for About` (`Refs: D040`)
 
 ## Step 2: Journey interview
