@@ -28,7 +28,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 1. **SongRaccoon:** the live site loads (V032). Say whether to go further: a playlist needs your Spotify login and one paid call.
 2. **An Athena demo account.** Athena's screens and recording wait for it (D033, R5).
 3. **Real-device checks of Phase 1:** sound, iPhone shake, reduced motion, the phone feel.
-4. **The push:** every commit is unpushed, and the repo is public (hard rule 8).
+4. **Pushed:** `main` went to GitHub (public, `sovithyea/portfolio`) on 28 Oct 2026, with Vith's OK, to continue on another device. Before the first push the full history was scanned for private details, and V039's search terms (phone prefix, suburb, postcode) were rewritten out of the three commits that held them. Later pushes still need Vith's say-so (hard rule 8).
 5. **For Phase 3:** photos, into `~/Desktop/portfolio-photos/` (empty). LinkedIn photos can't be fetched (V038, below). Pick one of the 3 About/Journey design mocks.
 
 ### For the next session
@@ -51,7 +51,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **CV:** revised from Vith's `.docx` in two versions (D042); Vith settled every fact (Rocket from Jul 2026, degree Mar 2025 – Nov 2026, SCSA president to Jun 2026). The public PDF is `assets/cv.pdf`, linked from the top bar (`WORK · CV`), privacy-checked (V039).
 - **About copy approved** line by line: intro, fact strip, skills (V040). "Beyond code" kept; the World Cup 2026 Predictor is to become a card (D043).
 - **Harness:** `check-open.mjs` now starts from the last top-bar link.
-- **Unpushed:** all commits.
+- **Pushed** to GitHub at the end of the session (front page, item 4).
 
 ## 2026-10-28 — Phase 2 approved; screens for the cards
 
