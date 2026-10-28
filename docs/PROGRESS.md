@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 28 Oct 2026, end of session (Phase 2 approved; Step 1 screens done for every card that can be captured now)
+**Last updated:** 28 Oct 2026, end of session (Phase 3: About copy approved, CV on the site; About/Journey design needs 3 new mocks)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -20,7 +20,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 |---|---|---|
 | 1 | Work page (`specs/1-work-table/`) | Done: passed by Vith 27 Oct |
 | 2 | Pages for the big four, plus screens for every card (`specs/2-project-pages/`) | Approved (D034). Step 1: Lavender, Small tools, Hermes, Karina done; SongRaccoon and Athena waiting |
-| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1: About interview under way |
+| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1 (About copy) done, V040. CV live in the top bar (D042). Design rejected by Vith: 3 new mocks next. Journey interview not started |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |
 
 ### Waiting on Vith
@@ -29,7 +29,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 2. **An Athena demo account.** Athena's screens and recording wait for it (D033, R5).
 3. **Real-device checks of Phase 1:** sound, iPhone shake, reduced motion, the phone feel.
 4. **The push:** every commit is unpushed, and the repo is public (hard rule 8).
-5. **For Phase 3:** a LinkedIn URL and the CV PDF. The "10 photos" from 27 Oct never arrived.
+5. **For Phase 3:** photos, into `~/Desktop/portfolio-photos/` (empty). LinkedIn photos can't be fetched (V038, below). Pick one of the 3 About/Journey design mocks.
 
 ### For the next session
 
@@ -42,6 +42,16 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **Tests:** `node --test tests/*.test.mjs` runs the physics tests.
 - **Browser checks:** the CDP harness is saved in `~/Desktop/projects/portfolio-prototype/harness/`. `cdp.mjs` is the driver; `check-*.mjs` are the Phase 1 checks (open, tidy, sound, scenes, waves, final), and they expect the site on :8000.
 - **Today's mocks** (finishes, game cards, ultra rare, page styles) are in `~/Desktop/projects/portfolio-prototype/mocks/`. They load assets from a server rooted at the old scratchpad, so they need the repo's `css/` and `assets/` beside them to render.
+
+## 2026-10-28 (later) — Phase 3: spec, LinkedIn, the CV, About copy
+
+- **Spec:** `specs/3-about-journey/` drafted from Vith's answers (D040, R6) and approved (D041). Skills name their projects; no card deep link.
+- **Mock:** About and Journey mocked outside the repo, `~/Desktop/projects/portfolio-prototype/mocks/p3/` (served on :8766), first with placeholders, then with LinkedIn leads (dotted, "to confirm"). **Vith's verdict: "the design needs work"** — doesn't feel like the site, too much text and too flat, weak hierarchy, dull timeline. Vith asked for **3 mocks** to pick from.
+- **LinkedIn:** public view hits the sign-in wall. Logged-in read via Agent Reach's `mcp-server-linkedin` 4.28.0 (pinned, auto-import off, Vith's own login), one read-only call; contents kept outside the repo (V038, R6). Fetching LinkedIn photos with a copied session was blocked by the permission check and then failed (authwall); the copies were deleted. Photos must come from Vith.
+- **CV:** revised from Vith's `.docx` in two versions (D042); Vith settled every fact (Rocket from Jul 2026, degree Mar 2025 – Nov 2026, SCSA president to Jun 2026). The public PDF is `assets/cv.pdf`, linked from the top bar (`WORK · CV`), privacy-checked (V039).
+- **About copy approved** line by line: intro, fact strip, skills (V040). "Beyond code" kept; the World Cup 2026 Predictor is to become a card (D043).
+- **Harness:** `check-open.mjs` now starts from the last top-bar link.
+- **Unpushed:** all commits.
 
 ## 2026-10-28 — Phase 2 approved; screens for the cards
 
