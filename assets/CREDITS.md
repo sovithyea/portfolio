@@ -55,3 +55,25 @@ Latin subset, from Google Fonts.
 - **Rocket** (`shots/rocket/`): Rocket Academy's Athena, built by Vith as an intern and shown with Vith's say-so (D005, D022). Captured from the local demo with its stub model and LEGO lesson fixtures.
 
 Neither set is under an open licence.
+
+## Skill logos (`logos/`)
+
+The tools' own marks, shown on About's skill icons (D045). The SVG files come from [Simple Icons](https://simpleicons.org) 15.0.0, which publishes them under [CC0 1.0](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md). Each mark is its owner's trademark; where the owner publishes usage rules, they're linked. The icon colours are each brand's colour as listed in Simple Icons' data. XGBoost has no logo there, so its icon shows its name instead.
+
+| File | Mark of | Owner's rules |
+|---|---|---|
+| `python.svg` | Python | [python.org/community/logos](https://www.python.org/community/logos/) |
+| `typescript.svg` | TypeScript | [typescriptlang.org/branding](https://www.typescriptlang.org/branding) |
+| `postgresql.svg` | PostgreSQL | [postgresql.org trademarks](https://www.postgresql.org/about/policies/trademarks/) |
+| `react.svg` | React (for React Native) | none listed |
+| `nextdotjs.svg` | Next.js | [vercel.com/design/brands](https://vercel.com/design/brands#next-js) |
+| `fastapi.svg` | FastAPI | none listed |
+| `supabase.svg` | Supabase | none listed |
+| `cloudflareworkers.svg` | Cloudflare Workers | [cloudflare.com/trademark](https://www.cloudflare.com/trademark/) |
+| `claude.svg` | Claude | none listed |
+| `ollama.svg` | Ollama | none listed |
+| `scikitlearn.svg` | scikit-learn | none listed |
+| `pandas.svg` | pandas | [pandas.pydata.org/about/citing](https://pandas.pydata.org/about/citing.html) |
+| `tensorflow.svg` | TensorFlow | none listed |
+| `kotlin.svg` | Kotlin | [jetbrains.com/company/brand](https://www.jetbrains.com/company/brand/) |
+| `go.svg` | Go | [go.dev/blog/go-brand](https://blog.golang.org/go-brand) |

@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 28 Oct 2026, end of session (Phase 3: Vith picked the card look for About/Journey, D044; skills as drifting app icons, D045; skills from GitHub wait for cards, D046)
+**Last updated:** 28 Oct 2026, end of session (Phase 3: card look chosen, D044–D045; About built with 16 drifting skill icons, D047)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -20,7 +20,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 |---|---|---|
 | 1 | Work page (`specs/1-work-table/`) | Done: passed by Vith 27 Oct |
 | 2 | Pages for the big four, plus screens for every card (`specs/2-project-pages/`) | Approved (D034). Step 1: Lavender, Small tools, Hermes, Karina done; SongRaccoon and Athena waiting |
-| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1 (About copy) done, V040. CV live in the top bar (D042). Look chosen: cards (D044), skills as drifting app icons (D045). Journey interview (Step 2) next |
+| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1 (About copy) done, V040. CV live in the top bar (D042). Look chosen: cards (D044), skills as drifting app icons (D045). **About is up** (`/about/`, D047), without "So far". Journey interview (Step 2) next |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |
 
 ### Waiting on Vith
@@ -51,6 +51,8 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **GitHub skills:** Vith asked for other skills from GitHub. Candidates from repo languages and requirements files (V041); Vith wants all four groups, each **when its project has a card** (D046).
 - **Not done:** no real pages (the Journey interview comes first). The `impeccable` skill isn't installed on this machine, so no finish review ran.
 - **Found, out of scope:** the cards' set line is white at 80% opacity (`css/site.css`, `.card .set`). Over the SongRaccoon band (`#9A5230`) that is about 4.35:1, under 4.5:1 [Inference: from the colours, not measured on the page]. Yummers' set line sits on the ultra card's dark fade, not the band, so it's fine there.
+- **About built (D047).** Vith: "add them in anywasy". `about/index.html`, `js/about.js` and the About styles in `css/site.css`: the player card, the approved intro, contact and fact tiles, 16 skill icons (10 approved plus 6 from GitHub linking to their repos), Beyond code. No "So far" until Journey is approved. Work's top bar now reads `WORK · ABOUT · CV`. Logos in `assets/logos/`, credited (V042).
+- **About checks (CDP, `../portfolio-mocks/site-check.mjs`):** at 1440, 390 and 360 px in dark and light: no sideways scroll, every tap target at least 44 px, tapping an icon opens its projects, dragging one throws it without opening it. Under reduced motion the icons are a still grid. The Work page still builds its 9 cards with the new top bar. **Not run:** the Phase 1 regression scripts (criterion 9) and the finish review; both live on the other Mac or aren't installed. [Inference] On phones a swipe that starts on an icon drags it rather than scrolling the page.
 - **Unpushed.** Nothing pushed this session.
 
 ## 2026-10-28 (later) — Phase 3: spec, LinkedIn, the CV, About copy

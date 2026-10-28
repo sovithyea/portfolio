@@ -1,6 +1,6 @@
 # Phase 3: About, Journey, the CV and contact
 
-**Status:** Approved by Vith, 28 Oct 2026 (D041). Open Question 1 answered. Look amended by D044 (the card look) and D045 (skills as drifting app icons); open question 2 added.
+**Status:** Approved by Vith, 28 Oct 2026 (D041). Open Question 1 answered. Look amended by D044 (the card look) and D045 (skills as drifting app icons); open question 2 added. About built ahead of Journey, and GitHub skills listed with repo links (D047).
 
 ## Context
 
@@ -19,7 +19,7 @@ The Work page shows the projects and only Vith's name (D025). Who Vith is, how V
    - **Intro:** 2–3 lines on who Vith is: study, what Vith builds, what Vith is after.
    - **Look (D044):** Vith's own player card in the Work card's look and finishes (D026–D030), its art the photo of Vith. Beside it the intro, first line as the lead, the contact buttons, and the fact strip as four stat tiles.
    - **Photo:** one real photo of Vith, supplied by Vith, as the player card's art. Until then, a labelled empty slot (hard rule 4).
-   - **Skills and tools (D045):** each skill is an app icon, the tool's logo on a rounded square in its brand colour, drifting on a small table with the Work page's physics; drag to throw, tap to show the skill's name and its projects as links. A skill with no project card behind it isn't listed (D043, D046), except under "Beyond code" (leading, events, teaching): three small cards whose lines point to Journey.
+   - **Skills and tools (D045):** each skill is an app icon, the tool's logo on a rounded square in its brand colour, drifting on a small table with the Work page's physics; drag to throw, tap to show the skill's name and its projects as links. A skill with no project card behind it links to its GitHub repos instead (D047), and "Beyond code" (leading, events, teaching) is "Beyond code" (leading, events, teaching): three small cards whose lines point to Journey once it exists.
    - **A short timeline:** 4–5 key moments from Journey as a fanned hand of milestone cards, then a "Full journey" link.
    - **Contact:** email, GitHub, LinkedIn and the CV, as plain links. No form (D007).
 3. **Journey (`/journey/`):** dated milestones from Vith's life, oldest first, as a deck of cards (D044): each card's front shows the date, the heading and a real photo, a project screenshot or the year; tapping turns it over to its one or two lines. Swipe, prev/next, arrow keys, and a rail of years on wide screens. Project milestones wear the project's colour. No stand-in pictures.
@@ -33,7 +33,7 @@ The Work page shows the projects and only Vith's name (D025). Who Vith is, how V
 - **Motion:** the skill icons drift (DESIGN-SYSTEM rule 6 as amended by D045). Under reduced motion they sit still in rows, the deck turns instantly, and the player card doesn't lean.
 - **Photos:** `assets/photos/`, WebP, each with alt text. Each gets a hard rule 5 check for other people's faces and for places (R6), recorded in VERIFIED.
 - **CV:** `assets/cv.pdf`, supplied by Vith. Checked for a phone number, home address or birth date before it's committed, since the repo is public (R6). The `CV` link is shown only once the file exists; the same goes for LinkedIn and its URL. No placeholder links.
-- **Skills:** each skill has a VERIFIED source, either a project's "Built with" fact or Vith's answer, and names the projects that use it when tapped. The big four link to their Phase 2 pages; the rest link to Work (D041). Skills waiting for a card: XGBoost, scikit-learn, pandas, TensorFlow, Kotlin, Go (D046, V041).
+- **Skills:** each skill has a VERIFIED source, either a project's "Built with" fact or Vith's answer, and names the projects that use it when tapped. The big four link to their Phase 2 pages; the rest link to Work (D041). XGBoost, scikit-learn, pandas, TensorFlow, Kotlin and Go link to their GitHub repos (D047, V041, V042).
 
 ## Acceptance Criteria
 
@@ -69,4 +69,4 @@ Also waiting on Vith, but only for the steps that use them: the CV PDF, the Link
 
 ## Related
 
-D003, D007, D025, D033, D040, D044, D045, D046 · R1, R6 · `specs/2-project-pages/`
+D003, D007, D025, D033, D040, D044, D045, D046, D047 · R1, R6 · `specs/2-project-pages/`

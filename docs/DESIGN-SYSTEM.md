@@ -57,4 +57,5 @@ All three are self-hosted, Latin subset, with `font-display: swap` (`assets/font
 
 - **Work (Phase 1):** cards float over the scene. An opened card hovers in the top-left at 1.3× (1× on phones), and its details panel fills the rest: beside the card on desktop, a bottom sheet under it below 760 px.
 - **Store-listing panel (D011):** a title block with links, a fact strip between two 2 px rules, then a horizontal shelf of numbered screens. Phone shots sit in a 5 px device frame; desktop shots in a browser frame with three dots.
+- **About (D044, D045):** a reading page that follows the visitor's light or dark setting. Its tokens (`--bg`, `--surface`, `--line`, the project colours `--p-*`, the tools' brand colours `--b-*`, and `--vith`, still open) are set on `body.page` in `css/site.css`. Vith's player card reuses the ultra-rare card; the skill icons drift on a small table with the Work physics, and sit still in a grid under reduced motion.
 - **Controls:** scene switch, Sound and Tidy up on chips at the bottom right (one row on phones); credits bottom-left; the hint centred (top on narrow screens).

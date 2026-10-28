@@ -16,12 +16,12 @@ Tick a box only against evidence.
 
 ## Step 3: The reading shell and the top bar
 - [ ] If Phase 2 hasn't built it yet: the calm backdrop and the page shell in `css/site.css` (D033).
-- [ ] The `WORK · ABOUT · JOURNEY · CV` top bar on `index.html` and the new pages; `CV` hidden until `assets/cv.pdf` exists.
+- [ ] The `WORK · ABOUT · JOURNEY · CV` top bar on `index.html` and the new pages; `CV` hidden until `assets/cv.pdf` exists. `WORK · ABOUT · CV` is up (D047); `JOURNEY` joins with its page.
 - [ ] Rerun the Phase 1 scripts (criterion 9).
 - Commit: `feat(pages): reading shell and the four-link top bar` (`Refs: D040, D033`)
 
 ## Step 4: About and Journey
-- [ ] `about/index.html` and `journey/index.html` with the approved words, labelled empty photo slots, skills linked to their cards, and the contact links on hand.
+- [ ] `about/index.html` and `journey/index.html` with the approved words, labelled empty photo slots, skills linked to their cards, and the contact links on hand. About is built ahead of the Journey interview (D047), without "So far".
 - [ ] Check criteria 1–4, 6 and 8.
 - Commit: `feat(pages): About and Journey` (`Refs: D040`)
 

@@ -572,6 +572,20 @@ Vith, on A's skills: "i think the skills and languages should be little blocks t
 
 *28 Oct 2026 · Vith*
 
+**Status:** replaced by D047 (listed now, linking to their repos).
+
 Vith asked to look through GitHub for other skills to add. Claude listed candidates from the repos' languages and requirements files (V041), and Vith picked all four: **XGBoost, scikit-learn and pandas** (the World Cup and F1 predictors), **TensorFlow / deep learning** (the traffic-flow coursework), **Kotlin for Android**, and **Go** (the roguelike).
 
 Asked what happens when a skill has no card on the site yet, Vith chose **"Wait for a card"**: the rule stands (spec, D043). Each skill appears on About when a project using it gets a card. The World Cup Predictor card is already planned (D043); which projects become cards for TensorFlow, Kotlin and Go is still Vith's call.
+
+## D047 — About goes up now, with the GitHub skills linking to their repos
+
+*28 Oct 2026 · Vith: "add them in anywasy"*
+
+**Status:** replaces D046's "wait for a card"; changes the Phase 3 plan's order.
+
+Told that the skills were only in the docs and the mocks, and that the GitHub skills were waiting for cards, Vith said to add them anyway.
+
+- **About is built ahead of the Journey interview.** It carries only approved words: the intro, the fact strip and the skills (V040), Beyond code (D043), the contact links, and the new skills (V042). The "So far" strip waits for Journey's approved milestones, and Beyond code doesn't link to Journey until that page exists (no placeholder links).
+- **Six skills join from GitHub:** XGBoost, scikit-learn, pandas, TensorFlow, Kotlin and Go (V041). With no card behind them, tapping one shows its public repos by their GitHub names, linking to GitHub. The spec's rule that a skill needs a card on the site no longer holds for these.
+- **Top bar:** `WORK · ABOUT · CV` for now; `JOURNEY` joins when that page exists (D040, no placeholder links).
