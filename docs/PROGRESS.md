@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 28 Oct 2026, end of session (Phase 3: About copy approved, CV on the site; About/Journey design needs 3 new mocks)
+**Last updated:** 28 Oct 2026, end of session (Phase 3: Vith picked the card look for About/Journey, D044; skills as drifting app icons, D045; skills from GitHub wait for cards, D046)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -20,7 +20,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 |---|---|---|
 | 1 | Work page (`specs/1-work-table/`) | Done: passed by Vith 27 Oct |
 | 2 | Pages for the big four, plus screens for every card (`specs/2-project-pages/`) | Approved (D034). Step 1: Lavender, Small tools, Hermes, Karina done; SongRaccoon and Athena waiting |
-| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1 (About copy) done, V040. CV live in the top bar (D042). Design rejected by Vith: 3 new mocks next. Journey interview not started |
+| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1 (About copy) done, V040. CV live in the top bar (D042). Look chosen: cards (D044), skills as drifting app icons (D045). Journey interview (Step 2) next |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |
 
 ### Waiting on Vith
@@ -29,7 +29,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 2. **An Athena demo account.** Athena's screens and recording wait for it (D033, R5).
 3. **Real-device checks of Phase 1:** sound, iPhone shake, reduced motion, the phone feel.
 4. **Pushed:** `main` went to GitHub (public, `sovithyea/portfolio`) on 28 Oct 2026, with Vith's OK, to continue on another device. Before the first push the full history was scanned for private details, and V039's search terms (phone prefix, suburb, postcode) were rewritten out of the three commits that held them. Later pushes still need Vith's say-so (hard rule 8).
-5. **For Phase 3:** photos, into `~/Desktop/portfolio-photos/` (empty). LinkedIn photos can't be fetched (V038, below). Pick one of the 3 About/Journey design mocks.
+5. **For Phase 3:** photos, into `~/Desktop/portfolio-photos/` (empty). LinkedIn photos can't be fetched (V038, below). The player card's colour (graphite mocked). Which projects become cards for TensorFlow, Kotlin and Go (D046). The Journey interview (plan Step 2).
 
 ### For the next session
 
@@ -42,6 +42,16 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **Tests:** `node --test tests/*.test.mjs` runs the physics tests.
 - **Browser checks:** the CDP harness is saved in `~/Desktop/projects/portfolio-prototype/harness/`. `cdp.mjs` is the driver; `check-*.mjs` are the Phase 1 checks (open, tidy, sound, scenes, waves, final), and they expect the site on :8000.
 - **Today's mocks** (finishes, game cards, ultra rare, page styles) are in `~/Desktop/projects/portfolio-prototype/mocks/`. They load assets from a server rooted at the old scratchpad, so they need the repo's `css/` and `assets/` beside them to render.
+
+## 2026-10-28 (evening, Windows machine) — Phase 3: three mocks, the card look, app-icon skills
+
+- **Setup:** worked on a second computer (Windows). The clone was empty (`git init` plus remote only); `git pull origin main` brought `a520158`. Physics tests 4/4. The mock folder is `../portfolio-mocks/p3/` beside the clone, with directory junctions to the repo's `css/`, `assets/` and `js/` (Git Bash's `ln -s` copies instead of linking here). Served on :8766, the site on :8000. The CDP driver is `../portfolio-mocks/cdp.mjs` (Chrome at `C:/Program Files/Google/Chrome/Application/chrome.exe`, profile in the session scratchpad); `shoot.mjs`, `w360.mjs`, `drag.mjs`, `tap.mjs` and `contrast.mjs` sit beside it. None of it is in the repo (hard rule 4).
+- **Mocks:** A cards, B scenes, C editorial, each About and Journey, with the approved About copy (V040) and the draft Journey dotted and tagged. All 24 captures (6 pages × 1440/390 × dark/light) have no sideways scroll; all six pages also pass at 360 px with every tap target ≥ 44 px. Contrast computed analytically over the worst-case backdrop (C004): every text pair ≥ 4.5:1 once the cards' set line is at full opacity (below).
+- **Vith chose A · Cards** (D044), with project pages following the same shell. Then four rounds on the skills: word blocks, logo tiles, card tiles / bare logos, and finally **app icons that drift**, tap for projects (D045). DESIGN-SYSTEM rule 6, hard rule 4 (`CLAUDE.md`), both specs and D033/D040/D041's status lines updated to match.
+- **GitHub skills:** Vith asked for other skills from GitHub. Candidates from repo languages and requirements files (V041); Vith wants all four groups, each **when its project has a card** (D046).
+- **Not done:** no real pages (the Journey interview comes first). The `impeccable` skill isn't installed on this machine, so no finish review ran.
+- **Found, out of scope:** the cards' set line is white at 80% opacity (`css/site.css`, `.card .set`). Over the SongRaccoon band (`#9A5230`) that is about 4.35:1, under 4.5:1 [Inference: from the colours, not measured on the page]. Yummers' set line sits on the ultra card's dark fade, not the band, so it's fine there.
+- **Unpushed.** Nothing pushed this session.
 
 ## 2026-10-28 (later) — Phase 3: spec, LinkedIn, the CV, About copy
 

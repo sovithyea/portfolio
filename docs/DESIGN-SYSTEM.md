@@ -21,7 +21,7 @@ A change to anything in this file is a decision: it gets a D-number first, then 
    - A missing picture is a labelled empty slot, never a substitute image.
 6. **Motion.**
    - Motion explains or responds. It never decorates for its own sake.
-   - The one exception is the Work page (D009, D018): the cards' drift and the scene's slow life (koi, clouds, dust). It stays calm: few elements, slow, and most motion answers a card or the cursor. No other page has ambient motion.
+   - The one exception is the Work page (D009, D018): the cards' drift and the scene's slow life (koi, clouds, dust). It stays calm: few elements, slow, and most motion answers a card or the cursor. The second is About's skill icons (D045): they drift and bump on their own small table with the same physics. No other page has ambient motion.
    - Everything respects `prefers-reduced-motion`: with it set, nothing moves except what the visitor directly drags or scrolls.
    - Nothing autoplays with sound.
 7. **Responsive.** Layouts work from 360 px to 1920 px with no horizontal page scroll. Tap targets are at least 44 px.

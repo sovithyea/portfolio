@@ -1,6 +1,6 @@
 # Phase 3: About, Journey, the CV and contact
 
-**Status:** Approved by Vith, 28 Oct 2026 (D041). Open Question 1 answered.
+**Status:** Approved by Vith, 28 Oct 2026 (D041). Open Question 1 answered. Look amended by D044 (the card look) and D045 (skills as drifting app icons); open question 2 added.
 
 ## Context
 
@@ -17,20 +17,23 @@ The Work page shows the projects and only Vith's name (D025). Who Vith is, how V
 1. **Top bar on every page:** `WORK · ABOUT · JOURNEY · CV` (D040). The current page is marked. `CV` opens the PDF in a new tab.
 2. **About (`/about/`):**
    - **Intro:** 2–3 lines on who Vith is: study, what Vith builds, what Vith is after.
-   - **Photo:** one real photo of Vith, supplied by Vith. Until then, a labelled empty slot (hard rule 4).
-   - **Skills and tools:** languages and tools, each naming the projects that use it. A skill with no project behind it isn't listed, except under "Beyond code" (leading, events, teaching), whose lines point to Journey instead (D043).
-   - **A short timeline:** 4–5 key moments from Journey, then a "Full journey" link.
+   - **Look (D044):** Vith's own player card in the Work card's look and finishes (D026–D030), its art the photo of Vith. Beside it the intro, first line as the lead, the contact buttons, and the fact strip as four stat tiles.
+   - **Photo:** one real photo of Vith, supplied by Vith, as the player card's art. Until then, a labelled empty slot (hard rule 4).
+   - **Skills and tools (D045):** each skill is an app icon, the tool's logo on a rounded square in its brand colour, drifting on a small table with the Work page's physics; drag to throw, tap to show the skill's name and its projects as links. A skill with no project card behind it isn't listed (D043, D046), except under "Beyond code" (leading, events, teaching): three small cards whose lines point to Journey.
+   - **A short timeline:** 4–5 key moments from Journey as a fanned hand of milestone cards, then a "Full journey" link.
    - **Contact:** email, GitHub, LinkedIn and the CV, as plain links. No form (D007).
-3. **Journey (`/journey/`):** a timeline of dated milestones from Vith's life, oldest first, each a heading and one or two lines. Some have a real photo; the rest have none and no stand-in.
+3. **Journey (`/journey/`):** dated milestones from Vith's life, oldest first, as a deck of cards (D044): each card's front shows the date, the heading and a real photo, a project screenshot or the year; tapping turns it over to its one or two lines. Swipe, prev/next, arrow keys, and a rail of years on wide screens. Project milestones wear the project's colour. No stand-in pictures.
 4. **Words:** interviews in chat, one topic at a time (D040). Claude drafts only from Vith's answers. Vith approves every line, and every place and date is checked as safe to publish (R6).
 
 ## Implementation Details
 
-- **Files:** `about/index.html` and `journey/index.html`, written as plain HTML: the content is fixed and approved line by line, so it needs no data module and no JavaScript. Page styles go in `css/site.css`. The top bar's links are added to `index.html` too.
-- **The reading shell** (top bar plus the calm backdrop, D033) is shared with Phase 2's project pages. Whichever phase is built first makes it, and the other reuses it.
+- **Files:** `about/index.html` and `journey/index.html`, with the approved words written in the HTML. Small scripts handle only behaviour: the skill icons' table (reusing `js/physics.js`), the Journey deck's turn and step, and the player card's lean (as `table.js` does). Page styles go in `css/site.css`, reusing the card classes. The top bar's links are added to `index.html` too.
+- **The reading shell** (top bar plus the card look, D044) is shared with Phase 2's project pages, which follow it (D044). Whichever phase is built first makes it, and the other reuses it.
+- **Logos:** the skill icons' marks, each with its source, licence and owner's usage rules in `assets/CREDITS.md` and VERIFIED (D045). The mocks used Simple Icons' SVGs.
+- **Motion:** the skill icons drift (DESIGN-SYSTEM rule 6 as amended by D045). Under reduced motion they sit still in rows, the deck turns instantly, and the player card doesn't lean.
 - **Photos:** `assets/photos/`, WebP, each with alt text. Each gets a hard rule 5 check for other people's faces and for places (R6), recorded in VERIFIED.
 - **CV:** `assets/cv.pdf`, supplied by Vith. Checked for a phone number, home address or birth date before it's committed, since the repo is public (R6). The `CV` link is shown only once the file exists; the same goes for LinkedIn and its URL. No placeholder links.
-- **Skills:** each skill has a VERIFIED source, either a project's "Built with" fact or Vith's answer, and names the projects that use it. The big four link to their Phase 2 pages; the rest link to Work (D041).
+- **Skills:** each skill has a VERIFIED source, either a project's "Built with" fact or Vith's answer, and names the projects that use it when tapped. The big four link to their Phase 2 pages; the rest link to Work (D041). Skills waiting for a card: XGBoost, scikit-learn, pandas, TensorFlow, Kotlin, Go (D046, V041).
 
 ## Acceptance Criteria
 
@@ -60,9 +63,10 @@ A contact form, a blog, a CMS or analytics (D007). Hosting and domain (Phase 4).
 ## Open Questions
 
 1. **Skill links:** answered by Vith (D041): "Name the projects". No change to the Work page.
+2. **The player card's colour:** open. The mocks used graphite (`#2A2D35` light, `#3A3E49` dark).
 
 Also waiting on Vith, but only for the steps that use them: the CV PDF, the LinkedIn URL and the photos ("Later", D040).
 
 ## Related
 
-D003, D007, D025, D033, D040 · R1, R6 · `specs/2-project-pages/`
+D003, D007, D025, D033, D040, D044, D045, D046 · R1, R6 · `specs/2-project-pages/`

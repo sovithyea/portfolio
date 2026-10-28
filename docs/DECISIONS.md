@@ -452,6 +452,8 @@ Vith: "i dislike the sound the site makes when i turn on and off the sound", the
 
 *27 Oct 2026 · Vith*
 
+**Status:** the backdrop bullet is amended by D044 (project pages share About's card-look shell).
+
 - **Athena:** "I'll make a demo account". Nothing is captured from Athena until it exists. Only that account is used (R5).
 - **FoodRaccoon:** "Skip it". Its card keeps "screens to come", because its database holds real v1 users.
 - **Karina and Gmail Sorter:** "Demo content". A short made-up meeting (synthetic voices) runs through Karina, and Gmail Sorter runs over a few made-up emails. Every such picture is captioned as demo content, so nothing passes itself off as real use (hard rule 4 spirit).
@@ -505,6 +507,8 @@ Karina's notes prompt names HungryRaccoon, so the demo notes said the meeting "w
 
 *28 Oct 2026 · Vith*
 
+**Status:** look amended by D044 (the card look, not the calm backdrop).
+
 - **About** holds a short intro, a photo of Vith, skills and tools, a contact block, and a short timeline of Vith's life (Vith's own addition: "timeline of my life?").
 - **Journey** is a timeline of dated milestones ("Timeline of milestones"). The split: "Short on About, full on Journey". About shows a few key moments and links to the full timeline.
 - **Look:** "Calm, like project pages": the still reading backdrop from D033, not the live scene.
@@ -515,6 +519,8 @@ Karina's notes prompt names HungryRaccoon, so the demo notes said the meeting "w
 ## D041 — Phase 3 approved; skills name their projects
 
 *28 Oct 2026 · Vith*
+
+**Status:** amended by D045 (skills are app icons; their projects show on tap).
 
 - **`specs/3-about-journey/` approved** ("Approve, start interviews"). Phase 3's interviews start now, alongside Phase 2's remaining steps.
 - **Skill links:** "Name the projects". Each skill lists the projects that use it; the big four link to their Phase 2 pages and the rest to Work. The Work page gets no card deep link.
@@ -533,3 +539,39 @@ Karina's notes prompt names HungryRaccoon, so the demo notes said the meeting "w
 
 - **"Beyond code" is kept** ("Keep it"): leading SCSA, running events, and teaching Rocket's Minecraft camps. It amends the Phase 3 spec's rule that every skill names a project: these lines point to their Journey milestones instead.
 - **The World Cup 2026 Match Predictor gets a card** ("Yes, add a card"), so its ML skills (XGBoost, scikit-learn) can be listed on About. It is a tenth card with real screens, done as its own step once its repo is found. Until then, those skills stay off About.
+
+## D044 — About and Journey take the card look; project pages follow
+
+*28 Oct 2026 · Vith, from three mocks (cards, scenes, editorial)*
+
+**Status:** amends D040's look ("Calm, like project pages") and D033's backdrop for Phase 2's pages.
+
+Vith rejected the first About/Journey design on four counts: it didn't feel like the site, it was too much text and too flat, the hierarchy didn't hold together, and the timeline was dull. Three mocks were made outside the repo (A cards, B scenes, C editorial), each About and Journey, in light and dark at 1440 and 390 px. Vith chose **"A · Cards"**.
+
+- **About:** Vith's own player card, in the Work card's look and finishes (D026–D030): photo slot as the art, set line, stat line. Its colour is open (graphite was mocked). Beside it, the approved intro (V040) with the first line as the lead, the contact buttons, and the fact strip as four stat tiles. "Beyond code" as three small cards pointing to Journey. "So far" as a fanned hand of five milestone cards, then "Full journey".
+- **Journey:** a deck of milestone cards, oldest first, that the visitor swipes or steps through (prev/next, arrow keys, a rail of years on wide screens). Tapping a card turns it over to show its line. Project milestones wear the project's colour; life milestones a neutral one. Turning is instant under reduced motion.
+- **Skills:** see D045.
+- **Project pages follow** ("Yes, same shell"): Phase 2's four project pages use the same reading shell and card look instead of D033's calm, still backdrop, so the site has one reading style.
+
+Why: A is the only direction that reuses what visitors already met on the Work page, which answers "doesn't feel like my site" directly, and the cards break the text into pieces, which answers the other three.
+
+## D045 — Skills are drifting app icons
+
+*28 Oct 2026 · Vith, from four rounds of mocks*
+
+**Status:** amends DESIGN-SYSTEM rule 6 (a second place with ambient motion), D041 (project names show on tap) and hard rule 4 (tool logos are a second kind of picture that isn't of a project).
+
+Vith, on A's skills: "i think the skills and languages should be little blocks that you can move around like the cards", then "i meant like logos of the skill/langusage", then "each logo should be in a box with the color of their logo, think of apps on an iphone". Mocked as word blocks, logo tiles, card tiles and bare logos before this one.
+
+- **Look:** each skill is an app icon: the tool's own logo, in white (dark on light colours), on a rounded square in the logo's brand colour. No label on the icon.
+- **Motion: "Drift".** The icons drift and bump on a small table in the Skills section using the Work page's physics (`js/physics.js`), and can be dragged and thrown. This is ambient motion outside the Work page, so DESIGN-SYSTEM rule 6 changes with it. Under reduced motion they sit still in rows.
+- **Projects:** tapping an icon (not dragging it) shows the skill's name and its projects as links, so each skill still names its projects (D041). A screen-reader list carries the same.
+- **The logos:** official marks of the tools (Python, TypeScript, PostgreSQL, React, Next.js, FastAPI, Supabase, Cloudflare Workers, Claude, Ollama). The mocks used Simple Icons' SVGs (CC0 files; each mark belongs to its owner and some owners publish usage rules). Before they ship, each one's source, licence and owner's rules go in `assets/CREDITS.md` and VERIFIED. They depict the tools, never a project.
+
+## D046 — More skills from GitHub, once their projects have cards
+
+*28 Oct 2026 · Vith*
+
+Vith asked to look through GitHub for other skills to add. Claude listed candidates from the repos' languages and requirements files (V041), and Vith picked all four: **XGBoost, scikit-learn and pandas** (the World Cup and F1 predictors), **TensorFlow / deep learning** (the traffic-flow coursework), **Kotlin for Android**, and **Go** (the roguelike).
+
+Asked what happens when a skill has no card on the site yet, Vith chose **"Wait for a card"**: the rule stands (spec, D043). Each skill appears on About when a project using it gets a card. The World Cup Predictor card is already planned (D043); which projects become cards for TensorFlow, Kotlin and Go is still Vith's call.
