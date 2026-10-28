@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 28 Oct 2026, end of session (Phase 3: card look chosen, D044–D045; About built with 16 drifting skill icons, D047)
+**Last updated:** 28 Oct 2026, end of session (Phase 3: Journey built as a map, D048–D049; About's "So far" and the full top bar)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -20,7 +20,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 |---|---|---|
 | 1 | Work page (`specs/1-work-table/`) | Done: passed by Vith 27 Oct |
 | 2 | Pages for the big four, plus screens for every card (`specs/2-project-pages/`) | Approved (D034). Step 1: Lavender, Small tools, Hermes, Karina done; SongRaccoon and Athena waiting |
-| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1 (About copy) done, V040. CV live in the top bar (D042). Look chosen: cards (D044), skills as drifting app icons (D045). **About is up** (`/about/`, D047), without "So far". Journey interview (Step 2) next |
+| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1 (About copy) done, V040. CV live in the top bar (D042). Look chosen: cards (D044), skills as drifting app icons (D045). **About and Journey are up** (`/about/`, `/journey/`; D047–D049). Journey's stories and venue names, and photos, still to come |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |
 
 ### Waiting on Vith
@@ -42,6 +42,15 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **Tests:** `node --test tests/*.test.mjs` runs the physics tests.
 - **Browser checks:** the CDP harness is saved in `~/Desktop/projects/portfolio-prototype/harness/`. `cdp.mjs` is the driver; `check-*.mjs` are the Phase 1 checks (open, tidy, sound, scenes, waves, final), and they expect the site on :8000.
 - **Today's mocks** (finishes, game cards, ultra rare, page styles) are in `~/Desktop/projects/portfolio-prototype/mocks/`. They load assets from a server rooted at the old scratchpad, so they need the repo's `css/` and `assets/` beside them to render.
+
+## 2026-10-28 (night, Windows machine) — Journey: the interview, a map, the build
+
+- **Journey interview** (plan Step 2): every milestone approved line by line (V043), then six more and the places (V044).
+- **Mocks, outside the repo** (`../portfolio-mocks/p3/`): a map above the deck; three layouts (Vith chose "Map is the page"); then v2–v5 with Vith's changes: bigger cards and a peeking hand, the route drawing itself, map styles (Ink, then MapTiler satellite), roads for every move, 3D buildings, a movable map, card types, finishes and colours on a page of all 22 cards, three "inside" layouts (Vith chose Chapter), arrow keys inside a card, timed flights (the camera got stranded waiting for 'moveend'), and 3D ultra-rare cards. Tools Vith used: `pick.html` and `add.html` (pins and new milestones), `rarity.html` (types, finishes, colours).
+- **Built:** `journey/index.html`, `js/journey.js`, `js/journey-data.js`, `assets/journey/route.json`, MapLibre in `js/vendor/maplibre/` (D049), the Journey styles and type colours in `css/site.css`, About's "So far" and Beyond code links, and `JOURNEY` in every top bar. Checks: V045; physics 4/4.
+- **Slip:** a geocoding request early on carried Vith's email in its User-Agent header; later requests didn't.
+- **Waiting on Vith:** lock the MapTiler key to the site's addresses (R7); names for the graduation, Games Night, Bon Phum Ch'nam Ng and Bon Phum Chnam Thmei venues; the stories (an interview); photos and keepsakes; a real-browser and phone look at the flights and the 3D lean. Phase 1's regression scripts weren't run (they're on the other Mac).
+- **Unpushed.**
 
 ## 2026-10-28 (evening, Windows machine) — Phase 3: three mocks, the card look, app-icon skills
 

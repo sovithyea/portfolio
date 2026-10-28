@@ -77,3 +77,12 @@ The tools' own marks, shown on About's skill icons (D045). The SVG files come fr
 | `tensorflow.svg` | TensorFlow | none listed |
 | `kotlin.svg` | Kotlin | [jetbrains.com/company/brand](https://www.jetbrains.com/company/brand/) |
 | `go.svg` | Go | [go.dev/blog/go-brand](https://blog.golang.org/go-brand) |
+
+## Journey's map (`../js/vendor/maplibre/`, `journey/route.json`)
+
+| What | Source | Licence |
+|---|---|---|
+| Map library | [MapLibre GL JS](https://maplibre.org) 4.7.1 | BSD-3-Clause (`js/vendor/maplibre/LICENSE.txt`) |
+| Satellite imagery (loaded live) | [MapTiler](https://www.maptiler.com/copyright/) | MapTiler terms; credited on the page |
+| Names and building heights (loaded live) | [OpenFreeMap](https://openfreemap.org), [OpenMapTiles](https://www.openmaptiles.org/), [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors | ODbL data; credited on the page |
+| Road routes (computed once, stored) | [OSRM](https://project-osrm.org) demo server over OpenStreetMap data | ODbL data |

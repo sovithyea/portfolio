@@ -49,3 +49,9 @@ A screenshot or recording of any of them would publish that data.
 **Severity: medium.** Phase 3 puts Vith's life on a public page (D040): schools, places, dates and photos. Together these can reveal a home suburb, a birth year or family members, and photos from Vith's life may show friends or family who never agreed to be on it. The repo is public too, so anything committed is published even if it's later removed from the page.
 
 **Mitigation:** Vith approves every line and photo (D040). Before a timeline line is drafted, Claude asks whether a place or date is fine to publish, and defaults to a year and a city rather than exact dates or suburbs. Every photo gets the hard rule 5 check for other people's faces, and is cropped or skipped unless they agreed. Nothing is committed until Vith approves it.
+
+## R7 — Journey depends on two outside map services
+
+*28 Oct 2026*
+
+The satellite imagery comes from MapTiler and the names and building heights from OpenFreeMap, at the moment a visitor opens Journey (D049). If either is down, slow or out of quota, the map is blank or partial; the cards, the route and the panel still work. MapTiler's free tier stops serving when its monthly quota runs out, and the key is public, so until Vith locks it to the site's addresses anyone could spend the quota. **Check:** the key's Allowed HTTP origins in MapTiler, and the map on a real phone.

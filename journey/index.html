@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Sovithyea Prach · Journey</title>
+  <link rel="preload" href="../assets/fonts/zilla-slab-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../js/vendor/maplibre/maplibre-gl.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <script src="../js/vendor/maplibre/maplibre-gl.js"></script>
+  <script type="module" src="../js/journey.js"></script>
+</head>
+<body class="page journey">
+  <header class="top">
+    <span class="slab site-name">Sovithyea Prach</span>
+    <nav aria-label="Site"><a class="mono" href="../">WORK</a><a class="mono" href="../about/">ABOUT</a><a class="mono" href="./" aria-current="page">JOURNEY</a><a class="mono" href="../assets/cv.pdf" target="_blank" rel="noopener">CV</a></nav>
+  </header>
+  <h1 class="visually-hidden">Journey</h1>
+  <div id="map" aria-label="Map of Vith's journey" role="img"></div>
+  <p class="where glass" id="where" aria-live="polite"></p>
+  <section class="stage" id="stage" aria-label="Milestones">
+    <div class="hand" id="hand"></div>
+    <div class="ctrl glass"><button type="button" class="btn" id="prev" aria-label="Previous milestone">←</button><span class="count mono" id="count"></span><button type="button" class="btn" id="next" aria-label="Next milestone">→</button></div>
+  </section>
+  <nav class="scrub glass" id="scrub" aria-label="Jump to a milestone"></nav>
+  <button type="button" class="btn fill back" id="back" hidden>Back to the story</button>
+  <aside class="memo glass" aria-label="Memorabilia"><h2 class="mono">Memorabilia</h2><ul id="memo-list"></ul></aside>
+  <section class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" hidden></section>
+  <p class="map-credit glass">Imagery © <a href="https://www.maptiler.com/copyright/">MapTiler</a> · © <a href="https://openfreemap.org">OpenFreeMap</a> · © <a href="https://www.openmaptiles.org/">OpenMapTiles</a> · Data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · Routes: <a href="https://project-osrm.org">OSRM</a></p>
+</body>
+</html>

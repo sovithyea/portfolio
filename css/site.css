@@ -295,3 +295,150 @@ body.page { --ink: #141414; --sub: #4d4b47; --panel: #f4f2ee; --rule: #141414; -
   .apps { --aw: 76px; gap: 12px; }
   .apps.live { height: 560px; }
 }
+
+/* Journey (D048): a satellite map is the page; milestone cards in a hand over it, opened like the Work page's cards */
+body.page {
+  /* card colours by type (D048); project milestones keep their Work card colour. White text on each is 5.5:1 or more */
+  --t-school: #1f4e8c; --t-event: #b23a48; --t-competition: #6a3f94; --t-champion: #8a5a00; --t-study: #2f6b4f;
+  --t-move: #0f6672; --t-leader: #9c3d10; --t-teach: #566419; --t-next: #3b3f47;
+  --glass: rgb(244 242 238 / .86); --ink-paper: #141414; --edge: #000000;
+  --map-label: #ffffff; --map-halo: rgb(0 0 0 / .7); --map-building: #e9e4d8;
+}
+@media (prefers-color-scheme: dark) { body.page { --glass: rgb(17 19 24 / .82); } }
+body.journey { overflow: hidden; }
+.journey #map { position: fixed; inset: 0; cursor: grab; }
+.journey #map:active { cursor: grabbing; }
+.journey .maplibregl-ctrl-attrib { display: none; } /* credited in .map-credit */
+.glass { background: var(--glass); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.journey .pin { width: 24px; height: 24px; border-radius: 50%; background: var(--c); border: 3px solid var(--paper);
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--c) 35%, transparent), 0 6px 14px rgb(0 0 0 / .35); transition: opacity .4s, background-color .4s; }
+.journey .pin.off { opacity: 0; }
+.where { position: fixed; z-index: 5; right: 24px; top: 84px; max-width: 320px; padding: 10px 14px; border-radius: 12px; font-weight: 600; transition: opacity .3s; }
+.where small, .journey .panel small { display: block; font: 600 10px "Martian Mono", ui-monospace, monospace; color: var(--sub); text-transform: uppercase; letter-spacing: .06em; }
+.where .mem { display: flex; align-items: center; gap: 5px; margin-top: 6px; font: 500 10px "Martian Mono", ui-monospace, monospace; color: var(--sub); text-transform: uppercase; }
+.where .mem i { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--ink); }
+.where .mem i.on { background: var(--ink); }
+.map-credit { position: fixed; z-index: 5; right: 8px; bottom: 8px; padding: 3px 8px; border-radius: 6px; font-size: 10px; }
+.map-credit a { color: inherit; }
+
+/* the hand: the current card in front, the next two peeking behind, played cards sliding off */
+.stage { --cw: 320px; position: fixed; z-index: 30; left: max(28px, calc((100% - 1180px) / 2 + 32px)); bottom: 96px; transition: transform .6s cubic-bezier(.2, .85, .25, 1); }
+.hand { position: relative; width: var(--cw); height: calc(var(--cw) * 1.4); }
+.hand > button { position: absolute; inset: 0; padding: 0; border: 0; background: none; cursor: pointer; font: inherit; color: inherit; text-align: left; transform-style: preserve-3d;
+  transition: transform .7s cubic-bezier(.2, .85, .25, 1), opacity .5s ease, filter .5s ease; }
+.hand > button .card { width: 100%; height: 100%; }
+.hand > [data-d="0"] { z-index: 4; }
+.hand > [data-d="1"] { z-index: 3; transform: translate(26px, -18px) rotate(4deg) scale(.95); filter: brightness(.82); }
+.hand > [data-d="2"] { z-index: 2; transform: translate(50px, -34px) rotate(8deg) scale(.9); filter: brightness(.68); }
+.hand > [data-d="far"] { z-index: 1; transform: translate(60px, -40px) rotate(10deg) scale(.86); opacity: 0; }
+.hand > [data-d="past"] { z-index: 5; transform: translate(-130%, 40px) rotate(-14deg); opacity: 0; }
+.hand > [data-d]:not([data-d="0"]) { pointer-events: none; }
+.hand .card:not(.ultra) .shot, .hand .card:not(.ultra) .empty { bottom: 30%; height: 70%; }
+.hand .card:not(.ultra) .name { height: 30%; }
+.hand .card .name { font-size: calc(var(--cw) * .068); line-height: 1.02; padding: 0 14px; }
+.hand .card .set { font-size: 11px; opacity: 1; }
+.hand .card .no, .hand .card .type { top: 10px; padding: 3px 7px; font-size: 11px; }
+.hand .card .no { left: 10px; }
+.hand .card .type { right: 10px; }
+.hand .card .shot.desk { object-position: left top; }
+.hand .card .yr { position: absolute; inset: 0 0 30% 0; display: grid; place-items: center; font-size: calc(var(--cw) * .27); color: var(--ink-paper); background: var(--empty-a); }
+.hand .card .empty .mono { font-size: 11px; }
+.ctrl { display: flex; align-items: center; gap: 10px; width: max-content; margin-top: 18px; padding: 6px; border-radius: 999px; transition: opacity .3s; }
+.ctrl .count { min-width: 64px; font-size: 12px; font-weight: 600; text-align: center; }
+
+/* ultra rare cards feel 3D (D048): they lean, the art sits deeper than the name, the card shows an edge, a glare follows the light */
+.hand .card.ultra { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .25s ease-out;
+  box-shadow: 1px 1px 0 color-mix(in srgb, var(--c) 70%, var(--edge)), 2px 2px 0 color-mix(in srgb, var(--c) 62%, var(--edge)), 3px 3px 0 color-mix(in srgb, var(--c) 55%, var(--edge)),
+    4px 4px 0 color-mix(in srgb, var(--c) 48%, var(--edge)), 5px 5px 0 color-mix(in srgb, var(--c) 40%, var(--edge)), 0 30px 46px rgb(0 0 0 / .4); }
+.hand .card.ultra .shot, .hand .card.ultra .empty { transform: translate(var(--px, 0px), var(--py, 0px)) scale(1.1); transition: transform .25s ease-out; }
+.hand .card.ultra .name { transform: translate(calc(var(--px, 0px) * -.35), calc(var(--py, 0px) * -.35)); transition: transform .25s ease-out; }
+.hand .card.ultra .no, .hand .card.ultra .type { transform: translate(calc(var(--px, 0px) * -.6), calc(var(--py, 0px) * -.6)); }
+.hand .card.ultra .card-in::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; mix-blend-mode: soft-light;
+  background: radial-gradient(circle at var(--sx, 70%) var(--sy, 30%), rgb(255 255 255 / .35), transparent 45%); }
+.hand > [data-d="0"] .card.ultra:not(.hov) { animation: ultra-lean 7s ease-in-out infinite; }
+@keyframes ultra-lean {
+  0%, 100% { --rx: 4deg; --ry: -9deg; --px: 6px; --py: 3px; --sx: 85%; --sy: 20%; }
+  50% { --rx: -3deg; --ry: 9deg; --px: -6px; --py: -2px; --sx: 15%; --sy: 70%; }
+}
+@property --rx { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
+@property --ry { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
+@property --px { syntax: "<length>"; inherits: true; initial-value: 0px; }
+@property --py { syntax: "<length>"; inherits: true; initial-value: 0px; }
+
+.scrub { position: fixed; z-index: 6; left: 50%; bottom: 20px; translate: -50% 0; display: flex; align-items: flex-end; gap: 2px; max-width: calc(100% - 24px); padding: 6px 12px 4px; border-radius: 14px; transition: opacity .3s; }
+.scrub button { position: relative; display: grid; justify-items: center; gap: 4px; min-width: 30px; min-height: 44px; padding: 6px 0 0; border: 0; background: none; color: var(--sub); font: 600 10px "Martian Mono", ui-monospace, monospace; cursor: pointer; }
+.scrub button i { width: 3px; height: 14px; border-radius: 2px; background: currentColor; transition: height .3s, background-color .3s; }
+.scrub button[aria-current] { color: var(--ink); }
+.scrub button[aria-current] i { height: 24px; background: var(--c); }
+.scrub button span { min-height: 12px; }
+.back[hidden] { display: none; }
+.back { position: fixed; z-index: 7; left: 50%; top: 84px; translate: -50% 0; box-shadow: 0 10px 24px rgb(0 0 0 / .3); }
+.memo { position: fixed; z-index: 5; right: 24px; bottom: 96px; width: 230px; padding: 10px 12px 12px; border-radius: 14px; transition: opacity .3s; }
+.memo h2 { margin: 0; font-size: 10px; color: var(--sub); text-transform: uppercase; letter-spacing: .06em; }
+.memo ul { display: flex; gap: 8px; margin-top: 8px; list-style: none; overflow-x: auto; }
+.memo li { flex: none; width: 96px; font-size: 11px; line-height: 1.3; }
+.memo .empty, .chapter .margin .empty { display: grid; place-items: center; border-radius: 8px; color: var(--empty-ink); font-size: 9px; text-transform: uppercase;
+  background: repeating-linear-gradient(135deg, var(--empty-a) 0 9px, var(--empty-b) 9px 18px); }
+.memo .empty { aspect-ratio: 1; margin-bottom: 4px; }
+
+/* opened, like a card on the Work page: it lifts into the corner with a glow in its colour, and the chapter opens beside it */
+body.opened .stage { transform: translate(var(--ox), var(--oy)) scale(.82); }
+body.opened .hand > [data-d="0"] .card { --so: 1; box-shadow: 0 30px 50px rgb(0 0 0 / .35), 0 0 26px 2px color-mix(in srgb, var(--c) 45%, transparent); }
+body.opened :is(.hand > [data-d="1"], .hand > [data-d="2"], .ctrl, .scrub, .where, .memo, .back) { opacity: 0; pointer-events: none; }
+.journey .panel { --panel: var(--surface); --panel-top: 80px; --panel-left: calc(max(28px, (100% - 1180px) / 2 + 32px) + 300px); }
+.chapter { display: grid; grid-template-columns: 1fr 260px; gap: 36px; padding-right: 90px; }
+.chapter .big { display: block; font-size: clamp(90px, 11vw, 160px); line-height: .8; color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
+.chapter .kick { margin-top: 14px; font-size: 11px; color: var(--sub); text-transform: uppercase; }
+.chapter h2 { margin-top: 18px; font-size: clamp(32px, 4vw, 56px); line-height: .95; }
+.chapter .line { max-width: 52ch; }
+.chapter .links { margin-top: 18px; }
+.chapter .rail { display: grid; align-content: start; gap: 14px; padding: 60px 0 0 20px; border-left: 1px solid var(--line); }
+.chapter .nb { display: block; min-height: 44px; padding: 8px 0; border: 0; background: none; color: var(--ink); font: 600 15px "Hanken Grotesk", system-ui, sans-serif; text-align: left; cursor: pointer; }
+.chapter .margin img { display: block; width: 100%; border-radius: 10px; }
+.chapter .margin .empty { aspect-ratio: 3 / 4; font-size: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hand > button, .stage, .journey .pin, .hand .card.ultra, .hand .card.ultra .shot, .hand .card.ultra .empty, .hand .card.ultra .name { transition: none; }
+  .hand > [data-d="0"] .card.ultra:not(.hov) { animation: none; }
+}
+@media (max-width: 760px) {
+  .stage { --cw: 210px; left: 50%; bottom: 112px; margin-left: -118px; }
+  .ctrl { margin: 14px auto 0; }
+  .where { left: 12px; right: auto; top: 64px; max-width: calc(100% - 24px); }
+  .map-credit { left: 6px; right: 6px; bottom: 4px; padding: 2px 6px; font-size: 9px; text-align: center; }
+  .scrub { bottom: 46px; padding: 4px 6px; }
+  .scrub button { min-width: 18px; }
+  .scrub button span { display: none; }
+  .scrub button[aria-current] span { display: block; position: absolute; top: -14px; }
+  .memo { display: none; }
+  .back { top: auto; bottom: 410px; }
+  .journey .panel { --panel-top: 52vh; --panel-left: 0; }
+  .chapter { grid-template-columns: 1fr; padding-right: 0; }
+  .chapter .rail { padding: 0; border: 0; }
+}
+
+/* small phones: the name and four links share one line */
+@media (max-width: 420px) {
+  .top { padding: 0 10px 0 14px; }
+  .top .site-name { font-size: 15px; white-space: nowrap; }
+  .top nav, .page .top nav { gap: 0; }
+  .top nav a { padding: 0 5px; font-size: 11px; }
+}
+
+/* About's "So far": five Journey cards fanned out, each opening Journey at its milestone (D048) */
+.beyond a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 4px; font: 600 11px "Martian Mono", ui-monospace, monospace; text-transform: uppercase; color: var(--ink-paper); }
+.fan { display: flex; justify-content: center; padding: 28px 0 8px; list-style: none; }
+.fan li { margin: 0 -14px; transform: rotate(var(--r)) translateY(var(--y)); transition: transform .25s cubic-bezier(.3, 1.4, .5, 1); }
+.fan li:hover, .fan li:focus-within { z-index: 2; transform: rotate(0) translateY(-18px); }
+.fan .card { --cw: 186px; text-decoration: none; }
+.fan .card .name { height: 36%; padding: 0 9px; font-size: 12px; line-height: 1.05; }
+.fan .card:not(.ultra) .shot, .fan .card .empty { bottom: 36%; height: 64%; }
+.fan .card .set { font-size: 9px; opacity: 1; }
+.fan .card .empty .mono { font-size: 9px; }
+.fan-foot { display: flex; justify-content: center; margin-top: 26px; }
+@media (prefers-reduced-motion: reduce) { .fan li { transition: none; } }
+@media (max-width: 960px) {
+  .fan { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -16px; padding: 24px 16px 16px; }
+  .fan li { flex: none; margin: 0 6px; transform: none; scroll-snap-align: center; }
+  .fan li:hover, .fan li:focus-within { transform: none; }
+}

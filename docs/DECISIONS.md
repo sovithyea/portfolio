@@ -544,7 +544,7 @@ Karina's notes prompt names HungryRaccoon, so the demo notes said the meeting "w
 
 *28 Oct 2026 · Vith, from three mocks (cards, scenes, editorial)*
 
-**Status:** amends D040's look ("Calm, like project pages") and D033's backdrop for Phase 2's pages.
+**Status:** amends D040's look ("Calm, like project pages") and D033's backdrop for Phase 2's pages. Journey's deck is replaced by D048's map.
 
 Vith rejected the first About/Journey design on four counts: it didn't feel like the site, it was too much text and too flat, the hierarchy didn't hold together, and the timeline was dull. Three mocks were made outside the repo (A cards, B scenes, C editorial), each About and Journey, in light and dark at 1440 and 390 px. Vith chose **"A · Cards"**.
 
@@ -589,3 +589,31 @@ Told that the skills were only in the docs and the mocks, and that the GitHub sk
 - **About is built ahead of the Journey interview.** It carries only approved words: the intro, the fact strip and the skills (V040), Beyond code (D043), the contact links, and the new skills (V042). The "So far" strip waits for Journey's approved milestones, and Beyond code doesn't link to Journey until that page exists (no placeholder links).
 - **Six skills join from GitHub:** XGBoost, scikit-learn, pandas, TensorFlow, Kotlin and Go (V041). With no card behind them, tapping one shows its public repos by their GitHub names, linking to GitHub. The spec's rule that a skill needs a card on the site no longer holds for these.
 - **Top bar:** `WORK · ABOUT · CV` for now; `JOURNEY` joins when that page exists (D040, no placeholder links).
+
+## D048 — Journey is a map: the cards travel over it
+
+*28 Oct 2026 · Vith, from rounds of mocks (map above the deck; map is the page, scroll story or map on the card; then v2 to v5)*
+
+**Status:** replaces D044's Journey deck. Amends DESIGN-SYSTEM rule 6 (see below).
+
+Vith: "for each milestone can we have a map of where these things happened, and as we move it changes from phnom penh to melbourne". Chosen, step by step:
+- **Layout: "Map is the page".** A full-screen map; the milestone cards sit in a hand over it (the next two peek behind, played cards slide off). Arrows, swipe, the keyboard and a year scrubber step through them; the camera flies to each place.
+- **Map:** MapTiler satellite imagery ("maptiller"), with OpenFreeMap's country and city names and 3D building heights on top. The visitor can drag, zoom and turn it; a "Back to the story" button returns to the current card.
+- **Route:** a path for every move, along the roads in town (routed once from OpenStreetMap, stored in `assets/journey/route.json`) and as arcs for flights, drawn as the visitor steps forward in each card's colour ("card colour"). Big moves pull out over both places first, then drop in with a tilt. A second memory at the same place circles it, and the label counts them ("Memory 2 of 5 here").
+- **Cards:** each has a type and a finish chosen by Vith on a page of all 22 (V044). Colours "by type"; project milestones keep their Work card colour. **Ultra rare cards feel 3D** (Vith: "ultra ones should have a 3d feel to them"): they lean toward the pointer, the front one leans gently on its own, the art sits deeper than the name, and the card shows an edge.
+- **Opening a card** works like the Work page: it lifts into the corner and the **Chapter** layout opens beside it (huge outlined year, title, line, the cards before and after, the picture in the margin). Vith: "the info shouldnt look like the ones in the front, i like the size and font and color not layout". The arrow keys move between cards while one is open.
+- **Memorabilia:** a shelf of keepsakes, each tied to a place; photos come from Vith (the football tournament first).
+- **About's "So far"** is five Journey cards fanned out, each opening Journey at its milestone.
+
+**DESIGN-SYSTEM rule 6:** Journey's camera moves answer the visitor; the one ambient motion is the front ultra-rare card's gentle lean (as an open ultra card does on Work, D030). Under reduced motion the camera jumps, stays flat, and nothing leans.
+
+## D049 — Journey's map pieces: MapLibre in the repo, MapTiler's key, OpenFreeMap tiles
+
+*28 Oct 2026 · Vith*
+
+**Status:** amends D006 ("no dependencies").
+
+- **MapLibre GL JS 4.7.1** is copied into `js/vendor/maplibre/` with its BSD-3-Clause licence ("Copy into the repo"). No build step; a CDN outage can't break the page.
+- **MapTiler** serves the satellite imagery on its free tier ($0; it stops serving rather than charging if the quota runs out). Vith made the account and gave the key, which sits in `js/journey.js` because browser keys are public by nature. **Vith locks it to the site's addresses** in MapTiler's dashboard (Allowed HTTP origins: localhost now, the domain at Phase 4).
+- **OpenFreeMap** (free, no key) serves the names and building heights. Both services see a visitor's IP address when the map loads, like any map on the web.
+- Routes are computed once with the public OSRM demo server and stored; visitors never call it.
