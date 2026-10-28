@@ -10,8 +10,8 @@ Tick a box only against evidence.
 - Commit: `docs: approved copy for About` (`Refs: D040`)
 
 ## Step 2: Journey interview
-- [ ] Interview Vith one period at a time, oldest first. For each place and date, ask whether it's fine to publish (R6). Draft the milestones, and mark the 4–5 for About.
-- [ ] **Stop: Vith approves every line.** Record the approvals in VERIFIED.
+- [x] Interview Vith one period at a time, oldest first. For each place and date, ask whether it's fine to publish (R6). Draft the milestones, and mark the 4–5 for About.
+- [x] **Stop: Vith approves every line.** Record the approvals in VERIFIED (V043).
 - Commit: `docs: approved copy for Journey` (`Refs: D040, R6`)
 
 ## Step 3: The reading shell and the top bar
