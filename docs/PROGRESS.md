@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 28 Oct 2026, end of session (Phase 3: Journey built as a map, D048–D049; About's "So far" and the full top bar)
+**Last updated:** 30 Oct 2026, end of session (pushed `main` to GitHub to continue on another device)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -12,7 +12,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **Sound:** off by default, using Vith's nine picks.
 - **The prototype:** saved at `~/Desktop/projects/portfolio-prototype/` (D022). Serve it with `python3 -m http.server 8765` there and open `/visual/cards.html`.
 
-**Phase 1 (`specs/1-work-table/`) is built, verified and passed by Vith (27 Oct 2026).** Run `python3 -m http.server 8000` and open `http://localhost:8000`. Nothing is pushed. `src/` still holds the old brief's code; plan Step 1 clears it.
+**Phase 1 (`specs/1-work-table/`) is built, verified and passed by Vith (27 Oct 2026).** Run `python3 -m http.server 8000` and open `http://localhost:8000`. `main` is on GitHub (item 4 below). `src/` still holds the old brief's code; plan Step 1 clears it.
 
 ### Phases
 
@@ -28,7 +28,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 1. **SongRaccoon:** the live site loads (V032). Say whether to go further: a playlist needs your Spotify login and one paid call.
 2. **An Athena demo account.** Athena's screens and recording wait for it (D033, R5).
 3. **Real-device checks of Phase 1:** sound, iPhone shake, reduced motion, the phone feel.
-4. **Pushed:** `main` went to GitHub (public, `sovithyea/portfolio`) on 28 Oct 2026, with Vith's OK, to continue on another device. Before the first push the full history was scanned for private details, and V039's search terms (phone prefix, suburb, postcode) were rewritten out of the three commits that held them. Later pushes still need Vith's say-so (hard rule 8).
+4. **Pushed:** `main` went to GitHub (public, `sovithyea/portfolio`) on 28 Oct 2026, with Vith's OK, to continue on another device, and again on 30 Oct 2026 (About, Journey; up to `890aafa`). Before the first push the full history was scanned for private details, and V039's search terms (phone prefix, suburb, postcode) were rewritten out of the three commits that held them. Later pushes still need Vith's say-so (hard rule 8).
 5. **For Phase 3:** photos, into `~/Desktop/portfolio-photos/` (empty). LinkedIn photos can't be fetched (V038, below). The player card's colour (graphite mocked). Which projects become cards for TensorFlow, Kotlin and Go (D046). The Journey interview (plan Step 2).
 
 ### For the next session
@@ -42,6 +42,12 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **Tests:** `node --test tests/*.test.mjs` runs the physics tests.
 - **Browser checks:** the CDP harness is saved in `~/Desktop/projects/portfolio-prototype/harness/`. `cdp.mjs` is the driver; `check-*.mjs` are the Phase 1 checks (open, tidy, sound, scenes, waves, final), and they expect the site on :8000.
 - **Today's mocks** (finishes, game cards, ultra rare, page styles) are in `~/Desktop/projects/portfolio-prototype/mocks/`. They load assets from a server rooted at the old scratchpad, so they need the repo's `css/` and `assets/` beside them to render.
+
+## 2026-10-30 (Windows machine) — push for another device
+
+- **Pushed** `main` to GitHub with Vith's OK ("check progress then push"), to continue on another device. Four commits, `0b34c9d`..`890aafa`, plus this entry.
+- **Checked before pushing:** the unpushed diff (vendor MapLibre and `route.json` left out) has no phone number, no address and no new images. The only email is Vith's own `mailto:`, which was already public. The MapTiler key in `js/journey.js` is now on GitHub too. Until it is locked to the site's addresses (R7), anyone can use up its free quota.
+- **Not in git, stays on this machine:** the mocks and CDP scripts in `../portfolio-mocks/` (Journey tools `pick.html`, `add.html`, `rarity.html`; `site-check.mjs`) and Claude's local memory.
 
 ## 2026-10-28 (night, Windows machine) — Journey: the interview, a map, the build
 
