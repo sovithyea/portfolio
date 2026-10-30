@@ -302,7 +302,7 @@ body.page {
   --t-school: #1f4e8c; --t-event: #b23a48; --t-competition: #6a3f94; --t-champion: #8a5a00; --t-study: #2f6b4f;
   --t-move: #0f6672; --t-leader: #9c3d10; --t-teach: #566419; --t-next: #3b3f47;
   --glass: rgb(244 242 238 / .86); --ink-paper: #141414; --edge: #000000;
-  --map-label: #ffffff; --map-halo: rgb(0 0 0 / .7); --map-building: #e9e4d8;
+  --map-label: #ffffff; --map-halo: rgb(0 0 0 / .7); --map-building: #e9e4d8; --map-route-edge: #ffffff;
 }
 @media (prefers-color-scheme: dark) { body.page { --glass: rgb(17 19 24 / .82); } }
 body.journey { overflow: hidden; }

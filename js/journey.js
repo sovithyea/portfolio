@@ -32,11 +32,16 @@ const feat = (coords, c) => ({ type: 'Feature', properties: { c }, geometry: { t
 const legColour = l => colourOf(journey[l.i]);
 const legsBy = i => journey[i].at === 'world' ? legs.length : legs.filter(l => l.i <= i).length;
 const pad = wide ? { left: 460, bottom: 60 } : { bottom: 420 };
+// the whole-trip view keeps Melbourne clear of the keepsake shelf on wide screens, and goes nearly edge to edge on phones
+const worldPad = wide ? { top: 60, bottom: 240, left: 60, right: 60 } : { top: 90, bottom: 0, left: 16, right: 16 };
 const start = PLACES[journey[0].at];
 
 const map = new maplibregl.Map({ container: 'map', style: 'https://tiles.openfreemap.org/styles/positron', center: [start.lng, start.lat], zoom: start.zoom,
   pitch: reduce ? 0 : 50, attributionControl: false, fadeDuration: 400, maxPitch: 70 });
 const pinEl = Object.assign(document.createElement('span'), { className: 'pin' });
+// the card's room is the map's own padding, set once: fitBounds adds its padding on top of it, so passing it there too
+// counted it twice (a phone's final view couldn't fit at all)
+map.setPadding(pad);
 const marker = new maplibregl.Marker({ element: pinEl, pitchAlignment: 'viewport' }).setLngLat([start.lng, start.lat]).addTo(map);
 let ready = false, pending = null, drawn = 0, raf, ticket = 0, bearing = -20, prevAt = null;
 
@@ -58,8 +63,10 @@ map.on('load', () => {
   map.addSource('future', { type: 'geojson', data: fc(legs.map(l => feat(l.coords, legColour(l)))) });
   map.addSource('past', { type: 'geojson', data: fc([]) });
   const round = { 'line-cap': 'round', 'line-join': 'round' };
-  map.addLayer({ id: 'future', type: 'line', source: 'future', layout: round, paint: { 'line-color': ['get', 'c'], 'line-width': 2.5, 'line-opacity': .45, 'line-dasharray': [1.5, 2] } });
+  map.addLayer({ id: 'future', type: 'line', source: 'future', layout: round, paint: { 'line-color': ['get', 'c'], 'line-width': 3, 'line-opacity': .75, 'line-dasharray': [1.5, 2] } });
   map.addLayer({ id: 'past-glow', type: 'line', source: 'past', layout: round, paint: { 'line-color': ['get', 'c'], 'line-width': 12, 'line-opacity': .22, 'line-blur': 5 } });
+  // a light edge keeps the darker card colours readable over dark satellite ground
+  map.addLayer({ id: 'past-edge', type: 'line', source: 'past', layout: round, paint: { 'line-color': token('--map-route-edge'), 'line-width': 8 } });
   map.addLayer({ id: 'past', type: 'line', source: 'past', layout: round, paint: { 'line-color': ['get', 'c'], 'line-width': 4.5 } });
   ready = true;
   if (pending != null) show(pending, true);
@@ -99,13 +106,13 @@ function show(i, now) {
   if (!p.bounds) marker.setLngLat([p.lng, p.lat]);
   if (now || reduce) {
     grow(legsBy(i), 0);
-    if (p.bounds) map.fitBounds(p.bounds, { padding: 60, pitch: 0, bearing: 0, duration: 0 });
+    if (p.bounds) map.fitBounds(p.bounds, { padding: worldPad, pitch: 0, bearing: 0, duration: 0 });
     else map.jumpTo({ center: [p.lng, p.lat], zoom: p.zoom, pitch: reduce ? 0 : 55, bearing: 0, padding: pad });
     return;
   }
   if (p.bounds) {
-    grow(legsBy(i), 2400);
-    map.fitBounds(p.bounds, { padding: { top: 60, bottom: 60, left: 60, right: 60, ...pad }, pitch: 0, bearing: 0, duration: 3000, easing: ease });
+    grow(legsBy(i), 1600);
+    map.fitBounds(p.bounds, { padding: worldPad, pitch: 0, bearing: 0, duration: 2000, easing: ease });
     return;
   }
   if (same) { // another memory in the same place: circle it, a little closer
@@ -120,9 +127,9 @@ function show(i, now) {
     // a big move: pull out over both places, draw the flight, then drop in. Timed, because 'moveend' doesn't come
     // when the camera is already framed, which left it stranded.
     map.fitBounds(new maplibregl.LngLatBounds([c.lng, c.lat], [c.lng, c.lat]).extend([p.lng, p.lat]),
-      { padding: { top: 90, bottom: 90, left: 90, right: 90, ...pad }, pitch: 0, bearing: 0, duration: 1800, easing: ease });
-    setTimeout(() => { if (mine === ticket) grow(legsBy(i), 1600); }, 1800);
-    setTimeout(() => { if (mine === ticket) map.flyTo({ ...land, duration: 2600, curve: 1.5, easing: ease }); }, 3300);
+      { padding: 90, pitch: 0, bearing: 0, duration: 1100, easing: ease });
+    setTimeout(() => { if (mine === ticket) grow(legsBy(i), 1100); }, 800);
+    setTimeout(() => { if (mine === ticket) map.flyTo({ ...land, duration: 1800, curve: 1.5, easing: ease }); }, 1900);
     return;
   }
   grow(legsBy(i), 1800);

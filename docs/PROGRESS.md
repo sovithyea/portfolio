@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 30 Oct 2026, end of session (Mac: Journey's four venues named, V046)
+**Last updated:** 30 Oct 2026, end of session (Mac: Journey's venues named, quicker two-way flights; V046, V047, D050)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -47,6 +47,8 @@ Running ledger. Updated at the end of every working session so state survives ac
 
 - **Mocks moved over:** `portfolio-mocks/` came from the Windows machine via Telegram and now sits at `~/Desktop/projects/portfolio-mocks/`, with its `css` and `assets` links remade. `pick.html` now lists the four unnamed venues. Its `cdp.mjs` still has the Windows Chrome path; `portfolio-prototype/harness/cdp.mjs` works on this Mac.
 - **Venues (V046):** the graduation, Games Night and both Bon Phum events now show their venue names, from Vith. Their pins moved onto the venues themselves; the Bon Phum Ch'nam Ng pin had landed on a private house next to the park. The road legs that touch them were re-fetched.
+- **Flights (D050, V047):** quicker (about 3.7 s instead of 5.9 s), bowed so out and back are separate curves, a white edge on the drawn route, and the last card shows the whole trip with London. Fixed on the way: the card's padding was counted twice, so a phone's last card never moved.
+- **Open:** on a phone, the whole-trip view puts London near the top, partly under the place label (MapLibre centres a world shorter than the screen).
 - **Still waiting on Vith:** the MapTiler key lock (R7), the stories, photos and keepsakes, and a real-browser and phone look. Phase 1's regression scripts are still not rerun. **Unpushed.**
 
 ## 2026-10-30 (Windows machine) — push for another device

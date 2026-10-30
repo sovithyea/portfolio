@@ -617,3 +617,15 @@ Vith: "for each milestone can we have a map of where these things happened, and 
 - **MapTiler** serves the satellite imagery on its free tier ($0; it stops serving rather than charging if the quota runs out). Vith made the account and gave the key, which sits in `js/journey.js` because browser keys are public by nature. **Vith locks it to the site's addresses** in MapTiler's dashboard (Allowed HTTP origins: localhost now, the domain at Phase 4).
 - **OpenFreeMap** (free, no key) serves the names and building heights. Both services see a visitor's IP address when the map loads, like any map on the web.
 - Routes are computed once with the public OSRM demo server and stored; visitors never call it.
+
+## D050 — Journey's flights: quicker, two-way, and the whole trip at the end
+
+*30 Oct 2026 · Vith*
+
+**Status:** amends D048 (route and big moves) and adds a map token to DESIGN-SYSTEM.
+
+Vith: "the transition from country to country is a bit slow", "the paths are kind of hard to see at some points", "at the end it should show London as well", and the line back from London "looks exactly the same, so maybe people won't even know".
+- **Quicker flights.** A move between countries takes about 3.7 s, down from about 5.9 s. The camera pulls out in 1.1 s, the flight starts drawing before the pull-out ends, and the drop-in takes 1.8 s.
+- **Flights bow to the right of travel**, so out and back are two curves: Phnom Penh to London crosses Russia, and London back to Phnom Penh crosses the Middle East.
+- **The drawn route has a white edge** (`--map-route-edge`), so the darker card colours read over dark satellite ground. The dashed route still to come is stronger (75% instead of 45%).
+- **The last card shows the whole trip**: Phnom Penh, London and Melbourne, with both flights.
