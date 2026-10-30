@@ -2,7 +2,7 @@
 
 Running ledger. Updated at the end of every working session so state survives across sessions.
 
-**Last updated:** 30 Oct 2026, end of session (pushed `main` to GitHub to continue on another device)
+**Last updated:** 30 Oct 2026, end of session (Mac: Journey's four venues named, V046)
 
 ## Front page — 27 Oct 2026 (evening)
 
@@ -20,7 +20,7 @@ Running ledger. Updated at the end of every working session so state survives ac
 |---|---|---|
 | 1 | Work page (`specs/1-work-table/`) | Done: passed by Vith 27 Oct |
 | 2 | Pages for the big four, plus screens for every card (`specs/2-project-pages/`) | Approved (D034). Step 1: Lavender, Small tools, Hermes, Karina done; SongRaccoon and Athena waiting |
-| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1 (About copy) done, V040. CV live in the top bar (D042). Look chosen: cards (D044), skills as drifting app icons (D045). **About and Journey are up** (`/about/`, `/journey/`; D047–D049). Journey's stories and venue names, and photos, still to come |
+| 3 | About, Journey, the CV and contact (`specs/3-about-journey/`) | Approved (D041). Step 1 (About copy) done, V040. CV live in the top bar (D042). Look chosen: cards (D044), skills as drifting app icons (D045). **About and Journey are up** (`/about/`, `/journey/`; D047–D049). Venues named (V046). Journey's stories and photos still to come |
 | 4 | Hosting and domain | Not specced ("Decide later", D006) |
 
 ### Waiting on Vith
@@ -42,6 +42,12 @@ Running ledger. Updated at the end of every working session so state survives ac
 - **Tests:** `node --test tests/*.test.mjs` runs the physics tests.
 - **Browser checks:** the CDP harness is saved in `~/Desktop/projects/portfolio-prototype/harness/`. `cdp.mjs` is the driver; `check-*.mjs` are the Phase 1 checks (open, tidy, sound, scenes, waves, final), and they expect the site on :8000.
 - **Today's mocks** (finishes, game cards, ultra rare, page styles) are in `~/Desktop/projects/portfolio-prototype/mocks/`. They load assets from a server rooted at the old scratchpad, so they need the repo's `css/` and `assets/` beside them to render.
+
+## 2026-10-30 (Mac) — Journey's venues named
+
+- **Mocks moved over:** `portfolio-mocks/` came from the Windows machine via Telegram and now sits at `~/Desktop/projects/portfolio-mocks/`, with its `css` and `assets` links remade. `pick.html` now lists the four unnamed venues. Its `cdp.mjs` still has the Windows Chrome path; `portfolio-prototype/harness/cdp.mjs` works on this Mac.
+- **Venues (V046):** the graduation, Games Night and both Bon Phum events now show their venue names, from Vith. Their pins moved onto the venues themselves; the Bon Phum Ch'nam Ng pin had landed on a private house next to the park. The road legs that touch them were re-fetched.
+- **Still waiting on Vith:** the MapTiler key lock (R7), the stories, photos and keepsakes, and a real-browser and phone look. Phase 1's regression scripts are still not rerun. **Unpushed.**
 
 ## 2026-10-30 (Windows machine) — push for another device
 
