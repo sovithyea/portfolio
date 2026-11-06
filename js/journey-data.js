@@ -17,7 +17,7 @@ export const PLACES = {
   bpct: { name: 'Lemon Scented Lawn, Monash Clayton', lng: 145.13309, lat: -37.91088, zoom: 14.5 },
   rocket: { name: 'Rocket Academy, Hawthorn', lng: 145.02558, lat: -37.82174, zoom: 14.5 },
   mcec: { name: 'Melbourne Exhibition Centre', lng: 144.95393, lat: -37.82577, zoom: 15 },
-  world: { name: 'Phnom Penh, London and Melbourne', bounds: [[-6, -42], [150, 64]] },
+  world: { name: 'Phnom Penh, London and Melbourne', bounds: [[-1, -38.5], [145.5, 62.5]] },
 };
 
 const shot = (dir, file, alt, kind = 'phone') => ({ src: `shots/${dir}/${file}.webp`, alt, kind });

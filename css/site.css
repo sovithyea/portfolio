@@ -312,7 +312,7 @@ body.journey { overflow: hidden; }
 .glass { background: var(--glass); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .journey .pin { width: 24px; height: 24px; border-radius: 50%; background: var(--c); border: 3px solid var(--paper);
   box-shadow: 0 0 0 7px color-mix(in srgb, var(--c) 35%, transparent), 0 6px 14px rgb(0 0 0 / .35); transition: opacity .4s, background-color .4s; }
-.journey .pin.off { opacity: 0; }
+.journey .pin.off { visibility: hidden; } /* MapLibre sets the marker's opacity inline, so opacity can't hide it */
 .where { position: fixed; z-index: 5; right: 24px; top: 84px; max-width: 320px; padding: 10px 14px; border-radius: 12px; font-weight: 600; transition: opacity .3s; }
 .where small, .journey .panel small { display: block; font: 600 10px "Martian Mono", ui-monospace, monospace; color: var(--sub); text-transform: uppercase; letter-spacing: .06em; }
 .where .mem { display: flex; align-items: center; gap: 5px; margin-top: 6px; font: 500 10px "Martian Mono", ui-monospace, monospace; color: var(--sub); text-transform: uppercase; }
@@ -398,11 +398,14 @@ body.opened :is(.hand > [data-d="1"], .hand > [data-d="2"], .ctrl, .scrub, .wher
 .chapter .margin .empty { aspect-ratio: 3 / 4; font-size: 10px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hand > button, .stage, .journey .pin, .hand .card.ultra, .hand .card.ultra .shot, .hand .card.ultra .empty, .hand .card.ultra .name { transition: none; }
+  .hand > button, .stage, .hand, .journey .pin, .hand .card.ultra, .hand .card.ultra .shot, .hand .card.ultra .empty, .hand .card.ultra .name { transition: none; }
   .hand > [data-d="0"] .card.ultra:not(.hov) { animation: none; }
 }
 @media (max-width: 760px) {
   .stage { --cw: 210px; left: 50%; bottom: 112px; margin-left: -118px; }
+  /* the whole trip fills a phone's screen, so the hand shrinks down onto its controls (D051) */
+  .hand { transform-origin: 50% 100%; transition: transform .6s cubic-bezier(.2, .85, .25, 1); }
+  body.whole:not(.opened) .hand { transform: scale(.5); }
   .ctrl { margin: 14px auto 0; }
   .where { left: 12px; right: auto; top: 64px; max-width: calc(100% - 24px); }
   .map-credit { left: 6px; right: 6px; bottom: 4px; padding: 2px 6px; font-size: 9px; text-align: center; }

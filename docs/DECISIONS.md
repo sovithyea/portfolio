@@ -629,3 +629,14 @@ Vith: "the transition from country to country is a bit slow", "the paths are kin
 - **Flights bow to the right of travel**, so out and back are two curves: Phnom Penh to London crosses Russia, and London back to Phnom Penh crosses the Middle East.
 - **The drawn route has a white edge** (`--map-route-edge`), so the darker card colours read over dark satellite ground. The dashed route still to come is stronger (75% instead of 45%).
 - **The last card shows the whole trip**: Phnom Penh, London and Melbourne, with both flights.
+
+## D051 — On phones, the zoomed-out views take the screen
+
+*30 Oct 2026 · Vith ("do 1": shrink the hand while zoomed out)*
+
+**Status:** amends D048's hand of cards and D050's whole-trip view, on phones only (760 px wide and under).
+
+On a phone, London was cut off in every zoomed-out view, and Antarctica showed as a white band behind the cards. The screen is too narrow for London to Melbourne with the full hand below it.
+- **Flights** pull out nearly edge to edge (16 px at the sides). Both places stay on screen and the hand keeps its size.
+- **The last card, the whole trip:** the hand shrinks to half size onto its controls while the map frames Phnom Penh, London and Melbourne above it. Tapping the small card opens it as usual. Going back to an earlier card restores the hand.
+- Wide screens are unchanged.

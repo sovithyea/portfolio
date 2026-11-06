@@ -32,8 +32,12 @@ const feat = (coords, c) => ({ type: 'Feature', properties: { c }, geometry: { t
 const legColour = l => colourOf(journey[l.i]);
 const legsBy = i => journey[i].at === 'world' ? legs.length : legs.filter(l => l.i <= i).length;
 const pad = wide ? { left: 460, bottom: 60 } : { bottom: 420 };
-// the whole-trip view keeps Melbourne clear of the keepsake shelf on wide screens, and goes nearly edge to edge on phones
-const worldPad = wide ? { top: 60, bottom: 240, left: 60, right: 60 } : { top: 90, bottom: 0, left: 16, right: 16 };
+// zoomed-out views go nearly edge to edge on phones: narrower, the world drops below the screen's height and MapLibre
+// centres it, pushing London up under the place label. On wide screens the whole trip keeps clear of the keepsake shelf.
+const phoneFar = { top: 90, bottom: 0, left: 16, right: 16 };
+const worldPad = wide ? { top: 60, bottom: 240, left: 60, right: 60 } : phoneFar, flightPad = wide ? 90 : phoneFar;
+// on phones the hand shrinks for the whole trip (D051), so the map keeps less room for it
+const wholeRoom = wide ? pad : { bottom: 200 };
 const start = PLACES[journey[0].at];
 
 const map = new maplibregl.Map({ container: 'map', style: 'https://tiles.openfreemap.org/styles/positron', center: [start.lng, start.lat], zoom: start.zoom,
@@ -97,22 +101,32 @@ function grow(to, dur) {
   raf = requestAnimationFrame(frame);
 }
 
+// fitBounds keeps the map's padding, so the whole trip is framed under its own room, then eased there with it
+function wholeTrip(p, duration) {
+  const was = map.getPadding();
+  map.setPadding(wholeRoom);
+  const cam = map.cameraForBounds(p.bounds, { padding: worldPad });
+  map.setPadding(was);
+  map.easeTo({ ...cam, padding: wholeRoom, pitch: 0, duration, easing: ease });
+}
+
 function show(i, now) {
   if (!ready) { pending = i; return; }
   const m = journey[i], p = PLACES[m.at], mine = ++ticket, same = prevAt === m.at;
   prevAt = m.at;
   pinEl.style.setProperty('--c', colourVar(m));
   pinEl.classList.toggle('off', !!p.bounds);
+  document.body.classList.toggle('whole', !!p.bounds);
   if (!p.bounds) marker.setLngLat([p.lng, p.lat]);
   if (now || reduce) {
     grow(legsBy(i), 0);
-    if (p.bounds) map.fitBounds(p.bounds, { padding: worldPad, pitch: 0, bearing: 0, duration: 0 });
+    if (p.bounds) wholeTrip(p, 0);
     else map.jumpTo({ center: [p.lng, p.lat], zoom: p.zoom, pitch: reduce ? 0 : 55, bearing: 0, padding: pad });
     return;
   }
   if (p.bounds) {
     grow(legsBy(i), 1600);
-    map.fitBounds(p.bounds, { padding: worldPad, pitch: 0, bearing: 0, duration: 2000, easing: ease });
+    wholeTrip(p, 2000);
     return;
   }
   if (same) { // another memory in the same place: circle it, a little closer
@@ -127,7 +141,7 @@ function show(i, now) {
     // a big move: pull out over both places, draw the flight, then drop in. Timed, because 'moveend' doesn't come
     // when the camera is already framed, which left it stranded.
     map.fitBounds(new maplibregl.LngLatBounds([c.lng, c.lat], [c.lng, c.lat]).extend([p.lng, p.lat]),
-      { padding: 90, pitch: 0, bearing: 0, duration: 1100, easing: ease });
+      { padding: flightPad, pitch: 0, bearing: 0, duration: 1100, easing: ease });
     setTimeout(() => { if (mine === ticket) grow(legsBy(i), 1100); }, 800);
     setTimeout(() => { if (mine === ticket) map.flyTo({ ...land, duration: 1800, curve: 1.5, easing: ease }); }, 1900);
     return;
